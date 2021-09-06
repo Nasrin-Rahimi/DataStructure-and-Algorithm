@@ -17,7 +17,7 @@ function balancedParentheses(str) {
             stack.push(str[i]);
         }
         //if closing brace, pop from stack
-        else {
+        else if(str[i] === ')' || str[i] === ']' || str[i] === '}'){
             let openBrace = stack.pop();
             if(str[i] !== map[openBrace]) {
                 return false;
