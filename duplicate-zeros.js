@@ -27,6 +27,46 @@ let duplicateZeros = function(arr) {
             i++;
         }
     }
-    
+
     return arr;
+}  // Time complexity = O(N*N)
+
+//Second Approch
+
+let duplicateZeros2 = function(arr) {
+    let len = arr.length;
+    let dupZeros = 0;
+    let lastZIndex = 0;
+
+    for (let i = 0; i < len - 1; i++) {
+        if(arr[i] === 0) {
+            if(i + dupZeros + 1 < len) {
+                dupZeros++;
+                lastZIndex = i;
+            } else {
+                break;
+            }
+        }
+    }
+    
+    let last = len - 1 - dupZeros;
+    let i = last;
+
+    while(i >= 0) {
+        if(i > lastZIndex) {
+            arr[i + dupZeros] = arr[i];
+        }
+        else {
+            if(arr[i] === 0) {
+                 arr[i + dupZeros] = 0;
+                 dupZeros--;
+                 arr[i + dupZeros] = 0;
+            } else {
+                arr[i + dupZeros] = arr[i];
+            }
+        }
+        
+        i--;
+    }
+
 }
