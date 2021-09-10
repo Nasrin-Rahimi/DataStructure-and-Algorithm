@@ -22,7 +22,33 @@ The first m elements of nums1 can be 0 too!
  
 */
 
+/*
+A naive approach would be to simply write the values from nums2 into the end of nums1,
+ and then sort nums1. Remember that we do not need to return a value, as we should
+modify nums1 in-place. While straightforward to code, this approach has a high
+ time complexity as we're not taking advantage of the existing sorting.
+*/
+
 let merge = function(nums1, m, nums2, n) {
+    for(let i = 0; i < n; i++) {
+        nums1[i + m] = nums2[i];
+    }
+    return nums1.sort();
+}
+
+/*
+Time complexity : \mathcal{O}((n + m)\log(n + m))O((n+m)log(n+m)).
+
+The cost of sorting a list of length xx using a built-in sorting algorithm
+ is \mathcal{O}(x \log x)O(xlogx). Because in this case we're sorting a list of length 
+m + nm+n, we get a total time complexity of \mathcal{O}((n + m) \log (n + m))O((n+m)log(n+m)).
+Space complexity : \mathcal{O}(n)O(n), but it can vary.
+
+Most programming languages have a built-in sorting algorithm that uses \mathcal{O}(n)O(n)
+space.
+*/
+
+let merge2 = function(nums1, m, nums2, n) {
     if(n == 0) {
         return nums1;
     }
