@@ -23,7 +23,7 @@ The first m elements of nums1 can be 0 too!
 */
 
 /*
-A naive approach would be to simply write the values from nums2 into the end of nums1,
+approach1 : simply write the values from nums2 into the end of nums1,
  and then sort nums1. Remember that we do not need to return a value, as we should
 modify nums1 in-place. While straightforward to code, this approach has a high
  time complexity as we're not taking advantage of the existing sorting.
@@ -87,7 +87,7 @@ let merge2 = function(nums1, m, nums2, n) {
 //time complexity : O(m + n)(m + n)
 
 /*
-Approach 2 : Three Pointers (Start From the Beginning)
+Approach 3 : Three Pointers (Start From the Beginning)
 Because each array is already sorted, we can achieve an O(n+m)
  time complexity with the help of the two-pointer technique.
 
@@ -130,3 +130,66 @@ let merge3 = function(nums1, m, nums2, n) {
         p++;
     }
 }
+
+/*
+Time complexity : O(n+m).
+
+Space complexity : O(m).
+We are allocating an additional array of length mm.
+
+this approch already demonstrates the best possible time complexity, O(n+m),
+but still uses additional space. This is because the elements of array nums1 have 
+to be stored somwhere so that they aren't overwritten.
+
+*/
+
+/*
+Approch4 : Three Pointers (Start From the End)
+The algorithm is similar to before, except this time we set p1 to point at
+index m - 1 of nums1, p2 to point at index n - 1 of nums2, and p to point at
+index m + n - 1 of nums1. This way, it is guaranteed that once we start overwriting
+the first m values in nums1, we will have already written each into its new position.
+ In this way, we can eliminate the additional space.
+
+Interview Tip: Whenever you're trying to solve an array problem in-place, 
+always consider the possibility of iterating backwards instead of forwards through 
+the array. It can completely change the problem, and make it a lot easier.
+*/
+
+let merge4 = function(nums1, m, nums2, n) {
+    let p1 = m - 1, p2 = n - 1;
+
+    for(let p = n + m - 1; p >= 0; p--){
+        if(p2 < 0){
+            break;
+        }
+        if(p1 >= 0 && nums1[p1] > nums2[p2]){
+            nums1[p] = nums1[p1];
+            p1--;
+        } else {
+            nums1[p] = nums2[p2];
+            p2--;
+        }
+
+    }
+}
+
+/*
+Time complexity : O(n+m).
+Same as Approach 3.
+
+Space complexity : O(1).
+Unlike Approach 3, we're not using an extra array.
+
+Proof (optional)
+You might be a bit sceptical of this claim. Does it really work in every case?
+ Is it safe to be making such a bold claim?
+
+This way, it is guaranteed that once we start overwriting the first m values in 
+nums1, we will have already written each into its new position. In this way, we can
+ eliminate the additional space.
+
+Great question! So, why does this work? To prove it, we need to ensure that p never
+overwrites a value in nums1 that p1 hasn't yet read from nums1.
+
+*/
