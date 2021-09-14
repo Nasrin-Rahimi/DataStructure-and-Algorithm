@@ -70,3 +70,5 @@ let duplicateZeros2 = function(arr) {
     }
 
 }
+
+//time complexity = O(N)
