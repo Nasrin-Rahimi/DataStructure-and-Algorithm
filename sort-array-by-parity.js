@@ -35,3 +35,28 @@ let sortArrayByParity = function(nums) {
    }
     return sortArray;
 };
+
+/*
+Approch 2 : Use 2 pointer
+*/
+
+let sortArrayByParity2 = function(nums) {
+    let len = nums.length;
+    let i = 0, j = len - 1;
+    
+    while(i < j) {
+        if(nums[i] % 2 === 0) {
+            i++;
+        } else {
+            if(nums[j] % 2 === 0) {
+                let tmp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = tmp;
+                i++;
+            }
+            j--;
+        }
+    }
+    
+    return nums;
+}
