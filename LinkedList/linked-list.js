@@ -28,7 +28,7 @@ class MyLinkedList {
 
     addAtHead(val) {
         this.addAtIndex(0, val);
-    }
+    } //time complexity: O(1)
 
     addAtIndex(index, val) {
         if(index < 0 || index > this.size ) {
@@ -56,11 +56,11 @@ class MyLinkedList {
         }
         this.size++;
     
-    }
+    } //time complexity: O(k) where k is an index of the element to get
 
     addAtTail(val) {
         this.addAtIndex(this.size, val);
-    }
+    } //O(N)
 
     deleteAtIndex(index) {
         if(index < 0 || index > this.size ) {
@@ -94,18 +94,8 @@ class MyLinkedList {
     isEmpty() {
         return this.size === 0;
     }
- }
+ } //time complexity: O(k) where k is an index of the element to get
 
-
-
-
-
-
-
-
-//     listSize(){
-//         return this.size;
-//     }
 
 //     printList() {
 //         let current = this.head;
