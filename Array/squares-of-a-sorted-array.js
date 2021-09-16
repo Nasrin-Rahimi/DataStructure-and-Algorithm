@@ -21,7 +21,7 @@ let sortSquares = function(nums) {
 //console.log(sortedSquares([-4,-1,0,3,10]));
 
 //time complexity == O(NlogN)
-//Space Complexity == O(1)
+//Space Complexity == O(n)
 
 /*approch 2
 efficient solution is based on the two-pointer method as the array is already sorted we can

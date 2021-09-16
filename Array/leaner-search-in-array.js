@@ -24,3 +24,6 @@ let leanerSearch = function (array, element) {
 
     return false;
 }
+
+/*
+*/
