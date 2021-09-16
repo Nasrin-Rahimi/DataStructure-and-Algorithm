@@ -26,6 +26,17 @@ class MyLinkedList {
         return cur.val;
     }
 
+    //Helper function to return the last node in the linked list.
+    getTail() {
+        let cur = this.head;
+
+        while(cur !== null && cur.next !== null) {
+            cur = cur.next;
+        }
+
+        return cur.val;
+    }
+
     addAtHead(val) {
         this.addAtIndex(0, val);
     } //time complexity: O(1)
