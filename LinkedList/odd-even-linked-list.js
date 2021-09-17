@@ -50,16 +50,8 @@ let oddEvenList = function(head) {
 }
 
 /*
+Time complexity : O(n). There are total n nodes and we visit each node once.
+
+Space complexity : O(1). All we need is the four pointers.
 */
 
-
-/*
-*/
-
-
-/*
-*/
-
-
-/*
-*/
