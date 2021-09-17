@@ -65,7 +65,7 @@ to break when two different nodes have the same value.
 
 */
 
-let getIntersectionNode = function(headA, headB) {
+let getIntersectionNode2 = function(headA, headB) {
 	let visited = new Set();
 	while(headB !== null) {
 		visited.add(headB);
@@ -105,6 +105,51 @@ require O(M) space. Note that we could have instead stored the nodes of list A i
 the hash table, this would have been a space complexity of O(N). Unless we know which 
 list is longer though, it doesn't make any real difference.
 
+*/
+
+/*
+We know that we've now fully optimized the time complexity: it's impossible to do better 
+than O(N + M) as, in the worst case, we'll need to look at every node at least once. But, 
+is there a way we can get the space complexity down to O(1) while maintaining that awesome 
+O(N + M) time complexity that we just achieved? It turns out that there is!
+
+Approch3 : two pointer
+*/
+
+let getIntersectionNode3 = function(headA, headB) {
+	let pA = headA;
+	let pB = headB;
+
+	while(pA != pB) {
+		pA = pA === null ? headB : pA.next;
+		pB = pB === null ? headA : pB.next;
+    }
+
+    return pA;
+    // Note: In the case lists do not intersect, the pointers for A and B
+    // will still line up in the 2nd iteration, just that here won't be
+    // a common node down the list and both will reach their respective ends
+    // at the same time. So pA will be NULL in that case.
+};
+
+/*
+Let N be the length of list A and M be the length of list B.
+
+Time complexity : O(N + M).
+
+In the worst case, each list is traversed twice giving 2⋅M+2⋅N, which is equivalent to 
+O(N + M). This is because the pointers firstly go down each list so that they can be 
+"lined up" and then in the second iteration, the intersection node is searched for.
+
+An interesting observation you might have made is that when the lists are of the same 
+length, this algorithm only traverses each list once. This is because the pointers are 
+already "lined up" from the start, so the additional pass is unnecessary.
+
+Space complexity : O(1).
+
+We aren't allocating any additional data structures, so the amount of extra space used 
+does not grow with the size of the input. For this reason, Approach 3 is better than 
+Approach 2.
 */
 
 
