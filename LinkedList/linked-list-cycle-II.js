@@ -38,7 +38,7 @@ It's not efficint solution because use extra space.
 */
 
 /*
-Approch 1: 2 pointer
+Approch 2: 2 pointer
 We have two steps, first find if the list has circle or not with slow and fast pointer.
 then find the first node in the circle, if there is a circle
 */
@@ -82,4 +82,9 @@ let detectCycle2 = function(head) {
 
     return ptr1;
 }
+
+/*
+Time Complexity : O(N)
+Space Complexity : O(1)
+*/
 
