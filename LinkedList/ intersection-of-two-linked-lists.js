@@ -75,8 +75,8 @@ let getIntersectionNode2 = function(headA, headB) {
     while(headA !== null) {
         if(visited.has(headA)) {
             return headA;
-    }
-    headA = headA.next;
+        }
+        headA = headA.next;
     }
 
     return null;
@@ -114,6 +114,41 @@ is there a way we can get the space complexity down to O(1) while maintaining th
 O(N + M) time complexity that we just achieved? It turns out that there is!
 
 Approch3 : two pointer
+We know that we've now fully optimized the time complexity: it's impossible to do better 
+than O(N + M) as, in the worst case, we'll need to look at every node at least once. But, 
+is there a way we can get the space complexity down to O(1) while maintaining that awesome 
+O(N + M) time complexity that we just achieved? It turns out that there is!
+
+Observe that while list A and list B could be different lengths, that the shared "tail" 
+following the intersection has to be the same length.
+
+Imagine that we have two linked lists, A and B, and we know that their lengths are N and M 
+respectively (these can be calculated with O(1) space and in time proportional to the length 
+of the list). We'll imagine that N = 5 and M = 8.
+Because the "tails" must be the same length, we can conclude that if there is an 
+intersection, then the intersection node will be one of these 5 possibilities.
+
+So, to check for each of these pairs, we would start by setting a pointer at the start of 
+the shorter list, and a pointer at the first possible matching node of the longer list. 
+The position of this node is simply the difference between the two lengths, that is, 
+|M - N|.
+
+Then, we just need to step the two pointers through the list, each time checking whether 
+or not the nodes are the same.
+
+In code, we could write this algorithm with 4 loops, one after the other, each doing the 
+following:
+
+Calculate N; the length of list A.
+Calculate M; the length of list B.
+Set the start pointer for the longer list.
+Step the pointers through the list together.
+While this would have a time complexity of O(N + M) and a space complexity of O(1) and would 
+be fine for an interview, we can still simplify the code a bit! As some quick reassurance, 
+most people will struggle to come up with this next part by themselves. It takes practice 
+and seeing lots of linked list and other math problems.
+
+
 */
 
 let getIntersectionNode3 = function(headA, headB) {

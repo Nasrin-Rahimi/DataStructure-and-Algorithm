@@ -36,5 +36,7 @@ class MyDoublyLinkedList {
 
         return cur.val;
     }
+
+    
   
 }

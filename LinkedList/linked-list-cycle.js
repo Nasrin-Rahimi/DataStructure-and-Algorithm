@@ -115,8 +115,5 @@ M is the length of the cycle in the list.
 Obviously, M <= N. So we will run the loop up to N times. And for each loop, we only need 
 constant time. So, the time complexity of this algorithm is O(N) in total.
 
-Analyze other problems by yourself to improve your analysis skill. Don't forget to take 
-different conditions into consideration. If it is hard to analyze for all situations, 
-consider the worst one.
 */
 
