@@ -32,8 +32,41 @@ on the relative order among the root node, left node and right node.
 
  */
 
+/*
+Approch1 : Iterations
+Let's start from the root and then at each iteration pop the current node out of the stack 
+and push its child nodes. In the implemented strategy we push nodes into output list 
+following the order Top->Bottom and Left->Right, that naturally reproduces preorder traversal.
+*/
+
 let preorderTraversal = function(root) {
-    console.log(root);
-    preorderTraversal(root.left);
-    preorderTraversal(root.right);
+  let output = [];
+  let stack = [];
+  
+  if(root == null) {
+      return output;
+  }
+
+  stack.push(root);
+
+  while(stack.length > 0) {
+      root = stack.pop();
+      output.push(root.val);
+      if(root.right != null) {
+          stack.push(root.right);
+      }
+      if(root.left != null) {
+          stack.push(root.left);
+      }
+  }
+  return output;
+
 }
+
+/*
+Time complexity : we visit each node exactly once, thus the time complexity is O(N), 
+where N is the number of nodes, i.e. the size of tree.
+
+Space complexity : depending on the tree structure, we could keep up to the entire tree, 
+therefore, the space complexity is O(N).  
+*/
