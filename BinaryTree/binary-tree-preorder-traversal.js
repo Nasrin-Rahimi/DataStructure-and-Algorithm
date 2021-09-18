@@ -70,3 +70,21 @@ where N is the number of nodes, i.e. the size of tree.
 Space complexity : depending on the tree structure, we could keep up to the entire tree, 
 therefore, the space complexity is O(N).  
 */
+
+/*
+Approch2 : Recursion
+As with all tree problems like this... if this input is small enough for the call stack, 
+the recursive form is always fastest
+*/
+
+let preorderTraversal2 = function(root) {
+    let output = [];
+
+    if(root == null) {
+        return output;
+    }
+    output.push(root.val);
+    preorderTraversal2(root.left);
+    preorderTraversal2(root.right);
+    return output;
+}
