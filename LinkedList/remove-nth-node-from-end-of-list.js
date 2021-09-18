@@ -47,6 +47,12 @@ let removeNthFromEnd = function(head, n) {
         cur = cur.next;
     }
 
+    // Or donot change length to length - n and use for loop
+    
+    // for(let i = 0; i < length - n; i++){ 
+	//     cur = cur.next;
+    // }
+
     cur.next = cur.next.next;
     return dummy.next;
 }

@@ -26,7 +26,7 @@ because we have to go down the list using the next pointers.
 Determining whether or not an Array List is a palindrome is straightforward. We can simply 
 use the two-pointer technique to compare indexes at either end, moving in towards the middle. 
 One pointer starts at the start and goes up, and the other starts at the end and goes down. 
-This would take O(n) because each index access is O(1) and there are nn index accesses in 
+This would take O(n) because each index access is O(1) and there are n index accesses in 
 total.
 
 On the plus side, making a copy of the Linked List values into an Array List is O(n). 
@@ -42,7 +42,7 @@ We can split this approach into 2 steps:
 To do the first step, we need to iterate through the Linked List, adding each value to 
 an Array. We do this by using a variable currentNode to point at the current Node we're 
 looking at, and at each iteration adding currentNode.val to the array and updating 
-currentNode to point to currentNode.next. We should stop looping once currentNode points 
+currentNode to point to currentNode.next. We should stop looking once currentNode points 
 to a null node.
 
 */
@@ -112,11 +112,11 @@ let isPalindrome = function(head) {
 }
 
 /*
-Time complexity : O(n), where nn is the number of nodes in the Linked List.
+Time complexity : O(n), where n is the number of nodes in the Linked List.
 
 In the first part, we're copying a Linked List into an Array List. Iterating down a Linked 
-List in sequential order is O(n), and each of the nn writes to the ArrayList is O(1). 
-Therefore, the overall cost is O(n)O(n).
+List in sequential order is O(n), and each of the n writes to the ArrayList is O(1). 
+Therefore, the overall cost is O(n).
 
 In the second part, we're using the two pointer technique to check whether or not the Array 
 List is a palindrome. Each of the nn values in the Array list is accessed once, and a 
