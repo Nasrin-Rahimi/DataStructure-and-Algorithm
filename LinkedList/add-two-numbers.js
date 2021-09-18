@@ -68,6 +68,13 @@ let addTwoNumbers = function(l1, l2) {
     }
 
     return dummyHead.next;	
-
     
 };
+
+/*
+Time complexity : O(max(m,n)). Assume that mm and nn represents the length of l1 and l2 
+respectively, the algorithm above iterates at most max(m,n) times.
+
+Space complexity : O(max(m,n)). The length of the new list is at most max(m,n)+1.
+
+ */
