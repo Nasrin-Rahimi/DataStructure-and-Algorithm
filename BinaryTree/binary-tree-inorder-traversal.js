@@ -45,4 +45,34 @@ O(logn) where n is number of nodes.
 
  */
 
+/*
+Approch2 : Iterations
+Let's start from the root, get a current variable and put root in it. we should push all
+of the left child of current to the stack. then pop one by one add them to the output
+and push the right child of them to the stack.
+*/
 
+let inorderTraversal2 = function(root) {
+    let output = [];
+    let stack = [];
+    
+    let cur = root;
+    
+    while(cur != null || stack.length > 0) {
+        while(cur != null) {
+            stack.push(cur);
+            cur = cur.left;
+        }
+        
+        cur = stack.pop();
+        output.push(cur.val);
+        cur = cur.right;
+    }
+    
+    return output;
+}
+
+/**
+Time complexity : O(n).
+Space complexity : O(n).
+ */
