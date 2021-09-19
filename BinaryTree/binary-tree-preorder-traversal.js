@@ -78,13 +78,29 @@ the recursive form is always fastest
 */
 
 let preorderTraversal2 = function(root) {
-    let output = [];
-
-    if(root == null) {
-        return output;
-    }
-    output.push(root.val);
-    preorderTraversal2(root.left);
-    preorderTraversal2(root.right);
-    return output;
+  let output = [];
+  recursionPreorder(root, output);
+  return output;
 }
+
+let recursionPreorder = function(root, output) {
+    if(root != null) {
+        output.push(root.val);
+        if(root.left != null) {
+            recursionPreorder(root.left, output);
+        }
+        if(root.right != null) {
+            recursionPreorder(root.right, output);
+        }
+    }
+}
+
+/**
+ * Time complexity : O(n). The time complexity is O(n) because the recursive function is 
+  T(n) = 2⋅T(n/2)+1. = O(n)
+
+Space complexity : The worst case space required is O(n), and in the average case it's 
+O(logn) where n is number of nodes.
+
+ */
+
