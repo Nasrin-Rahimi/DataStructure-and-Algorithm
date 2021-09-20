@@ -62,3 +62,61 @@ Time complexity : O(N) since each node is processed exactly once.
 Space complexity : O(N) to keep the output structure which contains N node values.
 
 */
+
+/**
+Approach 2: Iteration
+
+Let's keep nodes of each tree level in the queue structure, which typically orders 
+elements in a FIFO (first-in-first-out) manner. 
+The zero level contains only one node root. The algorithm is simple :
+
+Initiate queue with a root and start from the level number 0 : level = 0.
+While queue is not empty :
+Start the current level by adding an empty list into output structure levels.
+Compute how many elements should be on the current level : it's a queue length.
+Pop out all these elements from the queue and add them into the current level.
+Push their child nodes into the queue for the next level.
+Go to the next level level++.
+
+*/
+
+let levelOrder2 = function(root) {
+    let que = [];
+    let output = [];
+    
+    if(root == null) {
+        return output;
+    }
+    
+    que.push(root);
+    
+    while(que.length > 0) {
+        let levelLen = que.length;
+        
+        let subOutput = [];
+        for(let i = 0; i < levelLen; i++) {
+            let cur = que.shift();
+            subOutput.push(cur.val);
+            
+            if(cur.left != null) {
+                que.push(cur.left);
+            }
+            if(cur.right != null) {
+                que.push(cur.right);
+            }
+        }
+        output.push(subOutput);
+    }
+    
+    return output;
+    
+}
+/**
+ 
+Since each node in the tree will be pushed into the queue exactly once, the time complexity 
+for level-order traversal is O(N), where N is the total number of nodes in the tree.
+
+What about the space complexity? We have to maintain a queue to help us to do the traversal. 
+And the size of the queue will be at most N because each node will be pushed into the 
+queue exactly once. Therefore, the space complexity of level-order traversal is also O(N).
+ */
