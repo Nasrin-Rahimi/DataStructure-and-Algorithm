@@ -43,3 +43,58 @@ Space complexity : The worst case space required is O(n), and in the average cas
 O(logn) where n is number of nodes.
 
  */
+
+/**
+ * Approch2 : Iteration
+ * This is similar to Inorder using 1 Stack. The difference is we keep track of the 
+ * previously printed node in pre. And we only print a node if its right child is null 
+ *  or equal to pre.
+Push all left nodes into the stack till it hits NULL.
+root = s.peek()
+if root.right = null or pre (Means we have traversed the right subtree already)
+We print root and pop it from s.
+Make pre = root
+root = null (So we dont go down to left child again)
+else
+root = root.right (Traverse the right subtree before printing root)
+Keep iterating till both the below conditions are met -
+Stack is empty and
+Root is NULL.
+ */
+
+ let postorderTraversal = function(root) {
+    
+    let output = [];
+    let stack = [];
+
+    if(root == null) {
+        return output;
+    }
+
+    let prev = null;
+    let cur = root;
+
+    while(cur != null || stack.length > 0) {
+        if(cur != null) {
+            stack.push(cur);
+            cur = cur.left;
+        }
+        else{
+             //cur = stack.peek();
+            cur = stack[stack.length - 1];
+            if(cur.right == null || cur.right == prev) {
+                output.push(cur.val);
+                stack.pop();
+                prev = cur;
+                cur = null;
+            }
+            else {
+                cur = cur.right;
+            }
+        }
+    }
+   
+
+    return output;
+
+ }
