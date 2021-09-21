@@ -100,3 +100,9 @@ let swapPairs2 = function(head) {
 
     return dummy.next;
 }
+
+/**
+ * Time Complexity : O(N) where N is the size of the linked list.
+
+Space Complexity : O(1).
+ */
