@@ -64,3 +64,39 @@ let swapPairs = function(head) {
  * Time Complexity: O(N) where NN is the size of the linked list.
 Space Complexity: O(N) stack space utilized for recursion.
  */
+
+/**
+ * Approch 2 : Iteration
+ * The concept here is similar to the recursive approach. We break the linked list into 
+ * pairs by jumping in steps of two. The only difference is, unlike recursion, we swap the 
+ * nodes on the go. After swapping a pair of nodes, say A and B, we need to link the node 
+ * B to the node that was right before A. To establish this linkage we save the previous 
+ * node of node A in prevNode.
+ */
+
+let swapPairs2 = function(head) {
+    // Dummy node acts as the prevNode for the head node
+    // of the list and hence stores pointer to the head node.
+    let dummy = new ListNode(-1);
+    dummy.next = head;
+
+    let prevNode = dummy;
+
+    while(head != null && head.next != null) {
+
+         // Nodes to be swapped
+        let firstNode = head;
+        let secondNode = head.next;
+
+        // Swapping
+        prevNode.next = secondNode;
+        firstNode.next = secondNode.next;
+        secondNode.next = firstNode;
+
+         // Reinitializing the head and prevNode for next swap
+        prevNode = firstNode;
+        head = prevNode.next; //jump
+    }
+
+    return dummy.next;
+}
