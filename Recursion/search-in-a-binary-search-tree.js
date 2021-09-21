@@ -36,3 +36,30 @@ let searchBST = function(root, val){
  * Space complexity : O(H) to keep the recursion stack, i.e. O(logN) in the average case, 
  * and O(N) in the worst case.
  */
+
+/**
+ * Approach 2: Iteration
+To reduce the space complexity, one could convert recursive approach into the iterative one:
+
+While the tree is not empty root != null and the value to find is not here val != root.val:
+
+If val < root.val - go to search into the left subtree root = root.left.
+
+If val > root.val - go to search into the right subtree root = root.right.
+
+Return root.
+ */
+
+let searchBST2 = function(root, val) {
+    while(root != null && val != root.val) {
+      root = root.val > val ? root.left : root.right;
+  }
+   return root;
+};
+
+/**
+ * Time complexity : O(H), where H is a tree height. That results in O(logN) in the average 
+ * case, and O(N) in the worst case.
+ * 
+ * Space complexity : O(1) since it's a constant space solution.
+ */
