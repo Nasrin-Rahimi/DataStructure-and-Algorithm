@@ -50,7 +50,7 @@ increasingly growing stack, leading to a StackOverflowError.
 
 /**
  * Approach 2: Bottom-Up Approach using Tabulation
-mprove upon the recursive approach by using iteration, still solving for all of the 
+Improve upon the recursive approach by using iteration, still solving for all of the 
 sub-problems and returning the answer for N, using already computed Fibonacci values. 
 While using a bottom-up approach, we can iteratively compute and store the values, only 
 returning once we reach the result.
@@ -122,4 +122,41 @@ let fib3 = function(n) {
 Space complexity: O(N). The size of the stack in memory is proportional to N. Also, the 
 memoization hash table is used, which occupies O(N) space.
 
+ */
+
+/**
+ * Approach 4: Iterative Bottom-Up Approach
+Let's get rid of the need to use all of that space and instead use the minimum amount 
+of space required. Notice that during each recursive call in the top-down approach and 
+each iteration in the bottom-up approach, we only needed to look at the results of 
+fib(N-1) and fib(N-2) to determine the result of fib(N). Therefore, we can achieve O(1) 
+space complexity by only storing the value of the two previous numbers and updating them 
+as we iterate to N.
+ */
+
+let fib4 = function(n) {
+    if(n < 2) {
+        return n;
+    }
+
+    let prev1 = 1, prev2 = 0, cur;
+
+    for(let i = 2; i <=  n; i++) {
+       cur = prev1 + prev2;
+       prev2 = prev1;
+       prev1 = cur;
+    }
+
+    return cur;
+}
+
+/**
+ * Time complexity: O(N). Each value from 2 to N is computed once. Thus, the time it takes 
+ * to find the answer is directly proportional to N where N is the Fibonacci Number we are 
+ * looking to compute.
+
+Space complexity: O(1). This requires 1 unit of space for the integer N and 3 units of 
+space to store the computed values (current, prev1, and prev2) for every loop iteration. 
+The amount of space used is independent of N, so this approach uses a constant amount of 
+space.
  */
