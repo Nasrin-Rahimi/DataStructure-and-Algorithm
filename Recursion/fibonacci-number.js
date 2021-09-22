@@ -87,3 +87,39 @@ let fib2 = function(n) {
 
 Space complexity: O(N). The size of the data structure is proportional to N.
  */
+
+/**
+ * Approach 3: Top-Down Approach using Memoization
+ * Solve for all of the sub-problems, use memoization to store the pre-computed answers, 
+ * then return the answer for NN. We will leverage recursion, but in a smarter way by not 
+ * repeating the work to calculate existing values.
+
+Algorithm
+
+At first, create a map with 0 -> 0 and 1 -> 1 pairs.
+Call fib(N) function.
+At every recursive call of fib(N), if N exists in the map, return the cached value for N.
+Otherwise, set the key N, in our mapping, to the value of fib(N - 1) + fib(N - 2) and 
+return the computed value.
+ */
+
+let map = new Map;
+map.set(0, 0);
+map.set(1, 1);
+
+let fib3 = function(n) {
+    if(map.has(n)) {
+        return map.get(n);
+    }
+    map.set(n, fib3(n - 1) + fib3(n - 2));
+    return map.get(n);
+}
+
+/**
+ * Time complexity: O(N). Each number, starting at 2 up to and including N, is visited, 
+ * computed and then stored for O(1) access later on.
+
+Space complexity: O(N). The size of the stack in memory is proportional to N. Also, the 
+memoization hash table is used, which occupies O(N) space.
+
+ */
