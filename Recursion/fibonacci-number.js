@@ -160,3 +160,8 @@ space to store the computed values (current, prev1, and prev2) for every loop it
 The amount of space used is independent of N, so this approach uses a constant amount of 
 space.
  */
+
+/**
+ *  There is some solution to get a Time complexity: O(logN) too, by using Math or
+ * Matrix Exponentiation.
+ */
