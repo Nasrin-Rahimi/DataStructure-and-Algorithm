@@ -136,3 +136,31 @@ let climbStairs3 = function(n) {
 
 Space complexity : O(n). dp array of size n is used.
  */
+
+/**
+ * Approach 4: Fibonacci Number
+ * In the above approach we have used dpdp array where dp[i]=dp[i-1]+dp[i-2]. It can be 
+ * easily analysed that dp[i] is nothing but ith
+  fibonacci number.
+
+Fib(n)=Fib(n-1)+Fib(n-2)
+
+Now we just have to find nth
+  number of the fibonacci series having 1 and 2 their first and second term respectively, i.e. 
+  Fib(1)=1 and Fib(2)=2
+ */
+
+  let climbStairs4 = function(n) {
+    if(n == 1){
+        return 1;
+    }
+     
+    let first = 1;
+    let second = 2;
+    for (let i = 3; i <= n; i++) {
+        let third = first + second;
+        first = second;
+        second = third;
+    }
+    return second;
+}
