@@ -47,3 +47,43 @@ stack, in memory. This stack keeps track of the function calls to fib(N). This h
 potential to be bad in cases that there isn't enough physical memory to handle the 
 increasingly growing stack, leading to a StackOverflowError.
  */
+
+/**
+ * Approach 2: Bottom-Up Approach using Tabulation
+mprove upon the recursive approach by using iteration, still solving for all of the 
+sub-problems and returning the answer for N, using already computed Fibonacci values. 
+While using a bottom-up approach, we can iteratively compute and store the values, only 
+returning once we reach the result.
+
+Algorithm
+
+If N is less than or equal to 1, return N
+Otherwise, iterate through N, storing each computed answer in an array along the way.
+Use this array as a reference to the 2 previous numbers to calculate the current Fibonacci 
+number.
+Once we've reached the last number, return it's Fibonacci number.
+
+ */
+
+let fib2 = function(n) {
+    if(n < 2) {
+        return n;
+    }
+
+    let fibArray = new Array(n + 1);
+    fibArray[0] = 0;
+    fibArray[1] = 1;
+
+    for(let i = 2; i < n + 1; i++) {
+        fibArray[i] = fibArray[i - 1] + fibArray[i -2];
+    }
+
+    return fibArray[n];
+}
+
+/**
+ * Time complexity: O(N). Each number, starting at 2 up to and including N, is visited, 
+ * computed and then stored for O(1) access later on.
+
+Space complexity: O(N). The size of the data structure is proportional to N.
+ */
