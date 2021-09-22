@@ -164,3 +164,10 @@ Now we just have to find nth
     }
     return second;
 }
+
+/**
+ * Time complexity : O(n). Single loop upto nn is required to calculate nth
+  fibonacci number.
+
+Space complexity : O(1). Constant space is used.
+ */
