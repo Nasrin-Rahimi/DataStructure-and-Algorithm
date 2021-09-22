@@ -52,5 +52,42 @@ let recursionHelper = function(i, n) {
 For n = 3 , the size of recusrion tree is 9.
 
 Space complexity : O(n). The depth of the recursion tree can go upto n.
+For larger n maybe we get stack overflow error.
+ */
 
+/**
+ * Approach 2: Recursion with Memoization
+ * 
+ * In the previous approach we are redundantly calculating the result for every step. 
+ * Instead, we can store the result at each step in memomemo array and directly returning 
+ * the result from the memo array whenever that function is called again.
+
+In this way we are pruning recursion tree with the help of memomemo array and reducing 
+the size of recursion tree upto nn.
+ * 
+ */
+
+let climbStairs2 = function(n) {
+    let memo = new Array(n + 1);
+    return recursionHelper2(0, n)
+}
+
+let recursionHelper2 = function(i, n, memo){
+    if(i > n) {
+        return 0;
+    }
+    if(i == n) {
+        return 1;
+    }
+    if(memo[i] > 0) {
+        return memo[i];
+    }
+    memo[i] = recursionHelper2(i + 1, n, memo) + recursionHelper2(i + 2, n, memo);
+    return memo[i];
+}
+
+/**
+ * Time complexity : O(n). Size of recursion tree can go upto n.
+
+Space complexity : O(n). The depth of recursion tree can go upto n.
  */
