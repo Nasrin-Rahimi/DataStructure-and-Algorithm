@@ -57,3 +57,60 @@ let plusOne = function(digits) {
  * Ok the above approch doesn't work for big big integers! for example
     [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3]
 */
+
+/**
+ * Approach 2: Schoolbook Addition with Carry
+ * 
+ * Let us identify the rightmost digit which is not equal to nine and increase that digit 
+ * by one. All the following consecutive digits of nine should be set to zero.
+ * simplest usecase : 234 => 235
+ * 
+ * slightly complicated case : 129 => 130
+ * 
+ * the case which breaks everything, because all the digits are nines: 999 => 1000
+ * we need to set all nines to zero and append 1 to the left side of the array.
+ * 
+ * Move along the input array starting from the end of array.
+
+Set all the nines at the end of array to zero.
+
+If we meet a not-nine digit, we would increase it by one. The job is done - return digits.
+
+We're here because all the digits were equal to nine. Now they have all been set to zero. 
+We then append the digit 1 in front of the other digits and return the result.
+
+
+ */
+
+var plusOne = function(digits) {
+    // move along the input array starting from the end
+    for(let i = digits.length; i >= 0; i--) {
+         // here we have the rightmost not-nine
+        if(digits[i] < 9) {
+             // increase this rightmost not-nine by 1
+            digits[i] += 1;
+              // and the job is done
+            return digits;
+        }
+         // set all the nines at the end of array to zeros
+        digits[i] = 0;
+    }
+    
+    // we're here because all the digits are nines
+    digits.unshift(1);
+    return digits;
+};
+
+/**
+ * Let N be the number of elements in the input list.
+
+Time complexity: O(N) since it's not more than one pass along the input list.
+
+Space complexity: )O(N)
+
+Although we perform the operation in-place (i.e. on the input list itself), in the worst 
+scenario, we would need to allocate an intermediate space to hold the result, which 
+contains the N+1 elements. Hence the overall space complexity of the algorithm is 
+O(N).
+
+ */
