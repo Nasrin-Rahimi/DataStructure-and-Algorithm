@@ -64,7 +64,7 @@ let maximumDepth = function(root, depth) {
 3. right_ans = bottom_up(root.right)    // call function recursively for right child
 4. return answers                       // answer <-- left_ans, right_ans, root.val
 
-f we know the maximum depth l of the subtree rooted at its left child and the maximum 
+If we know the maximum depth l of the subtree rooted at its left child and the maximum 
 depth r of the subtree rooted at its right child, can we answer the previous question? 
 Of course yes, we can choose the maximum between them and add 1 to get the maximum depth 
 of the subtree rooted at the current node. That is x = max(l, r) + 1
@@ -101,4 +101,15 @@ let maximumDepth2 = function (root) {
 Or, you can think of the problem in this way: for a node in a tree, if you know the answer 
 of its children, can you calculate the answer of that node? If the answer is yes, 
 solving the problem recursively using a bottom up approach might be a good idea.
+ */
+
+/**
+ * Time complexity : we visit each node exactly once, thus the time complexity is O(N), 
+ * where N is the number of nodes.
+
+Space complexity : in the worst case, the tree is completely unbalanced, e.g. each node has 
+only left child node, the recursion call would occur N times (the height of the tree), 
+therefore the storage to keep the call stack would be O(N). But in the best case (the tree 
+is completely balanced), the height of the tree would be log(N). Therefore, the space 
+complexity in this case would be O(log(N)).
  */
