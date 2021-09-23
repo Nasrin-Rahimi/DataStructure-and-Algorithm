@@ -48,3 +48,47 @@ let myPow = function(x, n) {
 
 Space complexity : O(1). We only need one variable to store the final product of x.
  */
+
+/**
+ * Approach 2: Fast Power Algorithm Recursive
+Intuition
+
+Assuming we have got the result of x ^ n, how can we get x ^ 2∗n? Obviously we do not need 
+to multiply x for another n times. Using the formula (x ^ n) ^ 2 = x ^ 2n, we can get x ^ 2n
+at the cost of only one computation. Using this optimization, we can reduce the time 
+complexity of our algorithm.
+
+We call this method "Fast Power", because we only need at most O(logn) computations to get
+x ^ n
+ .
+ */
+
+ var myPow = function(x, n) {
+    if(n < 0) {
+        x = 1 / x;
+        n = -n;
+    }
+       
+       return fastPow(x, n);
+   };
+   
+   let fastPow = function(x, n) {
+      if( n == 0) {
+          return 1;
+      }
+       let half = fastPow(x, parseInt(n / 2));
+       if(n % 2 == 0) {
+           return half * half; // n is even
+       } else {
+           return half * half * x; // n is odd
+       }
+   }
+
+/**
+ * Time complexity : O(logn). Each time we apply the formula (x ^ n) ^ 2 = x ^ 2∗n
+ , n is reduced by half. Thus we need at most O(logn) computations to get the result.
+
+ Space complexity : O(logn). For each computation, we need to store the result of x ^ n/2
+ . We need to do the computation for O(logn) times, so the space complexity is O(logn).
+
+ */
