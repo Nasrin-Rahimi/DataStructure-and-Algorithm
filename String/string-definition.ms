@@ -20,7 +20,7 @@ Immutable means that you can't change the content of the string once it's initia
 In some languages (like C++), the string is mutable. That is to say, you can modify the 
 string just like what you did in an array. 
 In some other languages (like Java), the string is immutable. This feature will bring 
-several problems. We will illustrate the problems and solutions in the next article.
+several problems. 
 
 Note: Strings and Numbers are Immutable in JS. If you want to modify just one of 
 the characters, you have to create a new string.
