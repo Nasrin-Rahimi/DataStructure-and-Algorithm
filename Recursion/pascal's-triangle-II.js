@@ -56,4 +56,9 @@ var getRow = function(rowIndex) {
  Space complexity : O(k) + O(k) ≃ O(k). 
  */
 
- /** */
+ /**
+  * Approach 2: Dynamic Programming
+  * 
+  * In the previous approach, we end up making the same recursive calls repeatedly.
+  * It makes sense to store the results of intermediate recursive calls for later use.
+  */

@@ -88,7 +88,7 @@ let pivotIndex2 = function(nums) {
 }
 
 /**
- * Time Complexity: O(N), where NN is the length of nums.
+ * Time Complexity: O(N), where N is the length of nums.
 
 Space Complexity: O(1), the space used by leftsum and S.
 

@@ -84,7 +84,7 @@ We then append the digit 1 in front of the other digits and return the result.
 
 var plusOne = function(digits) {
     // move along the input array starting from the end
-    for(let i = digits.length; i >= 0; i--) {
+    for(let i = digits.length - 1; i >= 0; i--) {
          // here we have the rightmost not-nine
         if(digits[i] < 9) {
              // increase this rightmost not-nine by 1

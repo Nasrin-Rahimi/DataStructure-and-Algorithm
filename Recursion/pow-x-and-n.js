@@ -92,3 +92,7 @@ x ^ n
  . We need to do the computation for O(logn) times, so the space complexity is O(logn).
 
  */
+
+ /**
+  * Approach 3: Fast Power Algorithm Iterative
+  */
