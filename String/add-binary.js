@@ -51,3 +51,37 @@ let addBinary = function(a, b) {
 Space complexity: O(max(N,M)) to keep the answer.
 
  */
+
+/**
+ * Approach 2: Bit Manipulation
+Intuition
+
+Here the input is more adapted to push towards Approach 1, but there is popular Facebook 
+variation of this problem when interviewer provides you two numbers and asks to sum them 
+up without using addition operation.
+
+No addition? OK, bit manipulation then.
+
+How to start? There is an interview tip for bit manipulation problems: if you don't know 
+how to start, start from computing XOR for your input data. 
+
+Here XOR is a key as well, because it's a sum of two binaries without taking carry into 
+account. (answer without carry : a ^ b)
+
+To find current carry is quite easy as well, it's AND of two input numbers, shifted one 
+bit to the left. (carry : (a && b) << 1)
+
+Algorithm
+
+Convert a and b into integers x and y, x will be used to keep an answer, and y for the carry.
+
+While carry is nonzero: y != 0:
+
+Current answer without carry is XOR of x and y: answer = x^y.
+
+Current carry is left-shifted AND of x and y: carry = (x & y) << 1.
+
+Job is done, prepare the next loop: x = answer, y = carry.
+
+Return x in the binary form.
+ */
