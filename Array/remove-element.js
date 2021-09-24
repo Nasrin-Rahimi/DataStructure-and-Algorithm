@@ -42,9 +42,7 @@ let removeElement = function(nums, val) {
             p2--;
             k++;
         } else if(nums[p1] === val) {
-            let tmp = nums[p2];
-            nums[p2] = nums[p1];
-            nums[p1] = tmp;
+            nums[p1] = nums[p2];
             p1++;
             p2--;
             k++;
