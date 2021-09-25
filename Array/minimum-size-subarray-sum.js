@@ -61,3 +61,83 @@ Time complexity to find the sum of each subarray is O(n).
 Thus, the total time complexity : O(n2 ∗ n) = O(n3)
 Space complexity: O(1) extra space.
 */
+
+/**
+ * Approach #2 A better brute force [Accepted]
+ * In Approach #1, you may notice that the sum is calculated for every surarray in O(n) time. 
+ * But, we could easily find the sum in O(1) time by storing the cumulative sum from the 
+ * beginning(Memoization). After we have stored the cumulative sum in sums, we could easily 
+ * find the sum of any subarray from i to j.
+
+ */
+
+ let minSubArrayLen = function(target, nums) {
+    let len = nums.length;
+    let ans = Number.MAX_SAFE_INTEGER;
+    let sums = new Array(len);
+    sums[0] = nums[0];
+    
+    for (let i = 1; i < len; i++)
+        sums[i] = sums[i - 1] + nums[i];
+    
+    for(let i = 0; i < len; i++) {
+        for(let j = i; j < len; j++) {
+            let sum = sums[j] - sums[i] + nums[i];
+            if(sum >= target) {
+                //Found the smallest subarray with sum>=s starting with index i, hence  move to next index
+                ans = Math.min(ans, (j - i + 1));
+                break;
+            }
+        }
+    }
+    
+    return (ans != Number.MAX_SAFE_INTEGER) ? ans : 0;
+
+};
+
+/**
+ * Time complexity: O(n^2).
+
+Time complexity to find all the subarrays is O(n^2).
+Sum of the subarrays is calculated in O(1) time.
+Thus, the total time complexity: O(n^2 * 1) = O(n^2)
+Space complexity: O(n) extra space.
+
+Additional O(n) space for sums array than in Approach #1.
+
+ */
+
+/**
+ * Approach #3 Using 2 pointers [Accepted]
+
+Until now, we have kept the starting index of subarray fixed, and found the last position. 
+Instead, we could move the starting index of the current subarray as soon as we know that no 
+better could be done with this index as the starting index. We could keep 2 pointer,one for 
+the start and another for the end of the current subarray, and make optimal moves so as to 
+keep the sum greater than ss as well as maintain the lowest size possible.
+ */
+
+var minSubArrayLen = function(target, nums) {
+    let res = Infinity;
+    let sum = 0;
+    let left = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    sum += nums[i];
+
+    while (sum >= target) {
+      res = Math.min(res, i + 1 - left);
+      sum -= nums[left++];
+    }
+  }
+
+  return res === Infinity ? 0 : res;
+
+};
+
+/**
+ * Time complexity: O(n). Single iteration of O(n).
+Each element can be visited atmost twice, once by the right pointer(i) and (atmost)once by 
+the left pointer.
+Space complexity: O(1) extra space. Only constant space required for left, sum, ans and i.
+ */
