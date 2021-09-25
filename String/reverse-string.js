@@ -40,3 +40,49 @@ let reverseString = function(str) {
 Space complexity : O(1), it's a constant space solution.
  */
 
+/**
+ * Approach 2: Recursion, In-Place, O(N) Space
+ * 
+ * Does in-place mean constant space complexity?
+
+No. By definition, an in-place algorithm is an algorithm which transforms input using no 
+auxiliary data structure.
+
+The tricky part is that space is used by many actors, not only by data structures. The classical 
+example is to use recursive function without any auxiliary data structures.
+
+Is it in-place? Yes.
+
+Is it constant space? No, because of recursion stack.
+
+ Let's implement recursive function helper which receives two pointers, left and right, 
+ as arguments.
+
+ Base case: if left >= right, do nothing.
+
+Otherwise, swap s[left] and s[right] and call helper(left + 1, right - 1).
+
+To solve the problem, call helper function passing the head and tail indexes as arguments: 
+return helper(0, len(s) - 1).
+ */
+
+let reverseString = function(str) {
+    helperReverse(str, 0, str.length - 1);
+}
+
+let helperReverse = function(str, start, end) {
+    if(start >= end) {
+        return;
+    }
+    let tmp = str[start];
+    str[start] = str[end];
+    str[end] = tmp;
+    helperReverse(str, start + 1, end - 1)
+}
+
+/**
+ * Time complexity : O(N) time to perform N/2 swaps.
+
+Space complexity : O(N) to keep the recursion stack.
+
+ */
