@@ -51,6 +51,26 @@ let moveZeroes = function (nums) {
    return nums;
 }
 
+//Or we can do the above approch like below:
+
+var moveZeroes = function(nums) {
+    let arr = [];
+     for(let i = 0; i < nums.length; i++) {
+         if(nums[i] != 0) {
+             arr.push(nums[i]);
+         }
+     }
+ 
+     for(let i = 0; i < nums.length; i++) {
+         if(i >= arr.length) {
+             nums[i] = 0;
+         } else {
+             nums[i] = arr[i];
+         }
+     }
+ 
+ };
+
 /*
 Space Complexity : O(n). Since we are creating the "tmpNums" array to store results.
 
@@ -59,6 +79,5 @@ achieve the same result in less number of operations.
 
 If asked in an interview, the above solution would be a good start. You can explain 
 the interviewer(not code) the above and build your base for the next Optimal Solution.
-
 
 */
