@@ -81,3 +81,43 @@ If asked in an interview, the above solution would be a good start. You can expl
 the interviewer(not code) the above and build your base for the next Optimal Solution.
 
 */
+
+/**
+ * Approach #2 (Space Optimal, Operation Sub-Optimal) 
+ This is a 2 pointer approach. The fast pointer which is denoted by variable "cur" does the job 
+ of processing new elements. If the newly found element is not a 0, we record it just after 
+ the last found non-0 element. The position of last found non-0 element is denoted by the slow 
+ pointer "lastNonZeroFoundAt" variable. As we keep finding new non-0 elements, we just overwrite 
+ them at the "lastNonZeroFoundAt + 1" 'th index. This overwrite will not result in any loss of 
+ data because we already processed what was there(if it were non-0,it already is now written at 
+it's corresponding index,or if it were 0 it will be handled later in time).
+
+After the "cur" index reaches the end of array, we now know that all the non-0 elements have 
+been moved to beginning of array in their original order. Now comes the time to fulfil other 
+requirement, "Move all 0's to the end". We now simply need to fill all the indexes after the 
+"lastNonZeroFoundAt" index with 0.
+
+ */
+
+ var moveZeroes = function(nums) {
+     let lastNonZere = 0;
+
+     for(let i = 0; i < nums.length; i++) {
+         if(nums[i] != 0) {
+             nums[lastNonZere] = nums[i];
+             lastNonZere++;
+         }
+     }
+
+     for(let i = lastNonZere; i < nums.length; i++) {
+         nums[i] = 0;
+     }
+ 
+ };
+
+ /**
+  * Space Complexity : O(1). Only constant space is used.
+
+Time Complexity: O(n). However, the total number of operations are still sub-optimal. The 
+total operations (array writes) that code does is n (Total number of elements).
+  */
