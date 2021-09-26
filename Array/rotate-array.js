@@ -19,7 +19,7 @@ rotate 2 steps to the right: [3,99,-1,-100]
  * Approach : Using Extra Array
  * 
  * We use an extra array in which we place every element of the array at its correct position i.e. 
- * the number at index ii in the original array is placed at the index (i + k) % length of array.
+ * the number at index i in the original array is placed at the index (i + k) % length of array.
  * Then, we copy the new array to the original one.
  */
 
@@ -31,7 +31,7 @@ let rotate = function(nums, k){
         newNums[(i + k) % len] = nums[i]; 
     }
 
-    for(let i = 0; i < len; i++ {
+    for(let i = 0; i < len; i++) {
         nums[i] = newNums[i];
     }
 }
@@ -77,3 +77,9 @@ let reverseArray = function(nums, start, end){
         end--;
     }
 }
+
+/**
+ * Time complexity: O(n). n elements are reversed a total of three times.
+
+Space complexity: O(1). No extra space is used.
+ */
