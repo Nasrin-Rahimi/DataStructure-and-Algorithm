@@ -62,7 +62,47 @@ space. That's O(k) worst case recursive call stack space.
  */
 
 /**
- * Approach 2:
+  * Approach 3: Dynamic Programming
+  * 
+  * In the previous approach, we end up making the same recursive calls repeatedly.
+  * It makes sense to store the results of intermediate recursive calls for later use.
+  * Simple memoization caches results of deep recursive calls and provides significant 
+  * savings on runtime.
+  */
+
+ let map = new Map();
+
+ let getRow = function(rowIndex) {
+     let res = new Array(rowIndex + 1);
+
+     for(let i = 0; i < res.length; i++) {
+         res[i] = getNum(rowIndex, i);
+     }
+
+     return res;
+ }
+
+ let getNum = function(row, col) {
+    if(map.has(row, col)) {
+        return map.get(row, col);
+    }
+
+    let num = (row == 0 || col == 0 || row == col) ? 1 : getNum(row - 1, col - 1) + getNum(row - 1 + col);
+    map.set((row, col), num);
+    return num;
+ }
+
+ /**
+  * But, it is worth noting that generating a number for a particular row requires only two
+  *  numbers from the previous row. Consequently, generating a row only requires numbers from 
+  * the previous row.
+  * 
+Thus, we could reduce our memory footprint by only keeping the latest row generated, and use 
+that to generate a new row.
+  */
+
+/**
+ * Approach 3: Memory-efficient Dynamic Programming
  */
 
 let getRow = function(rowIndex) {
@@ -84,11 +124,4 @@ Time complexity : O(n^2).
 Space complexity : O(n).
  */
 
- /**
-  * Approach 3: Dynamic Programming
-  * 
-  * In the previous approach, we end up making the same recursive calls repeatedly.
-  * It makes sense to store the results of intermediate recursive calls for later use.
-  * Simple memoization caches results of deep recursive calls and provides significant 
-  * savings on runtime.
-  */
+ 
