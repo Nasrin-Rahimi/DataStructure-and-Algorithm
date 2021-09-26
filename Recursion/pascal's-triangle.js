@@ -37,7 +37,7 @@ Finally we combine the results of the above subproblems:
 f(5,3)=f(4,2)+f(4,3)=3+3=6
 
 Note : you might have noticed that the recursive solution can incur some duplicate 
-calculations,
+calculations.
  */
 let pascalTriangleNumber = function(i, j) {
     if(j == 1 || j == i) {

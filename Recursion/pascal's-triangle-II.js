@@ -18,17 +18,17 @@ Output: [1,1]
 In Pascal's triangle, each number is the sum of the two numbers directly above it.
 
 Let's say we had a function getNum(rowIndex, colIndex), which gave us the colIndexth 
-number in the rowIndexth row, we could simply build the k^{th}k 
-th
-  row by repeatedly calling getNum(...) for columns 0 to k.
+number in the rowIndexth row, we could simply build the kth row by repeatedly calling 
+getNum(...) for columns 0 to k.
 
   getNum(rowIndex, colIndex) = getNum(rowIndex-1, colIndex-1) + getNum(rowIndex-1, colIndex)
 
 The recursion ends in some known base cases:
 
-The first row is just a single 11, i.e. getNum(0, ...) = 1
+The first row is just a single 1, i.e. getNum(0, ...) = 1
 
-The first and last number of each row is 11, i.e. getNum(k, 0) = getNum(k, k) = 1}getNum(k, 0) = getNum(k, k) = 1
+The first and last number of each row is 1, i.e. 
+getNum(k, 0) = getNum(k, k) = 1
 
  */
 
@@ -52,13 +52,43 @@ var getRow = function(rowIndex) {
 };
 
 /**
- * Time complexity : O(2^k)
+ * Time complexity : O(2^k) where k is the given Row Index.
+ * T(k,i) = T(k−1,i) + T(k−1,i−1) + O(1)
  Space complexity : O(k) + O(k) ≃ O(k). 
+ We need O(k) space to store the output of the kth row.
+At worst, the recursive call stack has a maximum of k calls in memory, each call taking constant 
+space. That's O(k) worst case recursive call stack space.
+
+ */
+
+/**
+ * Approach 2:
+ */
+
+let getRow = function(rowIndex) {
+    let res = [];
+
+    for(let i = 0 ; i <= rowIndex; i++) {
+        res.unshift(1);
+        for(let j = 1; j < i; j++) {
+            res[j] += res[j + 1];
+        }
+    }
+    return res;
+}
+
+/**
+ * Complexity:
+
+Time complexity : O(n^2).
+Space complexity : O(n).
  */
 
  /**
-  * Approach 2: Dynamic Programming
+  * Approach 3: Dynamic Programming
   * 
   * In the previous approach, we end up making the same recursive calls repeatedly.
   * It makes sense to store the results of intermediate recursive calls for later use.
+  * Simple memoization caches results of deep recursive calls and provides significant 
+  * savings on runtime.
   */
