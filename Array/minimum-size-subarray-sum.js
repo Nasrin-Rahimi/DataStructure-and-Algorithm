@@ -114,7 +114,7 @@ Until now, we have kept the starting index of subarray fixed, and found the last
 Instead, we could move the starting index of the current subarray as soon as we know that no 
 better could be done with this index as the starting index. We could keep 2 pointer,one for 
 the start and another for the end of the current subarray, and make optimal moves so as to 
-keep the sum greater than ss as well as maintain the lowest size possible.
+keep the sum greater than s as well as maintain the lowest size possible.
  */
 
 var minSubArrayLen = function(target, nums) {
@@ -126,7 +126,7 @@ var minSubArrayLen = function(target, nums) {
     sum += nums[i];
 
     while (sum >= target) {
-      res = Math.min(res, i + 1 - left);
+      res = Math.min(res, i - left + 1);
       sum -= nums[left++];
     }
   }

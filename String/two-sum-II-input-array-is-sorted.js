@@ -64,7 +64,7 @@ space complexity is O(1).
 
 /**
  * What if the problem constraints were different and we needed to consider integer overflow 
- * when adding numbers[low]numbers[low] and numbers[high]numbers[high]? In that case, to 
+ * when adding numbers[low] and numbers[high]? In that case, to 
  * prevent an overflow error, we could cast our numbers from int data type to long data 
  * type before adding them together, e.g.: 
  * long sum = static_cast<long>(numbers[low]) + numbers[high] for C++.

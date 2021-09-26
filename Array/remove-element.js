@@ -37,6 +37,8 @@ We can move all the occurrences of this element to the end of the array. Use two
 let removeElement = function(nums, val) {
     let p1 = 0, p2 = nums.length - 1, k = 0;;
     
+    //we use equal in condition for case of we have just one element and we want to remoe that
+    //nums = [1], val = 1
     while(p1 <= p2) {
         if(nums[p2] === val) {
             p2--;
