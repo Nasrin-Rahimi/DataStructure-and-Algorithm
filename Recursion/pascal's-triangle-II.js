@@ -62,7 +62,7 @@ space. That's O(k) worst case recursive call stack space.
  */
 
 /**
-  * Approach 3: Dynamic Programming
+  * Approach 2: Dynamic Programming
   * 
   * In the previous approach, we end up making the same recursive calls repeatedly.
   * It makes sense to store the results of intermediate recursive calls for later use.
