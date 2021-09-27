@@ -46,3 +46,61 @@ Space complexity : in the worst case, the tree is completely unbalanced, e.g. ea
     case would be O(log(N)).
 
  */
+
+/**
+Approach 2: Iterations
+Algorithm
+
+We could also convert the above recursion into iteration, with the help of stack. DFS would be 
+better than BFS here since it works faster except the worst case. In the worst case the path 
+root->leaf with the given sum is the last considered one and in this case DFS results in the 
+same productivity as BFS.
+
+The idea is to visit each node with the DFS strategy, while updating the remaining sum to 
+cumulate at each visit.
+
+So we start from a stack which contains the root node and the corresponding remaining sum which 
+is sum - root.val. Then we proceed to the iterations: pop the current node out of the stack and 
+return True if the remaining sum is 0 and we're on the leaf node. If the remaining sum is not 
+zero or we're not on the leaf yet then we push the child nodes and corresponding remaining sums 
+into stack.
+*/
+
+    var hasPathSum = function(root, targetSum) {
+        if(root == null) {
+             return false;
+         }
+         
+         
+         let stack = [], sumStack = [];
+         
+         stack.push(root);
+         sumStack.push(targetSum - root.val);
+         
+         let node, curSum;
+         
+         while(stack.length > 0) {
+             node = stack.pop();
+             curSum = sumStack.pop();
+             if(node.left == null && node.right == null && curSum == 0) {
+                 return true;
+             }
+             if(node.right != null) {
+                 stack.push(node.right);
+                 sumStack.push(curSum - node.right.val);
+             }
+              if(node.left != null) {
+                 stack.push(node.left);
+                 sumStack.push(curSum - node.left.val);
+             }
+         }
+        return false;
+     }
+
+/**
+ * Time complexity : the same as the recursion approach O(N).
+Space complexity : O(N) since in the worst case, when the tree is completely unbalanced, e.g. 
+each node has only one child node, we would keep all NN nodes in the stack. But in the best 
+case (the tree is balanced), the height of the tree would be \log(N)log(N). Therefore, the 
+space complexity in this case would be O(log(N)).
+ */
