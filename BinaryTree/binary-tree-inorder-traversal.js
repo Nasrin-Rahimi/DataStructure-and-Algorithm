@@ -26,13 +26,9 @@ let inorderTraversal = function(root) {
 
 let recursionInorder = function(root, output) {
     if(root != null){
-        if(root.left != null) {
-            recursionInorder(root.left, output);
-        }
+        recursionInorder(root.left, output);
         output.push(root.val);
-        if(root.right != null) {
-            recursionInorder(root.right,output);
-        }
+        recursionInorder(root.right,output);
     }
 }
 
