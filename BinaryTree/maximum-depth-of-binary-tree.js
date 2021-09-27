@@ -39,18 +39,30 @@ Output: 1
 5. maximum_depth(root.right, depth + 1)    // call the function recursively for right child
  */
 
-let maxDepth = 0;
+let max = 0;
 
-let maximumDepth = function(root, depth) {
+let maxDepth = function(root) {
     if(root == null) {
-        return;
+		return 0;
     }
-    if(root.left == null && root.right == null) {
-        maxDepth = Math.max(maxDepth, depth);
-    }
-    maximumDepth(root.left, depth + 1);
-    maximumDepth(root.right, depth + 1);
+    helper(root, 1);
+    return max;
 }
+
+let helper = function(root, depth) {
+	
+    if(root.left == null && root.right == null) {
+        max = Math.max(max, depth);
+    }
+    if(root.left != null) {
+        helper(root.left, depth + 1);
+    }
+    if(root.right != null) {
+        helper(root.right, depth + 1);
+     }
+   
+}
+
 
 /**
  * Approch2 
@@ -116,4 +128,57 @@ complexity in this case would be O(log(N)).
 
 /**
  * Approach 3: Iteration
+ * We could also convert the above recursion into iteration, with the help of the stack data 
+ * structure. Similar with the behaviors of the function call stack, the stack data structure 
+ * follows the pattern of FILO (First-In-Last-Out), i.e. the last element that is added to a 
+ * stack would come out first.
+
+With the help of the stack data structure, one could mimic the behaviors of function call stack 
+that is involved in the recursion, to convert a recursive function to a function with iteration.
+
+Algorithm
+
+The idea is to keep the next nodes to visit in a stack. Due to the FILO behavior of stack, one 
+would get the order of visit same as the one in recursion.
+
+We start from a stack which contains the root node and the corresponding depth which is 1. 
+Then we proceed to the iterations: pop the current node out of the stack and push the child nodes. 
+The depth is updated at each step.
+ */
+
+let maxDepth = function(root) {
+    let stack = [], depths = [];
+
+    if(root == null) {
+        return 0;
+    }
+
+    let curDepth = 0, depth = 0;
+
+    stack.push(root);
+    depths.push(1);
+
+    while(stack.length > 0) {
+        root = stack.pop();
+        curDepth = depths.pop();
+        if(root != null) {
+            depth = Math.max(depth, curDepth);
+            stack.push(root.left);
+            stack.push(root.right);
+            depths.push(curDepth + 1);
+            depths.push(curDepth + 1);
+        }
+    }
+
+    return depth;
+}
+
+/**
+ * Time complexity : O(N).
+
+Space complexity : in the worst case, the tree is completely unbalanced, e.g. each node has 
+only left child node, the recursion call would occur N times (the height of the tree), therefore 
+the storage to keep the call stack would be O(N). But in the average case (the tree is balanced), 
+the height of the tree would be log(N). Therefore, the space complexity in this case would be 
+O(log(N)).
  */
