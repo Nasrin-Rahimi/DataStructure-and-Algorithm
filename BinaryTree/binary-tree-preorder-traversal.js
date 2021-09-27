@@ -86,12 +86,8 @@ let preorderTraversal2 = function(root) {
 let recursionPreorder = function(root, output) {
     if(root != null) {
         output.push(root.val);
-        if(root.left != null) {
-            recursionPreorder(root.left, output);
-        }
-        if(root.right != null) {
-            recursionPreorder(root.right, output);
-        }
+        recursionPreorder(root.left, output);
+        recursionPreorder(root.right, output);
     }
 }
 
