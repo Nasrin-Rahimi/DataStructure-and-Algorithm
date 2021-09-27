@@ -81,6 +81,7 @@ Root is NULL.
                 output.push(cur.val);
                 stack.pop();
                 prev = cur;
+                //we dont go down to left child again
                 cur = null;
             }
             else {
