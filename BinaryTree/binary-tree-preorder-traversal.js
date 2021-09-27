@@ -115,7 +115,87 @@ want to solve this problem iteratively sometimes.
 
 For the iterative solution, the time complexity is apparently the same with recursion 
 solution which is O(N). The space complexity is also O(N) since in the worst case, we will 
-have all the nodes in the stack. There are some other solutions for iterative traversal 
-which can reduce the space complexity to O(1).
+have all the nodes in the stack. 
+
+There are some other solutions for iterative traversal 
+which can reduce the space complexity to O(1). like Morris traversal
  */
+
+/**
+ * Approch 3:
+ * Using Morris Traversal, we can traverse the tree without using stack and recursion. In this 
+ * traversal, we first create links to Inorder successor and print the data using these links, 
+ * and finally revert the changes to restore original tree. 
+ * 
+ * 1. Initialize current as root 
+2. While current is not NULL
+   If the current does not have left child
+      a) Print current’s data
+      b) Go to the right, i.e., current = current->right
+   Else
+      a) Find rightmost node in current left subtree OR
+              node whose right child == current.
+         If we found right child == current
+             a) Update the right child as NULL of that node whose right child is current
+             b) Print current’s data
+             c) Go to the right, i.e. current = current->right
+         Else
+             a) Make current as the right child of that rightmost 
+                node we found; and 
+             b) Go to this left child, i.e., current = current->left
+ */
+
+             /* Function to traverse a
+       binary tree without recursion
+       and without stack */
+function MorrisTraversal(root)
+{
+    let current, pre;
+  
+        if (root == null)
+            return;
+  
+        current = root;
+        while (current != null)
+        {
+            if (current.left == null)
+            {
+                document.write(current.data + " ");
+                current = current.right;
+            }
+            else {
+                /* Find the inorder
+                    predecessor of current
+                 */
+                pre = current.left;
+                while (pre.right != null
+                       && pre.right != current)
+                    pre = pre.right;
+  
+                /* Make current as right
+                   child of its
+                 * inorder predecessor */
+                   if (pre.right == null) {
+                    pre.right = current;
+                    current = current.left;
+                }
+  
+                /* Revert the changes made
+                   in the 'if' part
+                   to restore the original
+                   tree i.e., fix
+                   the right child of predecessor*/
+                else
+                {
+                    pre.right = null;
+                    document.write(current.data + " ");
+                    current = current.right;
+                } /* End of if condition pre->right == NULL
+                   */
+  
+            } /* End of if condition current->left == NULL*/
+  
+        } /* End of while */
+}
+ 
 
