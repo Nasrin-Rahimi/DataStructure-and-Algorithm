@@ -16,7 +16,6 @@ Approch1 : Recursion
 */
 
 let postorderTraversal = function(root) {
-
     let output = [];
     recursionPostorder(root, output);
     return output;
@@ -25,12 +24,8 @@ let postorderTraversal = function(root) {
 
 let recursionPostorder = function(root, output) {
     if(root != null) {
-        if(root.left != null) {
-            recursionPostorder(root.left, output);
-        }
-        if(root.right != null) {
-            recursionPostorder(root.right, output);
-        }
+        recursionPostorder(root.left, output);
+        recursionPostorder(root.right, output);
         output.push(root.val);
     }
 }
