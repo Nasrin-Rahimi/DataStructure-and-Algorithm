@@ -100,7 +100,7 @@ into stack.
 /**
  * Time complexity : the same as the recursion approach O(N).
 Space complexity : O(N) since in the worst case, when the tree is completely unbalanced, e.g. 
-each node has only one child node, we would keep all NN nodes in the stack. But in the best 
-case (the tree is balanced), the height of the tree would be \log(N)log(N). Therefore, the 
+each node has only one child node, we would keep all N nodes in the stack. But in the best 
+case (the tree is balanced), the height of the tree would be log(N). Therefore, the 
 space complexity in this case would be O(log(N)).
  */
