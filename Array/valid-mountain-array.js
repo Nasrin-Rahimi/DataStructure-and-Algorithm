@@ -1,4 +1,4 @@
-/*
+/** 
 Given an array of integers arr, return true if and only if it is a valid mountain array.
 
 Recall that arr is a mountain array if and only if:
@@ -18,7 +18,7 @@ Input: arr = [0,3,2,1]
 Output: true
 */
 
-/*
+/** 
 Approch 1:
 If we walk along the mountain from left to right, we have to move strictly up, 
 then strictly down.
@@ -51,7 +51,7 @@ let validMountainArray = function (arr) {
     return i === len - 1;
 }
 
-/*
+/** 
 Complexity Analysis
 
 Time Complexity: O(N), where N is the length of A.
@@ -60,7 +60,7 @@ Space Complexity: O(1).
 
 */
 
-/*
+/** 
 Approch 2:
 find the peak or top the  check if all elements before peak(top) are less than peak and
 all elements after peak are less than peak.

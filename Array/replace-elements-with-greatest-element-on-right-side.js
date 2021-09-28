@@ -1,4 +1,4 @@
-/*
+/** 
 Given an array arr, replace every element in that array with the greatest element
  among the elements to its right, and replace the last element with -1.
 
@@ -41,7 +41,7 @@ let replaceElements = function(arr) {
 
 }
 
-/*
+/** 
 Time Complexity: O(n*n)
 space complexity: O(1) because we do inplace replace and donot use extra space.
 */
