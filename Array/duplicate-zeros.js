@@ -14,7 +14,7 @@ Output: [1,2,3]
 
 /**
  * 
-Approch 1 : using extra space
+Approch 1 : Bruce Force: using extra space
  */
 
 let duplicateZeros = function(arr) {

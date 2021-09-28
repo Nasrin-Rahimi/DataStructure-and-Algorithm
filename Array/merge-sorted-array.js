@@ -1,4 +1,4 @@
-/*
+/**
 You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, 
 and two integers m and n, representing the number of elements in nums1 and nums2 respectively.
 
@@ -22,7 +22,7 @@ The first m elements of nums1 can be 0 too!
  
 */
 
-/*
+/** 
 approach1 : simply write the values from nums2 into the end of nums1,
  and then sort nums1. Remember that we do not need to return a value, as we should
 modify nums1 in-place. While straightforward to code, this approach has a high
@@ -36,19 +36,19 @@ let merge = function(nums1, m, nums2, n) {
     return nums1.sort();
 }
 
-/*
-Time complexity : \mathcal{O}((n + m)\log(n + m))O((n+m)log(n+m)).
+/** 
+Time complexity : O((n+m)log(n+m)).
 
-The cost of sorting a list of length xx using a built-in sorting algorithm
+The cost of sorting a list of length x using a built-in sorting algorithm
  is (xlogx). Because in this case we're sorting a list of length 
-m + nm+n, we get a total time complexity of O((n+m)log(n+m)).
+m + n, we get a total time complexity of O((n+m)log(n+m)).
 Space complexity : O(n), but it can vary.
 
 Most programming languages have a built-in sorting algorithm that uses O(n)
 space.
 */
 
-/*
+/** 
 Approch 2
 */
 let merge2 = function(nums1, m, nums2, n) {
@@ -86,7 +86,7 @@ let merge2 = function(nums1, m, nums2, n) {
 
 //time complexity : O(m + n)(m + n)
 
-/*
+/** 
 Approach 3 : Three Pointers (Start From the Beginning)
 Because each array is already sorted, we can achieve an O(n+m)
  time complexity with the help of the two-pointer technique.
@@ -131,11 +131,11 @@ let merge3 = function(nums1, m, nums2, n) {
     }
 }
 
-/*
+/** 
 Time complexity : O(n+m).
 
 Space complexity : O(m).
-We are allocating an additional array of length mm.
+We are allocating an additional array of length m.
 
 this approch already demonstrates the best possible time complexity, O(n+m),
 but still uses additional space. This is because the elements of array nums1 have 
@@ -143,7 +143,7 @@ to be stored somwhere so that they aren't overwritten.
 
 */
 
-/*
+/** 
 Approch4 : Three Pointers (Start From the End)
 The algorithm is similar to before, except this time we set p1 to point at
 index m - 1 of nums1, p2 to point at index n - 1 of nums2, and p to point at
@@ -174,7 +174,7 @@ let merge4 = function(nums1, m, nums2, n) {
     }
 }
 
-/*
+/** 
 Time complexity : O(n+m).
 Same as Approach 3.
 
