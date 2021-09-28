@@ -1,4 +1,4 @@
-/*
+/** 
 Given a fixed-length integer array arr, duplicate each occurrence of zero, shifting the 
 remaining elements to the right.
 
@@ -11,6 +11,44 @@ Output: [1,0,0,2,3,0,0,4]
 Input: arr = [1,2,3]
 Output: [1,2,3]
 */
+
+/**
+ * 
+Approch 1 : using extra space
+ */
+
+let duplicateZeros = function(arr) {
+    let len = arr.length;
+	let res = new Array(len);
+	let i = 0, j = 0;
+
+	while(j < len) {
+		if(nums[i] == 0) {
+            res[j] = 0;
+            res[j + 1] = 0;
+            j = j + 2;
+        } else {
+            res[j] = nums[i];
+            j++;
+        }
+        i++;
+    }
+
+    for(i = 0; i < len; i++) {
+        arr[i] = res[i];
+    }
+    return arr;
+}
+
+/**
+ Time Complexity: O(n) + O(n) = O(n)
+ Space Complexity: O(n) for res array
+ */
+
+/**
+ * 
+ Approch 2
+ */
 
 let duplicateZeros = function(arr) {
     let len = arr.length;
