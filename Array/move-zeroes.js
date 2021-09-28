@@ -1,4 +1,4 @@
-/*
+/** 
 Given an integer array nums, move all 0's to the end of it while maintaining 
 the relative order of the non-zero elements.
 
@@ -11,7 +11,7 @@ Input: nums = [0]
 Output: [0]
 */
 
-/*
+/** 
 The 2 requirements of the question are:
 
 Move all the 0's to the end of array.
@@ -71,7 +71,7 @@ var moveZeroes = function(nums) {
  
  };
 
-/*
+/** 
 Space Complexity : O(n). Since we are creating the "tmpNums" array to store results.
 
 Time Complexity: O(n). However, the total number of operations are sub-optimal. We can 
