@@ -1,4 +1,4 @@
-/*
+/** 
 Given an integer array nums and an integer val, remove all occurrences of val 
 in nums in-place. The relative order of the elements may be changed.
 
@@ -19,13 +19,13 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 
 */
 
-/*
+/** 
 Approch 1: start from the first element of the array, if any element is equal to val, then
 move all the right element of that index to the left by one and add one to the counter. 
-It's  not an efficient solution
+It's  not an efficient solution the time complexity should be O(n^2)
 */
 
-/*
+/** 
 Approch 2:
 The problem statement clearly asks us to modify the array in-place and it also says 
 that the element beyond the new length of the array can be anything. Given an element, 
@@ -56,7 +56,7 @@ let removeElement = function(nums, val) {
     nums.length = nums.length - k;
 };
 
-/*
+/** 
 Time Complexity : O(n)
 Space Complexity: O(1)
 */
