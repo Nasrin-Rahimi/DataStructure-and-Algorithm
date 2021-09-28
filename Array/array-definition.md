@@ -44,6 +44,9 @@ We can use a similar strategy. We still use two pointers: one is still used for 
 
 We use two pointers, one faster-runner i and one slower-runner k, in the example above. i moves one step each time while k moves one step only if a new needed value is added.
 
+Why we use two pointer?
+Two pointers help us cover a subarray or miniarray with in the main array.
+
 
 
 
