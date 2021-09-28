@@ -68,8 +68,8 @@ let isSymmetric2 = function(root) {
     q.push(root);
 
     while(q.length > 0) {
-        let t1 = q.pop();
-        let t2 = q.pop();
+        let t1 = q.shift();
+        let t2 = q.shift();
         if(t1 == null && t2 == null) { continue; }
         if(t1 == null || t2 == null) { return false; }
         if(t1.val != t2.val) { return false; }

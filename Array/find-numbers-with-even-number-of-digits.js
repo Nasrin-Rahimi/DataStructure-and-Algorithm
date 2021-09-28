@@ -29,7 +29,7 @@ let findNumbers2 = function(nums) {
     for(let i = 0; i < nums.length; i++) {
        
         if(getDigitCount(nums[i]) % 2 == 0){
-            count = count++;
+            count++;
         }
     }
     //return count;

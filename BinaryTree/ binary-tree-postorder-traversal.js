@@ -62,9 +62,9 @@ Root is NULL.
     let output = [];
     let stack = [];
 
-    if(root == null) {
-        return output;
-    }
+    // if(root == null) {
+    //     return output;
+    // }
 
     let prev = null;
     let cur = root;
