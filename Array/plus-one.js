@@ -106,7 +106,7 @@ var plusOne = function(digits) {
 
 Time complexity: O(N) since it's not more than one pass along the input list.
 
-Space complexity: )O(N)
+Space complexity: O(N)
 
 Although we perform the operation in-place (i.e. on the input list itself), in the worst 
 scenario, we would need to allocate an intermediate space to hold the result, which 

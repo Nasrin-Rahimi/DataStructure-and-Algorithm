@@ -45,3 +45,25 @@ let replaceElements = function(arr) {
 Time Complexity: O(n*n)
 space complexity: O(1) because we do inplace replace and donot use extra space.
 */
+
+/**
+ * A better approach would be to replace all elements with a single traversal of the array. The 
+ * idea is to start from the rightmost element, move to the left side one by one, keeping a 
+ * track of the maximum element. Replace every element with the maximum element.
+ */
+
+let replaceElements = function(arr) {
+    let len = arr.length;
+
+    let max = arr[len - 1];
+    arr[len - 1] = -1;
+
+    for(let i = len - 2; i >= 0; i--) {
+        let tmp = arr[i];
+        arr[i] = max;
+        if(max < tmp) {
+            max = tmp;
+        }
+    }
+    return arr;
+}
