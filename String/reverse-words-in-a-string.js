@@ -28,7 +28,10 @@ Output: "Alice Loves Bob"
 
 /**
  * Approch 1: 
+ * Because in JS strings are immutable, we should first convert the string into mutable 
+ * data structure
  * Reverse s with help of an array. transfer the result to a string with removing white spaces.
+ * 
  */
 
 let reverseWords = function(s) {
@@ -60,3 +63,9 @@ let reverseWords = function(s) {
 
     return str.substring(0, str.length - 1);
 }
+
+/**
+ * Note: In the case of mutable strings, there is no need to allocate an additional data 
+ * structure, one could make all job done in-place. In such a case it makes sense to reverse words and trim spaces at the same time.
+
+ */
