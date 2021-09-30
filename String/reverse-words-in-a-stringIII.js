@@ -38,7 +38,7 @@ let reverseWords = function(s) {
 }
 
 /**
- * Time complexity : O(n). where nn is the length of the string.
+ * Time complexity : O(n). where n is the length of the string.
 
 Space complexity : O(n). res of size n is used.
  */

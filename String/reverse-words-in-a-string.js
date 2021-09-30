@@ -66,6 +66,7 @@ let reverseWords = function(s) {
 
 /**
  * Note: In the case of mutable strings, there is no need to allocate an additional data 
- * structure, one could make all job done in-place. In such a case it makes sense to reverse words and trim spaces at the same time.
+ * structure, one could make all job done in-place. In such a case it makes sense to reverse 
+ * words and trim spaces at the same time.
 
  */

@@ -61,7 +61,7 @@ let swapPairs = function(head) {
 }
 
 /**
- * Time Complexity: O(N) where NN is the size of the linked list.
+ * Time Complexity: O(N) where N is the size of the linked list.
 Space Complexity: O(N) stack space utilized for recursion.
  */
 
