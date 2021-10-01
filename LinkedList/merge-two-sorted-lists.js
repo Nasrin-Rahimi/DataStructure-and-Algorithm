@@ -80,17 +80,17 @@ let mergeTwoLists2 = function (l1, l2) {
 		if(l1.val < l2.val) {
 			prev.next = l1;
 			l1 = l1.next;
-    } else {
-        prev.next = l2;
-        l2 = l2.next
-    }
-    prev = prev.next;
+        } else {
+            prev.next = l2;
+            l2 = l2.next
+        }
+        prev = prev.next;
     }
 
     if(l1 == null) {
-    prev.next = l2;
+        prev.next = l2;
     } else {
-    prev.next = l1;
+        prev.next = l1;
     }
 
     return preHead.next
@@ -106,5 +106,6 @@ other work is constant, so the overall complexity is linear.
 Space complexity : O(1)
 
 The iterative approach only allocates a few pointers, so it has a constant overall memory 
-footprint.
+footprint.  
+But how about a new merge list? 
 */
