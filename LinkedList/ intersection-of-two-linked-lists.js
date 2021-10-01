@@ -141,7 +141,8 @@ following:
 
 Calculate N; the length of list A.
 Calculate M; the length of list B.
-Set the start pointer for the longer list.
+Set the start pointer for the longer list. (abs(len listA - len listB))
+put another pointer at the first of shorter list
 Step the pointers through the list together.
 While this would have a time complexity of O(N + M) and a space complexity of O(1) and would 
 be fine for an interview, we can still simplify the code a bit! As some quick reassurance, 
@@ -186,5 +187,7 @@ We aren't allocating any additional data structures, so the amount of extra spac
 does not grow with the size of the input. For this reason, Approach 3 is better than 
 Approach 2.
 */
+
+
 
 
