@@ -1,6 +1,8 @@
 /**
  * Gevin the root of the binary tree and a target node, find the shortest path from the root 
  * node to the target node.  
+ * Input = [a, b, c, d, e,null, null, null , null , null, f], target = f
+ * output = 3
  * */ 
 
 /**
@@ -9,7 +11,7 @@
  * 
  * we can do BFS algoritm with queue.
  * at first enque the root to queue. Then in each round, we process the nodes which 
- * are already in the queue one by one and add all their neighbors to the queue.
+ * are already in the queue one by one and add left and right childs to the queue.
  * 
  * If a node X is added to the queue in the kth round, the length of the shortest path 
  * between the root node and X is exactly k. 
