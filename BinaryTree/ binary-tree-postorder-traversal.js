@@ -77,6 +77,7 @@ Root is NULL.
         else{
              //cur = stack.peek();
             cur = stack[stack.length - 1];
+            //if cur doesn't have right child or we visit the right child already
             if(cur.right == null || cur.right == prev) {
                 output.push(cur.val);
                 stack.pop();

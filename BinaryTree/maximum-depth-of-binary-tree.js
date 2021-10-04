@@ -182,3 +182,31 @@ the storage to keep the call stack would be O(N). But in the average case (the t
 the height of the tree would be log(N). Therefore, the space complexity in this case would be 
 O(log(N)).
  */
+
+/**
+ * Approch 4: use BFS
+ */
+
+let maxDepth = function(root) {
+    let que = [], depth = 0;
+
+    if(root == null) {
+        return depth;
+    }
+
+    que.push(root);
+
+    while(que.length > 0) {
+        depth++;
+        for(let i = 0; i < que.length; i++) {
+            let cur = que.shift();
+            if(cur.left != null) {
+                que.push(cur.left);
+            }
+            if(cur.right != null) {
+                que.push(cur.right);
+            }
+        }
+    }
+    return depth;
+}
