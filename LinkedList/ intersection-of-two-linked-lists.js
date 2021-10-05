@@ -1,11 +1,19 @@
-/*
+/** 
 Given the heads of two singly linked-lists headA and headB, return the node at which 
 the two lists intersect. If the two linked lists have no intersection at all, return null.
 
 Note that the linked lists must retain their original structure after the function returns.
+
+Input: intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3
+Output: Intersected at '8'
+Explanation: The intersected node's value is 8 (note that this must not be 0 if the two 
+    lists intersect).
+From the head of A, it reads as [4,1,8,4,5]. From the head of B, it reads as [5,6,1,8,4,5]. 
+There are 2 nodes before the intersected node in A; There are 3 nodes before the intersected 
+node in B.
 */
 
-/*
+/** 
 Approach 1: Brute Force
 
 The brute force solution is often a good starting point in an interview. While you shouldn't 
@@ -36,7 +44,7 @@ let getIntersectionNode = function(headA, headB) {
    return null
 };
 
-/*
+/** 
 Complexity Analysis
 
 Let N be the length of list A and M be the length of list B.
@@ -52,7 +60,7 @@ We aren't allocating any additional data structures, so the amount of extra spac
 does not grow with the size of the input.
 */
 
-/*
+/** 
 Approach 2: Hash Table
 Traverse list B and store the address/reference of each node in a hash table. Then for
 each node in list A, check whether or not that node exists in the hash table. If it does, 
@@ -82,7 +90,7 @@ let getIntersectionNode2 = function(headA, headB) {
     return null;
 };
 
-/*
+/** 
 Complexity Analysis
 
 Time complexity : O(N+M).
@@ -107,7 +115,7 @@ list is longer though, it doesn't make any real difference.
 
 */
 
-/*
+/** 
 We know that we've now fully optimized the time complexity: it's impossible to do better 
 than O(N + M) as, in the worst case, we'll need to look at every node at least once. But, 
 is there a way we can get the space complexity down to O(1) while maintaining that awesome 
@@ -168,7 +176,7 @@ let getIntersectionNode3 = function(headA, headB) {
     // at the same time. So pA will be NULL in that case.
 };
 
-/*
+/** 
 Let N be the length of list A and M be the length of list B.
 
 Time complexity : O(N + M).
@@ -189,5 +197,51 @@ Approach 2.
 */
 
 
+/**
+ * 
+ Approch 3:
+ */
+let getIntersectionNode = function(headA, headB){
+    let lenA = 0, lenB = 0;
+    let curA = headA, curB = headB;
 
+    while(curA != null) {
+        curA = curA.next;
+        lenA++;
+    }
 
+    while(curB != null) {
+        curB = curB.next;
+        lenB++;
+    }
+    
+    curA = headA;
+    curB = headB;
+
+    let startPoint = Math.abs(lenB - lenA);
+    
+
+    if(lenA < lenB) {
+       while(startPoint) {
+           curB = curB.next;
+           startPoint--;
+       }
+    } 
+    else if(lenA > lenB) {
+        while(startPoint) {
+            curA = curA.next;
+            startPoint--;
+        }
+    }
+    
+    while(curA != null && curB != null) {
+        if(curA == curB) {
+            return curA;
+        }
+        curA = curA.next;
+        curB = curB.next;
+    }
+    
+    return null;
+
+}
