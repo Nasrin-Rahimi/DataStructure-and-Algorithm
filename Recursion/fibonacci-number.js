@@ -91,7 +91,7 @@ Space complexity: O(N). The size of the data structure is proportional to N.
 /**
  * Approach 3: Top-Down Approach using Memoization
  * Solve for all of the sub-problems, use memoization to store the pre-computed answers, 
- * then return the answer for NN. We will leverage recursion, but in a smarter way by not 
+ * then return the answer for N. We will leverage recursion, but in a smarter way by not 
  * repeating the work to calculate existing values.
 
 Algorithm
