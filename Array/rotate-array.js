@@ -61,7 +61,7 @@ After revering last n-k numbers : 5 6 7 1 2 3 4 --> Result
 
 let rotate = function(nums, k) {
     let len = nums.length;
-    //if we change k, it will not work for k > nums.lenght [1, 2], k = 3
+    //if we put k(not k % len), it will not work for k > nums.lenght [1, 2], k = 3
     k %= len; 
     reverseArray(nums, 0, len - 1);
     reverseArray(nums, 0, k - 1);

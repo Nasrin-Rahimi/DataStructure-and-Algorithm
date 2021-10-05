@@ -1,4 +1,4 @@
-/*
+/** 
 Merge two sorted linked lists and return it as a sorted list. The list should be made by 
 splicing together the nodes of the first two lists.
 
@@ -12,7 +12,7 @@ Input: l1 = [], l2 = [0]
 Output: [0]
 */
 
-/*
+/** 
 Approch1 : Recursive
 
 first check the edges. if either of l1 or l2 is initially null, there is no merge to 
@@ -40,7 +40,7 @@ let mergeTwoLists = function(l1, l2) {
     }
 }
 
-/*
+/** 
 Time complexity : O(n + m)
 
 Because each recursive call increments the pointer to l1 or l2 by one (approaching the 
@@ -55,7 +55,7 @@ been reached, so n + m stack frames consume O(n + m) space.
 
 */
 
-/*
+/** 
 Approch 2 : Iteration
 
 First, we set up a false "prehead" node that allows us to easily return the head of the 
@@ -96,7 +96,7 @@ let mergeTwoLists2 = function (l1, l2) {
     return preHead.next
 }
 
-/*
+/** 
 Time complexity : O(n + m)
 
 Because exactly one of l1 and l2 is incremented on each loop iteration, the while loop 

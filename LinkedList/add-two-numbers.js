@@ -1,4 +1,4 @@
-/*
+/** 
 You are given two non-empty linked lists representing two non-negative integers. The 
 digits are stored in reverse order, and each of their nodes contains a single digit. 
 Add the two numbers and return the sum as a linked list.
@@ -13,7 +13,7 @@ Input: l1 = [0], l2 = [0]
 Output: [0]
 */
 
-/*
+/** 
 Approach 1: Elementary Math
 
 Just like how you would sum two numbers on a piece of paper, we begin by summing the 
@@ -73,7 +73,7 @@ let addTwoNumbers = function(l1, l2) {
     
 };
 
-/*
+/** 
 Time complexity : O(max(m,n)). Assume that m and n represents the length of l1 and l2 
 respectively, the algorithm above iterates at most max(m,n) times.
 

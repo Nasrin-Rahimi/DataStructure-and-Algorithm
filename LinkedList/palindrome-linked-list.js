@@ -1,4 +1,4 @@
-/*
+/** 
 Given the head of a singly linked list, return true if it is a palindrome.
 
 Input: head = [1,2,2,1]
@@ -8,14 +8,14 @@ Input: head = [1,2]
 Output: false
 */
 
-/*Note:
+/**Note:
 When writing your own solution, remember that we need to compare values in the nodes, 
 not the nodes themselves. node_1.val == node_2.val is the correct way of comparing 
 the nodes. node_1 == node_2 will not work the way you expect.
 
 */
 
-/*
+/** 
 An Array List uses an underlying Array to store the values. We can access the value at any 
 position in the list in O(1) time, as long as we know the index. This is based on the 
 underlying memory addressing.
@@ -47,7 +47,7 @@ to a null node.
 
 */
 
-/*
+/** *
 Approch1 : 
 Use Reverse Array list
 */
@@ -77,13 +77,13 @@ let isPalindrome = function(head) {
 
 };
 
-/*
+/** 
 time complexity : O(3N)  == O(N)
 space complecity :  O(2N) == O(N)
 
 */
 
-/*
+/** 
 Approch2 :
 Copy into Array List and then Use Two Pointer Technique
 */
@@ -111,7 +111,7 @@ let isPalindrome = function(head) {
     return true;
 }
 
-/*
+/** 
 Time complexity : O(n), where n is the number of nodes in the Linked List.
 
 In the first part, we're copying a Linked List into an Array List. Iterating down a Linked 

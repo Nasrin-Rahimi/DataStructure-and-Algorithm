@@ -1,4 +1,4 @@
-/*
+/** 
 Given head, the head of a linked list, determine if the linked list has a cycle in it.
 
 There is a cycle in a linked list if there is some node in the list that can be reached 
@@ -23,7 +23,7 @@ Explanation: There is no cycle in the linked list.
 
 */
 
-/*
+/** 
 Approch 1: Using Hash set.
 start from the head and visit all nodes, when visit any node, add it to the hash set.
 If a node is exist in hash set, it shows the list has a circle and return true.
@@ -43,14 +43,14 @@ let hasCycle = function(head) {
     return false;
 };
 
-/*
+/** 
 Time Complexity : O(N)
 Space Complexity : O(N)
 
 It's not efficint solution because use extra space.
 */
 
-/*
+/** 
 Approch 1: Using 2 pointers
 create 2 pointers one is slow and the other is fast pointer. Both pointers start from 
 the head. each step slow pointer move 1 and fast pointer moves 2. if the fast pointer 
@@ -77,7 +77,7 @@ let hasCycle = function(head) {
     return false;
 }
 
-/*
+/** 
 Time Complexity : O(N)
 Space Complexity : O(1) we are not using any extra space
 
@@ -89,7 +89,7 @@ O(N + M) = O(N)
 
 */
 
-/*
+/** 
 Tips:
 1. Always examine if the node is null before you call the next field.
 Getting the next node of a null node will cause the null-pointer error. For example, before 

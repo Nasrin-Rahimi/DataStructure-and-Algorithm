@@ -1,4 +1,4 @@
-/*
+/**
 Given the head of a linked list and an integer val, remove all the nodes of the linked list 
 that has Node.val == val, and return the new head.
 
@@ -12,7 +12,7 @@ Input: head = [7,7,7,7], val = 7
 Output: []
 */
 
-/*
+/** 
 Approach 1: Sentinel Node
 The problem seems to be very easy if one has to delete a node in the middle:
 Pick the node-predecessor prev of the node to delete.
@@ -63,7 +63,7 @@ let removeElements = function(head, val) {
     
     return sentinel.next;
 }
-/*
+/** 
 Time complexity: O(N), it's one pass solution.
 Space complexity: O(1), it's a constant space solution.
 */

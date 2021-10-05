@@ -1,11 +1,11 @@
-/*
+/** 
 Reverse a singly linked list.
 
 Input: head = [1,2,3,4,5]
 Output: [5,4,3,2,1]
 */
 
-/*
+/** 
 Approch1: Iterative
 
 While you are traversing the list, change the current node's next pointer to point to its 
@@ -29,14 +29,14 @@ let reverseList = function(head) {
 
 
 
-/*
+/** 
 In this algorithm, each node will be moved exactly once.
 
 Therefore, the time complexity is O(N), where N is the length of the linked list. 
 We only use constant extra space so the space complexity is O(1).
 */
 
-/*
+/** 
 Approch2 : Iterative
 iterate the nodes in original order and move them to the head of the list one by one
 
@@ -64,7 +64,7 @@ let reverseList2 = function(head) {
     return curHead;
 }
 
-/*
+/** 
 Approch3 : Recursive
 The recursive version is slightly trickier and the key is to work backwards. Assume that 
 the rest of the list had already been reversed, now how do I reverse the front part? Let's 
@@ -97,7 +97,7 @@ let reverseList3 = function(head) {
     return p;
 }
 
-/*
+/** 
 Time complexity : O(n). Assume that n is the list's length, the time complexity is O(n).
 
 Space complexity : O(n). The extra space comes from implicit stack space due to recursion. 

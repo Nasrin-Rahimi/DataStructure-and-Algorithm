@@ -1,4 +1,4 @@
-/*
+/** 
 Given the head of a linked list, remove the nth node from the end of the list and 
 return its head.
 
@@ -12,7 +12,7 @@ Input: head = [1,2], n = 1
 Output: [1]
 */
 
-/*
+/** 
 Approach 1: Two pass algorithm
 We notice that the problem could be simply reduced to another one : Remove the (L - n + 1)th 
 node from the beginning in the list , where L is the list length. This problem is easy to 
@@ -57,7 +57,7 @@ let removeNthFromEnd = function(head, n) {
     return dummy.next;
 }
 
-/*
+/** 
 Time complexity : O(L).
 
 The algorithm makes two traversal of the list, first to calculate list length L and second 

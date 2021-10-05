@@ -1,4 +1,4 @@
-/*
+/** 
 Given the head of a linked list, return the node where the cycle begins. If there is 
 no cycle, return null.
 
@@ -10,7 +10,7 @@ index of the node that tail's next pointer is connected to (0-indexed). It is -1
 Do not modify the linked list.
 */
 
-/*
+/** 
 Approch 1: Using Hash set.
 start from the head and visit all nodes, when visit any node, add it to the hash set.
 If a node is exist in hash set, it shows the list has a circle and this is the first
@@ -30,14 +30,14 @@ let detectCycle = function(head) {
    return null;
 };
 
-/*
+/** 
 Time Complexity : O(N)
 Space Complexity : O(N)
 
 It's not efficint solution because use extra space.
 */
 
-/*
+/** 
 Approch 2: 2 pointer
 We have two steps, first find if the list has circle or not with slow and fast pointer.
 then find the first node in the circle, if there is a circle
@@ -83,7 +83,7 @@ let detectCycle2 = function(head) {
     return ptr1;
 }
 
-/*
+/** 
 Time Complexity : O(N)
 Space Complexity : O(1)
 */

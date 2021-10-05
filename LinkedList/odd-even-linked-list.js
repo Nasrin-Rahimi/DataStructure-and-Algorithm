@@ -1,4 +1,4 @@
-/*
+/** 
 Given the head of a singly linked list, group all the nodes with odd indices together 
 followed by the nodes with even indices, and return the reordered list.
 
@@ -49,7 +49,7 @@ let oddEvenList = function(head) {
     return head;
 }
 
-/*
+/** 
 Time complexity : O(n). There are total n nodes and we visit each node once.
 
 Space complexity : O(1). All we need is the four pointers.
