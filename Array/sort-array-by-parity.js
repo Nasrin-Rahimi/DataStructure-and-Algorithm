@@ -1,4 +1,4 @@
-/*
+/** 
 Given an integer array nums, move all the even integers at the beginning of the array 
 followed by all the odd integers.
 
@@ -12,7 +12,7 @@ Input: nums = [0]
 Output: [0]
 */
 
-/*
+/** 
 Approch 1: Use helper array
 
 space complecity is no optimal (O(n))
@@ -20,7 +20,6 @@ space complecity is no optimal (O(n))
 
 let sortArrayByParity = function(nums) {
     let sortArray = [];
-    let currElement;
 
     for (let i = 0; i < nums.length; i++) {
         if(nums[i] % 2 == 0) {
@@ -29,14 +28,14 @@ let sortArrayByParity = function(nums) {
     }
 
    for(let i = 0; i < nums.length; i++) {
-    if(nums[i] % 2 != 0) {
-        sortArray.push( nums[i]);
-    }
+        if(nums[i] % 2 != 0) {
+            sortArray.push( nums[i]);
+        }
    }
     return sortArray;
 };
 
-/*
+/** 
 Approch 2 : Use 2 pointer
 */
 

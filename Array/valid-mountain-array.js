@@ -62,7 +62,7 @@ Space Complexity: O(1).
 
 /** 
 Approch 2:
-find the peak or top the  check if all elements before peak(top) are less than peak and
+find the peak or top then check if all elements before peak(top) are less than peak and
 all elements after peak are less than peak.
 
 edges:

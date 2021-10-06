@@ -1,4 +1,4 @@
-/*
+/** 
 Given an integer array nums sorted in non-decreasing order, return an array of 
 the squares of each number sorted in non-decreasing order.
 Input: nums = [-4,-1,0,3,10]
@@ -7,7 +7,9 @@ Explanation: After squaring, the array becomes [16,1,0,9,100].
 After sorting, it becomes [0,1,9,16,100].
 */
 
-//approch 1:
+/**
+ * approch 1:
+ * */
 let sortSquares = function(nums) {
     let SquaredNums = [];
 
@@ -23,7 +25,7 @@ let sortSquares = function(nums) {
 //time complexity == O(NlogN)
 //Space Complexity == O(n)
 
-/*approch 2
+/** approch 2
 efficient solution is based on the two-pointer method as the array is already sorted we can
 compare the first and last element to check which is bigger and proceed with the result. 
 

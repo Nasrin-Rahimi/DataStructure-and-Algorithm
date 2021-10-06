@@ -6,7 +6,7 @@ An array has a fixed capacity and we need to specify the size of the array when 
 
 Therefore, most programming languages offer built-in dynamic array which is still a random access list data structure but with variable size. For example, we have vector in C++ and ArrayList in Java.
 
-Dynamic Array in JavaScript means either increasing or decreasing the size of the array automatically. JavaScript is not typed dependent so there is no static array. JavaScript directly allows array as dynamic only. By addin element to array, the size of array will be increased and by deleting elment from array, the size of array will be decreased. 
+Dynamic Array in JavaScript means either increasing or decreasing the size of the array automatically. JavaScript is not typed dependent so there is no static array. JavaScript directly allows array as dynamic only. By adding element to array, the size of array will be increased and by deleting elment from array, the size of array will be decreased. 
 
  2D Array
 Similar to a one-dimensional array, a two-dimensional array also consists of a sequence of elements. But the elements can be laid out in a rectangular grid rather than a line.
