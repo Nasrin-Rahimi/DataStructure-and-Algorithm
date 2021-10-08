@@ -141,3 +141,32 @@ Each element can be visited atmost twice, once by the right pointer(i) and (atmo
 the left pointer.
 Space complexity: O(1) extra space. Only constant space required for left, sum, ans and i.
  */
+
+/** 
+ * My Approch: sorted array by decending order. put sum eaqul to 0 and start to iterate 
+ * over the array, in each iteration add current value to sum and add one to count, then 
+ * check if sum is more than target minus that value from some and increment count until 
+ * get the answer or end of iteration. 
+ */
+
+ let result = function(nums, target) {
+	nums = nums.sort((a, b) => b - a);
+	let j = 0, sum = 0, count = 0;
+
+	for(let i = 0; i < nums.length; i++) {
+	    sum  += nums[i];
+        count++;
+	    if(sum == target) {
+	        return count;
+        }else if(sum > target) {
+	        count--;
+            sum = sum - nums[j];
+            j++;
+        }
+    }
+
+    return 0;
+}
+
+//this approch won't work on sum > target 
+
