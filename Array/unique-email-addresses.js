@@ -87,18 +87,17 @@ let numUniqueEmails = function(emails) {
 //OR use split and reqular expression
 
 let numUniqueEmails = function(emails) {
-    let uniqEmails = new Set(), count = 0;
+    let uniqEmails = new Set();
 
 	for(let i = 0; i < emails.length; i++) {
         let email = emails[i].split('@');
         email[0] = email[0].replace(/\./g,"").replace(/\+.*/,'');
         email = email.join('@');
-        if(!uniqEmails.has(email)) {
-            count++;
-            uniqEmails.add(email);
-        }
+        uniqEmails.add(email);
     }
-    return count;
+    //because set keep uniqe elements we don't need to check email exitance in set
+    //and simply the size of set will be the number of uniqe emails.
+    return uniqEmails.size; 
 
 };
 
