@@ -104,3 +104,73 @@ O(n^3 + 50n^2 + 10000) is O(n^3)
 O((n + 30) * (n + 5)) is O(n^2)
 
 Again, we can get away with this because the less significant terms quickly become, well, less significant as n gets big.
+
+We're usually talking about the "worst case"
+
+Often this "worst case" stipulation is implied. But sometimes you can impress your interviewer by saying it explicitly.
+
+Sometimes the worst case runtime is significantly worse than the best case runtime:
+
+let contains = function(haystack, needle){
+
+    # Does the haystack contain the needle?
+    for(let i = 0; i < haystack.length; i++){
+        if (haystack[i] == needle){
+            return True;
+        }
+    }
+    return False;
+}
+
+Here we might have 100 items in our haystack, but the first item might be the needle, in which case we would return in just 1 iteration of our loop.
+
+In general we'd say this is O(n) runtime and the "worst case" part would be implied. But to be more specific we could say this is worst case O(n) and best case O(1) runtime. For some algorithms we can also make rigorous statements about the "average case" runtime.
+
+Space complexity: the final frontier
+
+Sometimes we want to optimize for using less memory instead of (or in addition to) using less time. Talking about memory cost (or "space complexity") is very similar to talking about time cost. We simply look at the total size (relative to the size of the input) of any new variables we're allocating.
+
+This function takes O(1) space (we use a fixed number of variables):
+
+let sayHiNTimes = function(n){
+    for(let i = 0;i < n; i++) {
+        console.log("hi");
+    }
+}
+
+This function takes O(n) space (the size of hi_list scales with the size of the input):
+
+let listOfHiNTimes(n){
+    let hiList = [];
+    for(let i = 0; i < n; i++){
+        hiList.push("hi");
+    }
+    return hiList;
+}
+
+Usually when we talk about space complexity, we're talking about additional space, so we don't include space taken up by the inputs. For example, this function takes constant space even though the input has n items:
+
+let getLargestItem = function(items){
+    let largest = infinity;
+    for(let i = 0; i < items.length; i++){
+        if (items[i] > largest){
+            largest = items[i];
+        }
+    return largest;
+}
+
+Sometimes there's a tradeoff between saving time and saving space, so you have to decide which one you're optimizing for.
+
+Big O analysis is awesome except when it's not
+
+You should make a habit of thinking about the time and space complexity of algorithms as you design them. Before long this'll become second nature, allowing you to see optimizations and potential performance issues right away.
+
+Asymptotic analysis is a powerful tool, but wield it wisely.
+
+Big O ignores constants, but sometimes the constants matter. If we have a script that takes 5 hours to run, an optimization that divides the runtime by 5 might not affect big O, but it still saves you 4 hours of waiting.
+
+Beware of premature optimization. Sometimes optimizing time or space negatively impacts readability or coding time. For a young startup it might be more important to write code that's easy to ship quickly or easy to understand later, even if this means it's less time and space efficient than it could be.
+
+But that doesn't mean startups don't care about big O analysis. A great engineer (startup or otherwise) knows how to strike the right balance between runtime, space, implementation time, maintainability, and readability.
+
+You should develop the skill to see time and space optimizations, as well as the wisdom to judge if those optimizations are worthwhile.
