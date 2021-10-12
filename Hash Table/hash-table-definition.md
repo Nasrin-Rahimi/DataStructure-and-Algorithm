@@ -1,5 +1,26 @@
 Hash Table is a data structure which organizes data using hash functions in order to support quick insertion and search.
 
+Other names for hash table are: 
+hash, hash map, map, unordered map, dictionary
+
+A hash function takes data (like a string, or a file’s contents) and outputs a hash, a fixed-size string or number.
+
+For example, here’s the MD5 hash (MD5 is a common hash function) for a file simply containing “cake”:
+
+  DF7CE038E2FA96EDF39206F898DF134D
+
+And here’s the hash for the same file after it was edited to be “cakes”:
+
+  0E9091167610558FDAE6F69BD6716771
+
+Notice the hash is completely different, even though the files were similar. Here's the hash for a long film I have on my hard drive:
+
+  664f67364296d08f31aec6fea4e9b83f
+
+The hash is the same length as my other hashes, but this time it represents a much bigger file—461Mb.
+
+We can think of a hash as a "fingerprint." We can trust that a given file will always have the same hash, but we can't go from the hash back to the original file. Sometimes we have to worry about multiple files having the same hash value, which is called a hash collision.
+
 There are two different kinds of hash tables: hash set and hash map.
 
 The hash set is one of the implementations of a set data structure to store no repeated values.
@@ -9,6 +30,25 @@ The hash map is one of the implementations of a map data structure to store (key
 It is easy to use a hash table with the help of standard template libraries. Most common languages such as Java, C++ and Python support both hash set and hash map.
 
 By choosing a proper hash function, the hash table can achieve wonderful performance in both insertion and search.
+
+Strengths:
+Fast lookups. Lookups take O(1)O(1) time on average.
+Flexible keys. Most data types can be used for keys, as long as they're hashable.
+
+	    Average	    Worst Case
+space	O(n)	    O(n)
+insert	O(1)	    O(n)
+lookup	O(1)	    O(n)
+delete	O(1)	    O(n)
+
+Weaknesses:
+Slow worst-case lookups. Lookups take O(n)O(n) time in the worst case.
+
+Unordered. Keys aren't stored in a special order. If you're looking for the smallest key, the largest key, or all the keys in a range, you'll need to look through every key to find it.
+
+Single-directional lookups. While you can look up the value for a given key in O(1) time, looking up the keys for a given value requires looping through the whole dataset—O(n) time.
+
+Not cache-friendly. Many hash table implementations use linked lists, which don't put data next to each other in memory.
 
 The Principle of Hash Table
 
