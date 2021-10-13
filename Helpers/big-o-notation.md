@@ -4,7 +4,7 @@ Big O notation is the language we use for talking about how long an algorithm ta
 
 It's like math except it's an awesome, not-boring kind of math where you get to wave your hands through the details and just focus on what's basically happening.
 
-With big O notation we express the runtime in terms of—brace yourself—how quickly it grows relative to the input, as the input gets arbitrarily large.
+With big O notation we express the runtime in terms of — brace yourself — how quickly it grows relative to the input, as the input gets arbitrarily large.
 
 Let's break that down:
 
@@ -133,7 +133,7 @@ Sometimes we want to optimize for using less memory instead of (or in addition t
 This function takes O(1) space (we use a fixed number of variables):
 
 let sayHiNTimes = function(n){
-    for(let i = 0;i < n; i++) {
+    for(let i = 0; i < n; i++) {
         console.log("hi");
     }
 }
@@ -174,3 +174,17 @@ Beware of premature optimization. Sometimes optimizing time or space negatively 
 But that doesn't mean startups don't care about big O analysis. A great engineer (startup or otherwise) knows how to strike the right balance between runtime, space, implementation time, maintainability, and readability.
 
 You should develop the skill to see time and space optimizations, as well as the wisdom to judge if those optimizations are worthwhile.
+
+O(1) or constant means the time or space stays about the same even as the dataset gets bigger and bigger.
+
+O(n) or linear means the time or space grows proportionally as the dataset grows.
+
+So O(1) space is much smaller than O(n) space. And O(1) time is much faster than O(n) time.
+
+In big O notation, we say fixed-width integers take up constant space or O(1) space.
+
+And because they have a constant number of bits, most simple operations on fixed-width integers (addition, subtraction, multiplication, division) take constant time (O(1) time).
+
+So fixed-width integers are very space efficient and time efficient.
+
+But that efficiency comes at a cost—their values are limited. Specifically, they're limited to 2^n possibilities, where n is the number of bits.
