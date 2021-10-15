@@ -34,3 +34,29 @@ Now we just have to evaluate the right side. What power do we have to raise 10 t
     x = 2
 
 That's how we use logarithms to pull a variable down from an exponent.
+
+Logarithm rules
+
+These are helpful if you're trying to do some algebra stuff with logs.
+
+Simplification: log_b (b ^ x) = x ... Useful for bringing a variable down from an exponent.
+
+Multiplication: log_b (x * y) = log_b (x) + log_b (y)
+
+Division: log_b (x / y) = log_b (x) - log_b (y)
+
+Powers: log_b (x ^ y) = y * log_b (x)
+
+Change of base: log_b (x) = log_c (x) / log_c (b)  Useful for changing the base of a logarithm from b to c.
+
+Where logs come up in algorithms and interviews
+
+"How many times must we double 1 before we get to n" is a question we often ask ourselves in computer science. Or, equivalently, "How many times must we divide n in half in order to get back down to 1?"
+
+Can you see how those are the same question? We're just going in different directions! From n to 1 by dividing by 2, or from 1 to n by multiplying by 2. Either way, it's the same number of times that we have to do it.
+
+The answer to both of these questions is log_2 (n).
+
+For seeing some example read:
+
+https://www.interviewcake.com/article/python/logarithms?course=fc1&section=algorithmic-thinking
