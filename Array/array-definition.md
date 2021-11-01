@@ -25,11 +25,13 @@ In the worst case we're inserting into the 0th index in the array (prepending), 
 *****************************
 
 Deleting
-Array elements are stored adjacent to each other. So when we remove an element, we have to fill in the gap—"scooting over" all the elements that were after it:
+Array elements are stored adjacent to each other. So when we remove an element, we have to fill in the gap—"scooting over" all the elements that were after it.
 
 In the worst case we're deleting the 0th item in the array, so we have to "scoot over" everything else in the array. That's O(n) time.
 
 Why not just leave the gap? Because the quick lookup power of arrays depends on everything being sequential and uninterrupted. This lets us predict exactly how far from the start of the array the 138th or 9,203rd item is. If there are gaps, we can no longer predict exactly where each array item will be.
+
+*****************************
 
 An array can have one or more dimensions. one-dimensional array, called the linear array.
 
@@ -82,7 +84,7 @@ That's the worst case. But in the best case (and the average case), appends are 
 Amortized cost of appending
 The time cost of each special O(n) "doubling append" doubles each time.
 At the same time, the number of O(1) appends you get until the next doubling append also doubles.
-These two things sort of "cancel out," and we can say each append has an average cost or amortized cost of O(1). ↴
+These two things sort of "cancel out," and we can say each append has an average cost or amortized cost of O(1). 
 
 Given this, in industry we usually wave our hands and say dynamic arrays have a time cost of 
 O(1) for appends, even though strictly speaking that's only true for the average case or the amortized cost.
@@ -106,7 +108,7 @@ Careful: there's a hidden time and space cost here! It's tempting to think of sl
 1- allocating a new list
 2- copying the elements from the original list to the new list
 
-This takes O(n) time and O(n) space, where nn is the number of elements in the resulting list.
+This takes O(n) time and O(n) space, where n is the number of elements in the resulting list.
 
 *****************************
 In-Place Algorithm
@@ -140,7 +142,6 @@ So you can use the two-pointer technique:
 One pointer starts from the beginning while the other pointer starts from the end.
 
 And it is worth noting that this technique is often used in a sorted array.
-
 
 *****************************
 
