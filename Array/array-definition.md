@@ -71,6 +71,20 @@ Careful: there's a hidden time and space cost here! It's tempting to think of sl
 2- copying the elements from the original list to the new list
 
 This takes O(n) time and O(n) space, where nn is the number of elements in the resulting list.
+
+*****************************
+In-Place Algorithm
+In-place algorithms are sometimes called destructive, since the original input is "destroyed" (or modified) during the function call.
+
+Careful: "In-place" does not mean "without creating any additional variables!" Rather, it means "without creating a new copy of the input." In general, an in-place function will only create additional variables that are O(1) space.
+
+An out-of-place function doesn't make any changes that are visible to other functions. Usually, those functions copy any data structures or objects before manipulating and changing them.
+
+Working in-place is a good way to save time and space. An in-place algorithm avoids the cost of initializing or copying data structures, and it usually has an O(1) space cost.
+
+But be careful: an in-place algorithm can cause side effects. Your input is "destroyed" or "altered," which can affect code outside of your function. 
+
+Generally, out-of-place algorithms are considered safer because they avoid side effects. You should only use an in-place algorithm if you're space constrained or you're positive you don't need the original input anymore, even for debugging.
 *****************************
 
  Two-pointer Technique - Scenario II:
