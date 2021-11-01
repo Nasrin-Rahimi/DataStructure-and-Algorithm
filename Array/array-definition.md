@@ -15,10 +15,14 @@ append	O(1)
 insert	O(n)
 delete	O(n)
 
+*****************************
+
 Inserting
 If we want to insert something into an array, first we have to make space by "scooting over" everything starting at the index we're inserting into
 
 In the worst case we're inserting into the 0th index in the array (prepending), so we have to "scoot over" everything in the array. That's O(n) time.
+
+*****************************
 
 Deleting
 Array elements are stored adjacent to each other. So when we remove an element, we have to fill in the gap—"scooting over" all the elements that were after it:
@@ -35,6 +39,55 @@ Therefore, most programming languages offer built-in dynamic array which is stil
 
 Dynamic Array in JavaScript means either increasing or decreasing the size of the array automatically. JavaScript is not typed dependent so there is no static array. JavaScript directly allows array as dynamic only. By adding element to array, the size of array will be increased and by deleting elment from array, the size of array will be decreased. 
 
+Other names for dynamic array:
+array list, growable array, resizable array, mutable array
+
+
+    Average Case	Worst Case
+space	O(n)	    O(n)
+lookup	O(1)	    O(1)
+append	O(1)	    O(n)
+insert	O(n)	    O(n)
+delete	O(n)	    O(n)
+
+Strengths:
+Fast lookups. Just like arrays, retrieving the element at a given index takes O(1) time.
+Variable size. You can add as many items as you want, and the dynamic array will expand to hold them.
+Cache-friendly. Just like arrays, dynamic arrays place items right next to each other in memory, making efficient use of caches.
+
+Weaknesses:
+Slow worst-case appends. Usually, adding a new element at the end of the dynamic array takes O(1) time. But if the dynamic array doesn't have any room for the new item, it'll need to expand, which takes O(n) time.
+Costly inserts and deletes. Just like arrays, elements are stored adjacent to each other. So adding or removing an item in the middle of the array requires "scooting over" other elements, which takes O(n) time.
+
+*****************************
+
+Size vs. Capacity
+When you allocate a dynamic array, your dynamic array implementation makes an underlying fixed-size array. The starting size depends on the implementation—let's say our implementation uses 10 indices. Now say we append 4 items to our dynamic array. At this point, our dynamic array has a length of 4. But the underlying array has a length of 10.
+
+We'd say this dynamic array's size is 4 and its capacity is 10. The dynamic array stores an end_index to keep track of where the dynamic array ends and the extra capacity begins.
+
+Doubling Appends
+What if we try to append an item but our array's capacity is already full?
+
+To make room, dynamic arrays automatically make a new, bigger underlying array. Usually twice as big.
+
+Why not just extend the existing array? Because that memory might already be taken by another program.
+
+Each item has to be individually copied into the new array.
+
+Copying each item over costs O(n) time! So whenever appending an item to our dynamic array forces us to make a new double-size underlying array, that append takes O(n) time.
+
+That's the worst case. But in the best case (and the average case), appends are just O(1) time.
+
+Amortized cost of appending
+The time cost of each special O(n) "doubling append" doubles each time.
+At the same time, the number of O(1) appends you get until the next doubling append also doubles.
+These two things sort of "cancel out," and we can say each append has an average cost or amortized cost of O(1). ↴
+
+Given this, in industry we usually wave our hands and say dynamic arrays have a time cost of 
+O(1) for appends, even though strictly speaking that's only true for the average case or the amortized cost.
+
+*****************************
  2D Array
 Similar to a one-dimensional array, a two-dimensional array also consists of a sequence of elements. But the elements can be laid out in a rectangular grid rather than a line.
 
@@ -43,23 +96,6 @@ In some languages, the multidimensional array is actually implemented internally
 Don't want to specify the size of your array ahead of time? One option: use a dynamic array.
 
 Want to look up items by something other than an index? Use a dictionary.
-
-Two-pointer Technique - Scenario I:
-We solve some problems by iterating the array. Typically, we only use one pointer starting from the first element and ending at the last one to do iteration. However, sometimes, we might need to use two pointers at the same time to do the iteration. For example for Reverse the elements in an array.
-
-The idea is to swap the first element with the end, advance to the next element and swapping repeatedly until it reaches the middle position. 
-
-We can use two pointers at the same time to do the iteration: one starts from the first element and another starts from the last element. Continue swapping the elements until the two pointers meet each other.
-
-To summarize, one of the typical scenarios to use two-pointer technique is that you want to
-
-Iterate the array from two ends to the middle.
-
-So you can use the two-pointer technique:
-
-One pointer starts from the beginning while the other pointer starts from the end.
-
-And it is worth noting that this technique is often used in a sorted array.
 
 *****************************
 
@@ -85,6 +121,27 @@ Working in-place is a good way to save time and space. An in-place algorithm avo
 But be careful: an in-place algorithm can cause side effects. Your input is "destroyed" or "altered," which can affect code outside of your function. 
 
 Generally, out-of-place algorithms are considered safer because they avoid side effects. You should only use an in-place algorithm if you're space constrained or you're positive you don't need the original input anymore, even for debugging.
+
+*****************************
+
+Two-pointer Technique - Scenario I:
+We solve some problems by iterating the array. Typically, we only use one pointer starting from the first element and ending at the last one to do iteration. However, sometimes, we might need to use two pointers at the same time to do the iteration. For example for Reverse the elements in an array.
+
+The idea is to swap the first element with the end, advance to the next element and swapping repeatedly until it reaches the middle position. 
+
+We can use two pointers at the same time to do the iteration: one starts from the first element and another starts from the last element. Continue swapping the elements until the two pointers meet each other.
+
+To summarize, one of the typical scenarios to use two-pointer technique is that you want to
+
+Iterate the array from two ends to the middle.
+
+So you can use the two-pointer technique:
+
+One pointer starts from the beginning while the other pointer starts from the end.
+
+And it is worth noting that this technique is often used in a sorted array.
+
+
 *****************************
 
  Two-pointer Technique - Scenario II:
