@@ -19,7 +19,7 @@ and so on until we reach the middle.
 
 function reverse(arrayOfChars) {
     
-    let leftIndex = 0;
+  let leftIndex = 0;
   let rightIndex = arrayOfChars.length - 1;
 
   while (leftIndex < rightIndex) {
