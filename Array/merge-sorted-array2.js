@@ -226,5 +226,99 @@ currentIndexAlices++;
 That's not DRY. ↴ Maybe we can avoid repeating ourselves by bringing our code back down to just 2 cases.
 
 See if you can do this in just one "if else" by combining the conditionals.
+
+You might try to simply squish the middle cases together:
  */
+
+if (isAlicesArrayExhausted ||
+  (myArray[currentIndexMine] < alicesArray[currentIndexAlices])) {
+
+  mergedArray[currentIndexMerged] = myArray[currentIndexMine];
+  currentIndexMine++;
+}
+/**
+ But what happens when myArray is exhausted?
+
+ myArray[currentIndexMine] will be undefined. But our code will still work! JavaScript 
+ gives false for any comparison with undefined, and we want false here—we're checking if 
+ the element in myArray comes first, and it doesn't if myArray is empty. But this code 
+ wouldn't work in many other languages—we'd get an error when we tried to access an 
+ element in an empty array or compare a number with a non-numerical value like undefined.
+
+Even though our code works, it's messy to access and compare an element that doesn't 
+exist. Let's adjust our code so we're more explicit and don't rely on JavaScript's 
+uncommon and nonobvious behavior of giving false in comparisons with undefined.
+
+*/
+
+/**
+Solution
+First, we allocate our answer array, getting its size by adding the size of myArray and alicesArray.
+
+We keep track of a current index in myArray, a current index in alicesArray, and a current index in mergedArray. So at each step, there's a "current item" in alicesArray and in myArray. The smaller of those is the next one we add to the mergedArray!
+
+But careful: we also need to account for the case where we exhaust one of our arrays and there are still elements in the other. To handle this, we say that the current item in myArray is the next item to add to mergedArray only if myArray is not exhausted AND, either:
+
+alicesArray is exhausted, or
+the current item in myArray is less than the current item in alicesArray
+ */
+
+function mergeArrays(myArray, alicesArray) {
+
+    // Set up our mergedArray
+    const mergedArray = [];
   
+    let currentIndexAlices = 0;
+    let currentIndexMine = 0;
+    let currentIndexMerged = 0;
+  
+    while (currentIndexMerged < (myArray.length + alicesArray.length)) {
+  
+      const isMyArrayExhausted = currentIndexMine >= myArray.length;
+      const isAlicesArrayExhausted = currentIndexAlices >= alicesArray.length;
+  
+      // Case: next comes from my array
+      // My array must not be exhausted, and EITHER:
+      // 1) Alice's array IS exhausted, or
+      // 2) The current element in my array is less
+      //    than the current element in Alice's array
+      if (!isMyArrayExhausted && (isAlicesArrayExhausted ||
+        (myArray[currentIndexMine] < alicesArray[currentIndexAlices]))) {
+  
+        mergedArray[currentIndexMerged] = myArray[currentIndexMine];
+        currentIndexMine++;
+  
+        // Case: next comes from Alice's array
+      } else {
+        mergedArray[currentIndexMerged] = alicesArray[currentIndexAlices];
+        currentIndexAlices++;
+      }
+  
+      currentIndexMerged++;
+    }
+  
+    return mergedArray;
+  }
+
+/**
+The if statement is carefully constructed to avoid indexing past the end of an array, 
+because JavaScript would give us undefined and we don't want to compare undefined with an 
+integer. We take advantage of JavaScript's short circuit evaluation ↴ and check first if 
+the arrays are exhausted.
+
+Complexity
+O(n) time and O(n) additional space, where nn is the number of items in the merged array.
+
+The added space comes from allocating the mergedArray. There's no way to do this 
+" in place" ↴ because neither of our input arrays are necessarily big enough to hold 
+the merged array.
+
+But if our inputs were linked lists, we could avoid allocating a new structure and do 
+the merge by simply adjusting the next pointers in the list nodes!
+
+In our implementation above, we could avoid tracking currentIndexMerged and just compute 
+it on the fly by adding currentIndexMine and currentIndexAlices. This would only save us 
+one integer of space though, which is hardly anything. It's probably not worth the added 
+code complexity.
+
+*/
