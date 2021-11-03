@@ -360,3 +360,19 @@ function mergeArrays(arr1, arr2) {
 /**
 O(n) time and O(n) additional space, where n is the number of items in the merged array.
 */
+
+/**
+Bonus
+What if we wanted to merge several sorted arrays? Write a function that takes as an input 
+an array of sorted arrays and outputs a single sorted array with all the items from each 
+array.
+
+Do we absolutely have to allocate a new array to use for the merged output? 
+Where else could we store our merged array? How would our function need to change?
+
+What We Learned
+We spent a lot of time figuring out how to cleanly handle edge cases.
+
+Sometimes it's easy to lose steam at the end of a coding interview when you're debugging. 
+But keep sprinting through to the finish! Think about edge cases. Look for off-by-one errors.
+ */

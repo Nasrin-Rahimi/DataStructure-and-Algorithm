@@ -3,8 +3,8 @@
  * to see the times in a day when everyone is available.
 
 To do this, you’ll need to know when any team is having a meeting. In HiCal, a meeting is 
-stored as objects(Helpers/object.md) with integer properties startTime and endTime. These integers represent 
-the number of 30-minute blocks past 9:00am.
+stored as objects(Helpers/object.md) with integer properties startTime and endTime. These 
+integers represent the number of 30-minute blocks past 9:00am.
 
 For example:
 
@@ -93,6 +93,7 @@ How would we formalize this as an algorithm? Be sure to consider these edge case
 
 The end time of the first meeting and the start time of the second meeting are equal. For 
 example: [{ startTime: 1, endTime: 2 }, { startTime: 2, endTime: 3 }]
+
 The second meeting ends before the first meeting ends. For example: 
 [{ startTime: 1, endTime: 5 }, { startTime: 2, endTime: 3 }]
 
