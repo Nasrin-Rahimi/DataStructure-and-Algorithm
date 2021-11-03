@@ -175,4 +175,56 @@ code that up?
 
 Be sure you check the cases in the right order!
  */
+
+function mergeArrays(myArray, alicesArray) {
+
+    const mergedArray = [];
+  
+    let currentIndexAlices = 0;
+    let currentIndexMine = 0;
+    let currentIndexMerged = 0;
+  
+    while (currentIndexMerged < (myArray.length + alicesArray.length)) {
+  
+      // Case: my array is exhausted
+      if (currentIndexMine >= myArray.length) {
+        mergedArray[currentIndexMerged] = alicesArray[currentIndexAlices];
+        currentIndexAlices++;
+  
+        // Case: Alice's array is exhausted
+      } else if (currentIndexAlices >= alicesArray.length) {
+        mergedArray[currentIndexMerged] = myArray[currentIndexMine];
+        currentIndexMine++;
+  
+        // Case: my item is next
+      } else if (myArray[currentIndexMine] < alicesArray[currentIndexAlices]) {
+        mergedArray[currentIndexMerged] = myArray[currentIndexMine];
+        currentIndexMine++;
+         // Case: Alice's item is next
+    } else {
+        mergedArray[currentIndexMerged] = alicesArray[currentIndexAlices];
+        currentIndexAlices++;
+      }
+  
+      currentIndexMerged++;
+    }
+  
+    return mergedArray;
+  }
+
+/**
+Cool. This'll work, but it's a bit repetitive. We have these two lines twice:
+
+  mergedArray[currentIndexMerged] = myArray[currentIndexMine];
+currentIndexMine++;
+
+Same for these two lines:
+
+  mergedArray[currentIndexMerged] = alicesArray[currentIndexAlices];
+currentIndexAlices++;
+
+That's not DRY. ↴ Maybe we can avoid repeating ourselves by bringing our code back down to just 2 cases.
+
+See if you can do this in just one "if else" by combining the conditionals.
+ */
   
