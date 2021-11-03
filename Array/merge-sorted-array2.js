@@ -307,7 +307,7 @@ integer. We take advantage of JavaScript's short circuit evaluation ↴ and chec
 the arrays are exhausted.
 
 Complexity
-O(n) time and O(n) additional space, where nn is the number of items in the merged array.
+O(n) time and O(n) additional space, where n is the number of items in the merged array.
 
 The added space comes from allocating the mergedArray. There's no way to do this 
 " in place" ↴ because neither of our input arrays are necessarily big enough to hold 
@@ -321,4 +321,42 @@ it on the fly by adding currentIndexMine and currentIndexAlices. This would only
 one integer of space though, which is hardly anything. It's probably not worth the added 
 code complexity.
 
+*/
+
+/**
+Use to pointer in another way
+ */
+
+function mergeArrays(arr1, arr2) {
+    let mergedArray = [];
+
+    let p1 = 0, p2 = 0;
+
+    while(p1 < arr1.length && p2 < arr2.length) {
+        if(arr1[p1] < arr2[p2]) {
+            mergedArray.push(arr1[p1]);
+            p1++;
+        } else {
+            mergedArray.push(arr2[p2]);
+            p2++;
+        }
+    }
+
+    if(p1 < arr1.length) {
+        for(let i = 0; i < arr1.length; i++) {
+            mergedArray.push(arr1[i]);
+            i++;
+        }
+    } else if(p2 < arr2.length) {
+        for(let i = 0; i < arr2.length; i++) {
+            mergedArray.push(arr2[i]);
+            i++;
+        }
+    }
+
+    return mergedArray;
+}
+
+/**
+O(n) time and O(n) additional space, where n is the number of items in the merged array.
 */
