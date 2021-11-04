@@ -55,3 +55,44 @@ function binarySearch(target, nums) {
   
     return false;
   }  
+
+/**
+How did we know the time cost of binary search was O(lg(n))? The only non-constant part of 
+our time cost is the number of times our while loop runs. Each step of our while loop 
+cuts the range (dictated by floorIndex and ceilingIndex) in half, until our range has 
+just one element left.
+
+So the question is, "how many times must we divide our original array size (n) in half 
+until we get down to 1?"
+
+n * 1/2 * 1/2 * 1/2 * 1/2 * ... = 1
+
+How many 1/2's are there? We don't know yet, but we can call that number x:
+
+n * (1/2)^x = 1
+
+Now we solve for x:
+
+n * (1^x / 2^x) = 1
+
+n * (1 / 2^x) = 1
+
+n / 2^x = 1
+
+n = 2^x
+
+Now to get the x out of the exponent. How do we do that? Logarithms.
+
+Recall that log_{10} 100 means, "what power must we raise 10 to, to get 100"? The answer is 2.
+
+log_{2} n = log_{2} 2^x
+
+The right hand side asks, "what power must we raise 2 to, to get 2^x?" Well, that's just x.
+
+log_{2} n = x
+
+So there it is. The number of times we must divide n in half to get down to 1 is log_{2} n.
+So our total time cost is O(lg(n))
+
+Careful: we can only use binary search if the input array is already sorted.
+ */
