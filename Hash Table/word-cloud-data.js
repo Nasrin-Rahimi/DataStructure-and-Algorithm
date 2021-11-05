@@ -281,16 +281,30 @@ immediately populate each word in our map!
 Solution
 In our solution, we make four decisions:
 
-We use a class. This allows us to tie our methods together, calling them on instances of our class instead of passing references.
-To handle duplicate words with different cases, we choose to make a word uppercase in our map only if it is always uppercase in the original string. While this is a reasonable approach, it is imperfect (consider proper nouns that are also lowercase words, like "Bill" and "bill").
-We build our own splitWords() method instead of using a built-in one. This allows us to pass each word to our addWordToMap() method as it was split, and to split words and eliminate punctuation in one iteration.
-We make our own isLetter() method instead of using regular expressions. Either approach would work for this challenge.
-To split the words in the input string and populate a map of the unique words to the number of times they occurred, we:
+We use a class. This allows us to tie our methods together, calling them on instances of 
+our class instead of passing references.
+To handle duplicate words with different cases, we choose to make a word uppercase in our 
+map only if it is always uppercase in the original string. While this is a reasonable 
+approach, it is imperfect (consider proper nouns that are also lowercase words, like 
+    "Bill" and "bill").
+We build our own splitWords() method instead of using a built-in one. This allows us to 
+pass each word to our addWordToMap() method as it was split, and to split words and 
+eliminate punctuation in one iteration.
+We make our own isLetter() method instead of using regular expressions. Either approach 
+would work for this challenge.
+To split the words in the input string and populate a map of the unique words to the 
+number of times they occurred, we:
 
-Split words by spaces, em dashes, and ellipses—making sure to include hyphens surrounded by characters. We also include all apostrophes (which will handle contractions nicely but will break possessives into separate words).
-Populate the words in our map as they are identified, checking if the word is already in our map in its current case or another case.
+Split words by spaces, em dashes, and ellipses—making sure to include hyphens surrounded 
+by characters. We also include all apostrophes (which will handle contractions nicely but 
+will break possessives into separate words).
+Populate the words in our map as they are identified, checking if the word is already in 
+our map in its current case or another case.
 
-If the input word is uppercase and there's a lowercase version in the map, we increment the lowercase version's count. If the input word is lowercase and there's an uppercase version in the map, we "demote" the uppercase version by adding the lowercase version and giving it the uppercase version's count.
+If the input word is uppercase and there's a lowercase version in the map, we increment 
+the lowercase version's count. If the input word is lowercase and there's an uppercase 
+version in the map, we "demote" the uppercase version by adding the lowercase version 
+and giving it the uppercase version's count.
  */
 
 class WordCloudData {
@@ -407,3 +421,45 @@ class WordCloudData {
       return 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf(character) >= 0;
     }
   }
+
+/**
+Complexity
+Runtime and memory cost are both O(n). This is the best we can do because we have to 
+look at every character in the input string and we have to return a map of every unique 
+word. We optimized to only make one pass over our input and have only one O(n) data structure.
+
+ */
+
+/**
+Bonus
+We haven't explicitly talked about how to handle more complicated character sets. How 
+would you make your solution work with more unicode characters? What changes need to be 
+made to handle silly sentences like these:
+
+I'm singing ♬ on a ☔ day.
+
+☹ + ☕ = ☺.
+
+We limited our input to letters, hyphenated words and punctuation. How would you expand 
+your functionality to include numbers, email addresses, twitter handles, etc.?
+How would you add functionality to identify phrases or words that belong together but 
+aren't hyphenated? ("Fire truck" or "Interview Cake")
+How could you improve your capitalization algorithm?
+How would you avoid having duplicate words that are just plural or singular possessives?
+
+ */
+
+/**
+What We Learned
+To handle capitalized words, there were lots of heuristics and approaches we could have 
+used, each with their own strengths and weaknesses. Open-ended questions like this can 
+really separate good engineers from great engineers.
+
+Good engineers will come up with a solution, but great engineers will come up with several 
+solutions, weigh them carefully, and choose the best solution for the given context. So as 
+you're running practice questions, challenge yourself to keep thinking even after you have a 
+first solution. See how many solutions you can come up with. This will grow your ability to 
+quickly see multiple ways to solve a problem, so you can figure out the best solution. And 
+use the hints and gotchas on each Interview Cake question—they're designed to help you 
+cultivate this skill.
+ */
