@@ -68,4 +68,43 @@ function getMaxProfit(stockPrices) {
 But that will take O(n^2)time, ↴ since we have two nested loops—for every time, we're 
 going through every other time. Also, it's not correct: we won't ever report a 
 negative profit! Can we do better?
+
+Well, we’re doing a lot of extra work. We’re looking at every pair twice. We know we have 
+to buy before we sell, so in our inner for loop we could just look at every price after 
+the price in our outer for loop.
+
+That could look like this:
+ */
+
+function getMaxProfit(stockPrices) {
+    let maxProfit = 0;
+  
+    // Go through every price and time
+    for (let earlierTime = 0; earlierTime < stockPrices.length; earlierTime++) {
+      const earlierPrice = stockPrices[earlierTime];
+  
+      // And go through all the LATER prices
+      for (let laterTime = earlierTime + 1; laterTime < stockPrices.length; laterTime++) {
+        const laterPrice = stockPrices[laterTime];
+  
+        // See what our profit would be if we bought at the
+        // min price and sold at the current price
+        const potentialProfit = laterPrice - earlierPrice;
+  
+        // Update maxProfit if we can do better
+        maxProfit = Math.max(maxProfit, potentialProfit);
+      }
+    }
+  
+    return maxProfit;
+}
+
+/**
+What’s our runtime now?
+
+Well, our outer for loop goes through all the times and prices, but our inner for loop 
+goes through one fewer price each time. So our total number of steps is the 
+sum n + (n - 1) + (n - 2) ... + 2 + 1n+(n−1)+(n−2)...+2+1 ↴ , which is still O(n^2)time.
+
+We can do better!
  */
