@@ -50,3 +50,43 @@ function getNDigits(N, nDigitsArray) {
 Time Complexity: O( NlogN ), where N is the number of digits in the given number
  */
 
+/**
+Efficient approach : We know that the digits in a number will range from 0-9, so the idea is to create 
+a hashed array of size 10 and store the count of every digit in the hashed array that occurs in the 
+number. Then traverse the hashed array from index 9 to 0 and calculate the number accordingly.
+ */
+
+function solution(N) {
+
+    if (N < 0 || N > 100000000) {
+        return -1;
+    }
+
+    let largestSibling = 0, multiplier = 1;
+    let countArray = new Array(10).fill(0)
+  
+    //converting N to string
+    let nStr = N.toString();
+
+    //updating the countArray
+    for (let i = 0; i < nStr.length; i++) {
+        countArray[nStr[i] - '0']++;
+    }
+
+    //Traversing the countArray to calculate the largestSibling
+    for (let i = 0; i <= 9; i++) {
+        while(countArray[i] > 0) {
+            largestSibling = largestSibling + (i * multiplier);
+            countArray[i]--;
+            multiplier *= 10;
+        }
+    }
+
+    return largestSibling; 
+}
+
+/**
+Time Complexity: O( N ), where N is the number of digits in the given number. 
+Note: For very large numbers we can use strings to take input instead of storing input in integer data type.
+ */
+
