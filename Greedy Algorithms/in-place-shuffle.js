@@ -36,6 +36,35 @@ function getRandom(floor, ceiling) {
   }
 
 /**
+However, this does not give a uniform random distribution.
+
+Why? We could calculate the exact probabilities of two outcomes to show they aren't the same. 
+But the math gets a little messy. Instead, think of it this way:
+
+Suppose our array had 3 elements: [a, b, c]. This means it'll make 3 calls to getRandom(0, 2).
+That's 3 random choices, each with 3 possibilities. So our total number of possible sets of choices
+is 3*3*3=27. Each of these 27 sets of choices is equally probable.
+
+But how many possible outcomes do we have? If you paid attention in stats class you might know the 
+answer is 3!, which is 6. Or you can just list them by hand and count:
+a, b, c
+a, c, b
+b, a, c
+b, c, a
+c, b, a
+c, a, b
+But our function has 27 equally-probable sets of choices. 27 is not evenly divisible by 6. So some of 
+our 6 possible outcomes will be achievable with more sets of choices than others.
+
+We can do this in a single pass. O(n) time and O(1) space.
+
+A common mistake is to have a mostly-uniform shuffle where an item is less likely to stay where it 
+started than it is to end up in any given slot. Each item should have the same probability of 
+ending up in each spot, including the spot where it starts.
+
+ */
+
+/**
 Breakdown
 It helps to start by ignoring the in-place ↴ requirement, then adapt the approach to work in place.
 
@@ -81,3 +110,45 @@ Crucially, once an item is placed at an index it can't be moved. So for the firs
 from n items, for the second index we choose from n−1 items, etc.
  */
 
+function getRandom(floor, ceiling) {
+    return Math.floor(Math.random() * (ceiling - floor + 1)) + floor;
+  }
+  
+  function shuffle(array) {
+  
+    // If it's 1 or 0 items, just return
+    if (array.length <= 1) return;
+  
+    // Walk through from beginning to end
+    for (let indexWeAreChoosingFor = 0;
+      indexWeAreChoosingFor < array.length - 1; indexWeAreChoosingFor++) {
+  
+      // Choose a random not-yet-placed item to place there
+      // (could also be the item currently in that spot)
+      // must be an item AFTER the current item, because the stuff
+      // before has all already been placed
+      const randomChoiceIndex = getRandom(indexWeAreChoosingFor, array.length - 1);
+  
+      // Place our random choice in the spot by swapping
+      if (randomChoiceIndex !== indexWeAreChoosingFor) {
+        const valueAtIndexWeChoseFor = array[indexWeAreChoosingFor];
+        array[indexWeAreChoosingFor] = array[randomChoiceIndex];
+        array[randomChoiceIndex] = valueAtIndexWeChoseFor;
+      }
+    }
+  }
+
+//This is a semi-famous algorithm known as the Fisher-Yates shuffle (sometimes called the Knuth shuffle).
+
+/**
+Complexity
+O(n) time and O(1) space.
+
+What We Learned
+Don't worry, most interviewers won't expect a candidate to know the Fisher-Yates shuffle algorithm. 
+Instead, they'll be looking for the problem-solving skills to derive the algorithm, perhaps with a 
+couple hints along the way.
+
+They may also be looking for an understanding of why the naive solution is non-uniform (some 
+outcomes are more likely than others). If you had trouble with that part, try walking through it again.
+ */
