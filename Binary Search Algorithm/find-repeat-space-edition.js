@@ -249,4 +249,30 @@ function findRepeat(numbers) {
     // We found a number that repeats!
     return floor;
 }
+
+/**
+Complexity
+O(1) space and O(nlgn) time.
+
+Tricky as this solution is, we can actually do even better, getting our runtime down to O(n) while 
+keeping our space cost at O(1). The solution is NUTS; it's probably outside the scope of what most 
+interviewers would expect. But for the curious...here it is!
+ */
+
+/**
+Bonus
+This function always returns one duplicate, but there may be several duplicates. Write a function 
+that returns all duplicates.
+
+What We Learned
+Our answer was a modified binary search. We got there by reasoning about the expected runtime:
+
+1- We started with an O(n^2) "brute force" solution and wondered if we could do better.
+2- We knew to beat O(n^2) we'd probably do O(n) or O(nlgn), so we started thinking of ways we might get 
+an O(nlgn) runtime.
+3- lg(n) usually comes from iteratively cutting stuff in half, so we arrived at the final algorithm by 
+exploring that idea.
+Starting with a target runtime and working backward from there can be a powerful strategy for all 
+kinds of coding interview questions.
+ */
   
