@@ -56,3 +56,26 @@ Bam. O(n) time and ... O(n) space ...
 Right, we're supposed to optimize for space. O(n) is actually kinda high space-wise. Hm. We can 
 probably get O(1)...
  */
+
+/**
+We can "brute force" this by taking each number in the range 1..n and, for each, walking through the 
+array to see if it appears twice.
+ */
+
+function findRepeat(numbers) {
+    for (let i = 0; i < numbers.length; i++) {
+        for (let j = 0; j < numbers.length; j++) {
+            if(i !== j && numbers[i] === numbers[j]) {
+                return numbers[i];
+            }
+        }
+    }
+    // Whoops--no duplicate
+    throw new Error('no duplicate!');
+}
+
+/**
+This is O(1) space and O(n^2) time.
+
+That space complexity can't be beat, but the time cost seems a bit high. Can we do better?
+ */
