@@ -110,6 +110,8 @@ Careful: there's a hidden time and space cost here! It's tempting to think of sl
 
 This takes O(n) time and O(n) space, where n is the number of elements in the resulting list.
 
+Read (Helpers/slice-method)
+
 *****************************
 In-Place Algorithm
 In-place algorithms are sometimes called destructive, since the original input is "destroyed" (or modified) during the function call.

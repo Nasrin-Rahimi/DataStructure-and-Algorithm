@@ -32,6 +32,7 @@ When random.randint() finishes, we return back to rollDie() by removing ("poppin
 
 rollDie()
 rollTwoAndSum()
+
 Same thing when rollDie() returns:
 
 rollTwoAndSum()
@@ -67,14 +68,13 @@ The return address—what the program should do after the function returns (i.e.
 The Space Cost of Stack Frames
 Each function call creates its own stack frame, taking up space on the call stack. That's important because it can impact the space complexity of an algorithm. Especially when we use recursion.
 
-For example, if we wanted to multiply all the numbers between 11 and nn, we could use this recursive approach:
+For example, if we wanted to multiply all the numbers between 1 and n, we could use this recursive approach:
 
 function product1ToN(n) {
   // We assume n >= 1
   return (n > 1) ? (n * product1ToN(n-1)) : 1;
 }
 
-JavaScript
 What would the call stack look like when n = 10?
 
 First, product1ToN() gets called with n = 10:

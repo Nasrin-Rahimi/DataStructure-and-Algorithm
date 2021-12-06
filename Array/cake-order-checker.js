@@ -130,17 +130,17 @@ In particular this expression:
 
   takeOutOrders.slice(1);
 
-That's a slice, ↴ and it costs O(m) time and space, where mm is the size of the resulting 
+That's a slice, ↴ and it costs O(m) time and space, where m is the size of the resulting 
 array. That's going to determine our overall time and space cost here—the rest of the 
 work we're doing is constant space and time.
 
-In our recursing we'll build up nn frames on the call stack. ↴ Each of those frames 
+In our recursing we'll build up n frames on the call stack. ↴ Each of those frames 
 will hold a different slice of our original servedOrders (and takeOutOrders and 
 dineInOrders, though we only slice one of them in each recursive call).
 
 So, what's the total time and space cost of all our slices?
 
-If servedOrders has nn items to start, taking our first slice takes n−1 time and space 
+If servedOrders has n items to start, taking our first slice takes n−1 time and space 
 (plus half that, since we're also slicing one of our halves—but that's just a constant 
 multiplier so we can ignore it). In our second recursive call, slicing takes n-2 
 time and space. Etc.
@@ -254,13 +254,13 @@ we're serving food first-come, first-served.
  */
 
 function isFirstComeFirstServed(takeOutOrders, dineInOrders, servedOrders) {
-    var takeOutOrdersIndex = 0;
-    var dineInOrdersIndex = 0;
-    var takeOutOrdersMaxIndex = takeOutOrders.length - 1;
-    var dineInOrdersMaxIndex = dineInOrders.length - 1;
+    let takeOutOrdersIndex = 0;
+    let dineInOrdersIndex = 0;
+    let takeOutOrdersMaxIndex = takeOutOrders.length - 1;
+    let dineInOrdersMaxIndex = dineInOrders.length - 1;
 
-    for (var i = 0; i < servedOrders.length; i++) {
-        var order = servedOrders[i];
+    for (let i = 0; i < servedOrders.length; i++) {
+        let order = servedOrders[i];
 
         // if we still have orders in takeOutOrders
         // and the current order in takeOutOrders is the same

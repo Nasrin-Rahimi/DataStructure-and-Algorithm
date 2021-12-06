@@ -8,7 +8,7 @@ Or, equivalently, the other way around:
 
 n + (n-1) + ... + 3 + 2 + 1
 
-And sometimes the last nn is omitted, but as we'll see it doesn't affect the big O:
+And sometimes the last n is omitted, but as we'll see it doesn't affect the big O:
 
 (n-1) + (n-2) + ... + 3 + 2 + 1
 
