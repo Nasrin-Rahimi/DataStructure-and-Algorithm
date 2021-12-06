@@ -129,8 +129,6 @@ Generally, out-of-place algorithms are considered safer because they avoid side 
 Two-pointer Technique - Scenario I:
 We solve some problems by iterating the array. Typically, we only use one pointer starting from the first element and ending at the last one to do iteration. However, sometimes, we might need to use two pointers at the same time to do the iteration. For example for Reverse the elements in an array.
 
-The idea is to swap the first element with the end, advance to the next element and swapping repeatedly until it reaches the middle position. 
-
 We can use two pointers at the same time to do the iteration: one starts from the first element and another starts from the last element. Continue swapping the elements until the two pointers meet each other.
 
 To summarize, one of the typical scenarios to use two-pointer technique is that you want to
