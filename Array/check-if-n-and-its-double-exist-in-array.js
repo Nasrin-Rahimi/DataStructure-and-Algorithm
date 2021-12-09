@@ -75,7 +75,6 @@ it has a linear space complexity of O(n).
 Just like our previous solution we only traverse the array once, so it has a linear time 
 complexity of O(n).
 
-
  */
 
 let checkIfExist = function(arr) {

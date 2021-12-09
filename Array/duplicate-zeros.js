@@ -14,15 +14,15 @@ Output: [1,2,3]
 
 /**
  * 
-Approch 1 : Bruce Force: using extra space
+Approch 1 : using extra space
  */
 
-let duplicateZeros = function(arr) {
+let duplicateZeros = function(nums) {
     let len = arr.length;
 	let res = new Array(len);
 	let i = 0, j = 0;
 
-	while(j < len) {
+	while(j < len - 1) {
 		if(nums[i] == 0) {
             res[j] = 0;
             res[j + 1] = 0;
@@ -47,7 +47,7 @@ let duplicateZeros = function(arr) {
 
 /**
  * 
- Approch 2
+ Approch 2: Bruce Force
  */
 
 let duplicateZeros = function(arr) {
@@ -67,7 +67,7 @@ let duplicateZeros = function(arr) {
     }
 
     return arr;
-}  // Time complexity = O(N*N)
+}  // Time complexity = O(N^2)
 
 //Second Approch
 

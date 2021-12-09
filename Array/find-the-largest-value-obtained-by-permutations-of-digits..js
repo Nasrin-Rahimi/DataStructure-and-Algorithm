@@ -1,6 +1,7 @@
 /**
 Given a number, write a program to find a maximum number that can be formed using all of the digits 
 of this number. If the number is exceeds 100000000, retrun -1.
+
 Examples: 
 
 Input : 38293367
