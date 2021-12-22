@@ -53,6 +53,10 @@ function findRotationPoint(words) {
 }
 
 /**
+ * time complexity: O(n)
+ */
+
+/**
 Gotchas
 We can get O(lgn) time.
 
