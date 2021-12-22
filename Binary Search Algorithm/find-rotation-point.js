@@ -33,6 +33,26 @@ To keep things simple, you can assume all words are lowercase.
  */
 
 /**
+ Bruce force: walk through the whole array and in each itteration check if current element is less 
+ than previous element, then we are in rotaion point and should return current element index.
+ It take O(n) time complexity if we have n elements.
+ */
+
+function findRotationPoint(words) {
+  let prev = words[0];
+
+  for(let i = 0; i < words.length; i++) {
+    const cur = words[i];
+    //the rotation point
+    if(prev > cur) {
+      return i;
+    }
+    prev = cur;
+  }
+
+}
+
+/**
 Gotchas
 We can get O(lgn) time.
 
