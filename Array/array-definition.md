@@ -1,4 +1,5 @@
-An array is a basic data structure to store a collection of elements sequentially. But elements can be accessed randomly since each element in the array can be identified by an array index.
+An array is a basic data structure to store a collection of elements sequentially. But elements can be 
+accessed randomly since each element in the array can be identified by an array index.
 
 Strengths:
 Fast lookups. Retrieving the element at a given index takes O(1) time, regardless of the length of the array.

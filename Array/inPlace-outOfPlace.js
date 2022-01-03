@@ -26,3 +26,22 @@
 //   let intArray = [1, 2, 3];
 //   squareArrayInPlace(intArray);
 //   console.log(intArray);
+
+
+function squareArrayOutOfPlace(intArray) {
+
+  // We allocate a new array that we'll fill in with the new values
+  const squaredArray = [];
+
+  intArray.forEach((int, index) => {
+    squaredArray[index] = Math.pow(int, 2);
+  });
+
+  return squaredArray;
+}
+
+// test squareArrayOutOfPlace
+let intArray = [1, 2, 3];
+console.log('The Original Array before Squared: ' + intArray);
+console.log('The squared Array is: ' + squareArrayOutOfPlace(intArray));
+console.log('The Original Array after Squared: ' + intArray);
