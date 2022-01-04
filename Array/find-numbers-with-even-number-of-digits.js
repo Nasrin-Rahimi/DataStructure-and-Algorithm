@@ -7,6 +7,7 @@ Output: 2
 
 */
 
+//Solution1 : use toString method to count the number of digit
 let findNumbers = function(nums) {
     let count = 0;
 
@@ -22,7 +23,7 @@ let findNumbers = function(nums) {
     return count;
 }
 
-//OR Divide the number by 10 again and again to get the number of digits.
+//Solution2 : Divide the number by 10 again and again to get the number of digits.
 let findNumbers2 = function(nums) {
     let count = 0;
 
@@ -45,5 +46,5 @@ function getDigitCount(n) {
     }
 }
 
-
 console.log(findNumbers2([12]));
+
