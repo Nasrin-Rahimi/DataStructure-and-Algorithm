@@ -75,4 +75,6 @@ function evenDigits(number) {
 
 }
 
+//time complexity = O(mn) we iterate over the array of nums and for every number, and we divided that
+// number by 10, m times where m is the number of digits of that number, space = O(1)
 
