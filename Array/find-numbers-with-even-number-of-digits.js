@@ -48,3 +48,31 @@ function getDigitCount(n) {
 
 console.log(findNumbers2([12]));
 
+//Solution3 : clean solution 2
+
+function findNumbers(nums) {
+    let count = 0; 
+
+    for (let i = 0; i < nums.length; i++) {
+         if (evenDigits(nums[i])) {
+            count++;
+       }
+    }
+
+    return count;
+}
+
+function evenDigits(number) {
+    let i = number;
+    let digitCounts = 0;
+
+    while ( i !== 0) {
+	    i = parseInt(i / 10);
+        digitCounts++;
+    }
+    
+    return (digitCounts % 2) === 0 ? true : false;
+
+}
+
+
