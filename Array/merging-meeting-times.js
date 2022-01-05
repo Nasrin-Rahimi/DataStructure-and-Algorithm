@@ -99,12 +99,13 @@ The second meeting ends before the first meeting ends. For example:
 
 Here's a formal algorithm:
 
-We treat the meeting with earlier start time as "first," and the other as "second."
-If the end time of the first meeting is equal to or greater than the start time of the 
+1. We treat the meeting with earlier start time as "first," and the other as "second."
+2. If the end time of the first meeting is equal to or greater than the start time of the 
 second meeting, we merge the two meetings into one time range. The resulting time range's 
 start time is the first meeting's start, and its end time is the later of the two meetings' 
 end times.
-Else, we leave them separate.
+3. Else, we leave them separate.
+
 So, we could compare every meeting to every other meeting in this way, merging them or 
 leaving them separate.
 
