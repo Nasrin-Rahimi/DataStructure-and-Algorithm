@@ -17,7 +17,7 @@ let sortSquares = function(nums) {
         SquaredNums.push(nums[i] * nums[i]);
     } // O(N)
 
-    return SquaredNums.sort((a, b) => a - b);  //O(logN)
+    return SquaredNums.sort((a, b) => a - b);  //O(NlogN)
 }
 
 //console.log(sortedSquares([-4,-1,0,3,10]));
