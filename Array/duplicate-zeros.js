@@ -18,26 +18,23 @@ Approch 1 : using extra space
  */
 
 let duplicateZeros = function(nums) {
-    let len = arr.length;
-	let res = new Array(len);
+    let n = arr.length;
+	let res = new Array(n).fill(0);
 	let i = 0, j = 0;
 
-	while(j < len - 1) {
-		if(nums[i] == 0) {
-            res[j] = 0;
-            res[j + 1] = 0;
+	while(j < n) {
+		if(arr[i] == 0) {
             j = j + 2;
         } else {
-            res[j] = nums[i];
+            res[j] = arr[i];
             j++;
         }
         i++;
     }
 
-    for(i = 0; i < len; i++) {
-        arr[i] = res[i];
-    }
-    return arr;
+   for(let i = 0; i < n; i++) {
+       arr[i] = res[i];
+   }
 }
 
 /**
