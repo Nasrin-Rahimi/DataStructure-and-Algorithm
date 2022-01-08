@@ -17,7 +17,7 @@ Output: [1,2,3]
 Approch 1 : using extra space
  */
 
-let duplicateZeros = function(nums) {
+let duplicateZeros = function(arr) {
     let n = arr.length;
 	let res = new Array(n).fill(0);
 	let i = 0, j = 0;
@@ -35,6 +35,7 @@ let duplicateZeros = function(nums) {
    for(let i = 0; i < n; i++) {
        arr[i] = res[i];
    }
+   //arr = res.map(el => el) it's not working!
 }
 
 /**
