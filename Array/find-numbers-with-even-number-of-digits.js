@@ -71,7 +71,7 @@ function evenDigits(number) {
         digitCounts++;
     }
     
-    return (digitCounts % 2) === 0 ? true : false;
+    return (digitCounts % 2) === 0 //? true : false; don't need ternary
 
 }
 
