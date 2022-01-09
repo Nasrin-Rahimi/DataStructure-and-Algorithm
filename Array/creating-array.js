@@ -35,3 +35,14 @@ console.log(dvdCollection[0].toString());
 console.log(dvdCollection[3].toString());
 console.log(dvdCollection[9].toString());
 console.log(dvdCollection[2].toString());
+
+//reading from the array with loop
+for(let i = 0; i < dvdCollection.length; i++) {
+    const dvd = dvdCollection[i] ? dvdCollection[i].toString() : 'Empty DVD';
+    console.log(dvd);
+}
+
+//When we don't need the index of the array, is better to use another loop like forEach
+dvdCollection.forEach(dvd=> {
+    console.log(dvd.toString());
+});
