@@ -20,7 +20,13 @@ function linearSearch(array, element) {
     return false;
 }
 
+console.log(linearSearch([1,4,6,8,23], 23));
+
 //Time complexity: O(n)
+/**
+ * We don't need the if statement here to check for null or empty array in js, because if
+ * the array is null or empty, for loop doesn't run and the function retuen false.
+ */
 
 /**
  * There is another way of searching an Array. If the elements in the Array are in sorted 
