@@ -20,7 +20,8 @@ It does not matter what you leave beyond the returned k (hence they are undersco
 */
 
 /** 
-Approch 1: start from the first element of the array, if any element is equal to val, then
+Approch 1: Bruce force: 
+start from the first element of the array, if any element is equal to val, then
 move all the right element of that index to the left by one and add one to the counter. 
 It's  not an efficient solution the time complexity should be O(n^2)
 */
@@ -35,26 +36,31 @@ to remove that element per-say.
 We can move all the occurrences of this element to the end of the array. Use two pointers!
 */
 let removeElement = function(nums, val) {
-    let p1 = 0, p2 = nums.length - 1, k = 0;;
-    
-    //we use equal in condition for case of we have just one element and we want to remove it
-    //nums = [1], val = 1
-    while(p1 <= p2) {
-        if(nums[p2] === val) {
-            p2--;
-            k++;
-        } else if(nums[p1] === val) {
-            nums[p1] = nums[p2];
-            p1++;
-            p2--;
-            k++;
+    let count = 0; 
+	let left = 0, right = nums.length - 1;
+
+	while(left <= right) {
+	    if(nums[left] != val) {
+	        left++;
+        } else if(nums[right] === val) {
+	        right--;
+            count++;
         } else {
-            p1++;
+	        nums[left] = nums[right];
+	        left++;
+	        right--;
+	        count++;
         }
-    }
-    
-    nums.length = nums.length - k;
+        }
+
+    nums.length = nums.length - count;
 };
+
+/**
+ * one edge case here is when we have just one element in nums array, and we want to remove it
+ * nums = [1], val = 1. Now we should put equal in while condition (left <= right) to our 
+ * algorithm work in this case
+ */
 
 /** 
 Time Complexity : O(n)
