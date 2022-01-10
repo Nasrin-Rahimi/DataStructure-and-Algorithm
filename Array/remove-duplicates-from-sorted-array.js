@@ -1,3 +1,7 @@
+/**
+ * @typedef {*} NewType
+ */
+
 /** 
 Given an integer array nums sorted in non-decreasing order, remove the duplicates 
 in-place such that each unique element appears only once. The relative order of the
@@ -27,6 +31,13 @@ Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
  then copy the set to A again.
 
  */
+
+ /**
+Approach 2: Brute-force that use O(1) additional space. Iterate through the array A,
+testing if A[i] is equal A[i+1], and, if so shift all elements at and after i+2 to the left
+by one. When all entries are equal, the number of shifts is (n-1) + (n-2) + ... + 2+ 1 = O(n^2)
+where n is the length of the array. 
+  */
 
 /** 
 Approach 3: Two Pointers
