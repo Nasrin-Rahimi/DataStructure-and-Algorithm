@@ -24,7 +24,7 @@ Use leaner search.
 let checkIfExist = function(arr) {
     for (let i = 0; i < arr.length; i++) {
         for(let j = 0; j < arr.length; j++) {
-            if(i !== j && arr[i] === 2 * arr[j]) {
+            if(i !== j && (arr[i] === arr[j] * 2 || arr[i] === arr[j] / 2 )) {
                 return true;
             }
         }
@@ -77,7 +77,7 @@ complexity of O(n).
 
  */
 
-let checkIfExist = function(arr) {
+let checkDoubleExist = function(arr) {
     let set = new Set();
 
     for(let i = 0; i < arr.length; i++) {
@@ -91,3 +91,5 @@ let checkIfExist = function(arr) {
 
     return false;
 }
+
+console.log(checkDoubleExist([10,2,3,5]));
