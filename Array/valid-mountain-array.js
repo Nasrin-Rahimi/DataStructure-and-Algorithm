@@ -85,7 +85,7 @@ var validMountainArray2 = function(arr) {
         }
     }
     
-    if(topIndex === 0) {
+    if(topIndex === 0 || topIndex === len- 1) {
         return false;
     }
     

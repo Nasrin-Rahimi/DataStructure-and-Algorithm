@@ -20,8 +20,16 @@ Input: nums = [0,0,1,1,1,2,2,3,3,4]
 Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
 */
 
+/**
+ Approach 1: Extra space
+ Let A be the array and n its length. If we can use additional space, we can initialize a set
+ (set does't stores duplicates) and for every element in A, add it to set, if there isn't in
+ then copy the set to A again.
+
+ */
+
 /** 
-Approach 1: Two Pointers
+Approach 3: Two Pointers
 
 Since the array is already sorted, we can keep two pointers i and j, where i is
 the slow-runner while j is the fast-runner. As long as nums[i] = nums[j],
