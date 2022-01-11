@@ -30,6 +30,19 @@ Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
  (set does't stores duplicates) and for every element in A, add it to set, if there isn't in
  then copy the set to A again.
 
+ In js array's are dynamic and we don't need to define the size of array in initialization.
+ But for some languages we need to define the size of array, when we initialize it.
+ So we should first count the number of unique elements and create the extra array with the size 
+ of unique elements.
+
+ let uniqueNumbers = 0;
+ for(let i = 0; i < array.length; i++) {
+     if(i === 0 || array[i] !== array[i + 1]) {
+         uniqueNumbers++;
+     }
+ }
+
+ let result = new array(uniqueNumbers);
  */
 
  /**
