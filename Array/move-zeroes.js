@@ -71,6 +71,31 @@ var moveZeroes = function(nums) {
  
  };
 
+/**In the above solution, we do't even have to count zeros and then add them to the array,
+ * we cann simply initialize tmpNums with the size of nums and fill all elements with 0.
+ * like below:
+*/
+
+let moveZeroes = function(nums){
+    const n = nums.length;
+    const tmpNums = new Array(n).fill(0);
+    let j = 0;
+
+    for(let i = 0; i < n; i++) {
+        if(nums[i] !== 0) {
+            tmpNums[j] = nums[i];
+            j++;
+        }
+    }
+
+    for(let i = 0; i < n; i++) {
+        nums[i] = tmpNums[i];
+    }
+
+    return nums;
+}
+
+
 /** 
 Space Complexity : O(n). Since we are creating the "tmpNums" array to store results.
 
@@ -81,6 +106,30 @@ If asked in an interview, the above solution would be a good start. You can expl
 the interviewer(not code) the above and build your base for the next Optimal Solution.
 
 */
+
+/**
+ * two pointer, one is keep tracking 0's and the other keep tracking in non zeros elements.
+ *  */
+var moveZeroes = function(nums) {
+ let n = nums.length;
+    let i = 0, j = 0;
+    
+    while(i < n && j < n) {
+        if(nums[i] !== 0) {
+            i++;
+        } else if(nums[j] === 0) {
+            j++;
+        //we don't want to swap any element with 0 that located after that.([1,0])
+        } else if(j >= i){
+            nums[i] = nums[j];
+            nums[j] = 0;
+            i++;
+        } else {
+            j++;
+        }
+    }
+};
+
 
 /**
  * Approach #2 (Space Optimal, Operation Sub-Optimal) 
@@ -100,16 +149,16 @@ requirement, "Move all 0's to the end". We now simply need to fill all the index
  */
 
  var moveZeroes = function(nums) {
-     let lastNonZere = 0;
+     let lastNonZero = 0;
 
      for(let i = 0; i < nums.length; i++) {
          if(nums[i] != 0) {
-             nums[lastNonZere] = nums[i];
-             lastNonZere++;
+             nums[lastNonZero] = nums[i];
+             lastNonZereo++;
          }
      }
 
-     for(let i = lastNonZere; i < nums.length; i++) {
+     for(let i = lastNonZero; i < nums.length; i++) {
          nums[i] = 0;
      }
  
@@ -146,7 +195,7 @@ let moveZeroes = function(nums) {
    
     for(let lastNonZero = 0, cur = 0; cur < nums.length; cur++) {
        if(nums[cur] != 0) {
-           let tmp = nums[lastNonZero] 
+           const tmp = nums[lastNonZero] 
            nums[lastNonZero] = nums[cur];
            nums[cur] = tmp;
            lastNonZero++;
