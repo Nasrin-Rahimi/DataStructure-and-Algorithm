@@ -11,7 +11,7 @@ Input: arr = [400]
 Output: [-1]
 */
 
-let replaceElements = function(arr) {
+let replaceElements1 = function(arr) {
 
     let len  = arr.length;
 
@@ -53,17 +53,31 @@ space complexity: O(1) because we do inplace replace and donot use extra space.
  */
 
 let replaceElements = function(arr) {
-    let len = arr.length;
-
-    let max = arr[len - 1];
-    arr[len - 1] = -1;
-
-    for(let i = len - 2; i >= 0; i--) {
-        let tmp = arr[i];
-        arr[i] = max;
-        if(max < tmp) {
-            max = tmp;
-        }
+    if(arr === null||arr.length === 0){
+        return 0 ;
     }
+
+    const length = arr.length;
+    
+    //without this if code works correctly, because the for loop doesn't run for array
+    //with one element.
+    if(length === 1) {
+        arr[0] = -1;
+        return arr;
+    }
+    
+    let maxValue = arr[length - 1];
+    
+    for (let i = length - 2; i >= 0; i--) {
+        const curValue = arr[i];
+        arr[i] = maxValue;
+        maxValue = Math.max(maxValue, curValue);
+    }
+    
+    arr[length - 1] = -1;
     return arr;
 }
+
+console.log(replaceElements([2,2,1]));
+
+//Time Complexity : O(n), Space Complexity : O(1)
