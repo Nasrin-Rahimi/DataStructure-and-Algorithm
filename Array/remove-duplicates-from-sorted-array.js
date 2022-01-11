@@ -28,7 +28,7 @@ Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
  Approach 1: Extra space
  Let A be the array and n its length. If we can use additional space, we can initialize a set
  (set does't stores duplicates) and for every element in A, add it to set, if there isn't in
- then copy the set to A again.
+ there, then copy back the set to A array again.
 
  In js array's are dynamic and we don't need to define the size of array in initialization.
  But for some languages we need to define the size of array, when we initialize it.
