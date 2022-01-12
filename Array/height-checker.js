@@ -52,3 +52,7 @@ let heightChecker = function(heights) {
     return indices;
 }
 
+/**
+ * Time complexity: O(nlogn) for sort + O(n) for for loop to comparing heights. So it would 
+ * equal O(nlogn) where n is the size of heights array.
+ */
