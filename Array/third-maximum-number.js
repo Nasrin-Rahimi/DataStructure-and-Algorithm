@@ -69,3 +69,10 @@ let thirdMax = function(nums) {
         return first;
     }
 }
+
+/**
+ * Time Complexity : O(nlogn) for sort nums array, and O(n) for iterating over the array,
+ * so it will O(nlogn) where n is the number of elements.
+ * Space Complexity : O(n) for set, in the worth case all elements are uniqe and we have
+ * a set with n element.
+ */
