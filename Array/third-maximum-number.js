@@ -76,3 +76,30 @@ let thirdMax = function(nums) {
  * Space Complexity : O(n) for set, in the worth case all elements are uniqe and we have
  * a set with n element.
  */
+
+/**
+Approch 2 : efficient solution
+ */
+
+var thirdMax = function(nums) {
+    let firstMax, secondMax, thirdMax;
+    
+    nums.forEach(el => {
+        if(firstMax === undefined || firstMax < el) {
+            thirdMax = secondMax;
+            secondMax = firstMax;
+            firstMax = el;
+        } else if(firstMax !== undefined && firstMax > el && 
+                 (secondMax === undefined || secondMax < el)) {
+            thirdMax = secondMax;
+            secondMax = el;
+        } else if(secondMax !== undefined && secondMax > el && 
+                  (thirdMax === undefined || thirdMax < el)) {
+            thirdMax = el;
+        }
+    });
+    
+    return thirdMax === undefined ? firstMax : thirdMax;
+    
+};
+
