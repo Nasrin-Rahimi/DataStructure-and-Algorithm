@@ -61,3 +61,10 @@ var firstMissingPositive = function(nums) {
     // otherwise return 1 
     return missing; 
 };
+
+/**
+This problem is pretty good to practice with using object sorting the positive numbers and 
+look up stuff.
+
+Time complexity : O(n), space : O(n)
+ */
