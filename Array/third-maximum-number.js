@@ -102,4 +102,8 @@ var thirdMax = function(nums) {
     return thirdMax === undefined ? firstMax : thirdMax;
     
 };
+/**
+Time Complexity : O(n)
+Space Complexity : O(1)
+ */
 
