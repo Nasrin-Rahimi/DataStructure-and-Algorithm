@@ -22,7 +22,8 @@ returned list does not count as extra space.
  */
 
 /**
-Approch 1: Brute-Force
+Approch 1: Brute-Force - Additional space
+This is a really easy problem if you decide to use additional memory.
 Iterate from 1 to the length of the array (n), in each iteration check if i is not exists 
 in nums, push it to the result disappearedNumbers array.
 
@@ -50,4 +51,7 @@ var findDisappearedNumbers = function(nums) {
  
      return false;
  }
+
+ // Time Complexity : O(n^2) , space : O(n)
+
  
