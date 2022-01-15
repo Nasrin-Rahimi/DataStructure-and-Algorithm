@@ -60,3 +60,32 @@ let sortArrayByParity2 = function(nums) {
 }
 
 //Time Complexity : O(n), space : O(1)
+
+/**
+We can write the above solution like below and use ecapsulation
+ */
+
+let sortArrayByParity = function(nums) {
+    let left = 0, right = nums.length - 1;
+
+    while(left < right) {
+        if(isEven(nums[i])) {
+            left++;
+        } else if(!isEven(nums[i])) {
+            right--;
+        } else {
+            const temp = nums[left];
+            nums[left] = nums[right];
+            nums[right] = temp;
+            left++;
+            right--;
+        }
+    }
+    
+    return nums;
+
+}
+
+function isEven(number) {
+    return (number % 2 === 0);
+}
