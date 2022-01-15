@@ -15,7 +15,7 @@ Output: 3
 Explanation: 
 heights:  [1,1,4,2,1,3]
 expected: [1,1,1,2,3,4]
-Indices 2, 4, and 5 do not match.
+Indices 2, 4, and 5indices do not match.
 Example 2:
 
 Input: heights = [5,1,2,3,4]
@@ -75,28 +75,30 @@ order to the heights in the input array.
 
 function heightChecker(heights) {
     let map = {};
-    let h_ptr = 101;
+    let heightIndex = 101;
+
     // create map of all heights occurences
     for(let h of heights) {
-        if (h < h_ptr) {
-            h_ptr = h;
+        if (h < heightIndex) {
+            heightIndex = h;
         }
-        map[h]? ++map[h]:map[h]=1;
+        map[h] ?  map[h]++ : map[h] = 1;
     }
-    let res = 0;
+    
+    let indices = 0;
  
     for(let h of heights) {
         // find first height in map
-        while(map[h_ptr] === undefined || map[h_ptr] ===0 ) ++h_ptr;
+        while(map[heightIndex] === undefined || map[heightIndex] ===0 ) ++heightIndex;
  
         // if height is not matching then the position is wrong
-        if(h_ptr != h) {
-            ++res;
+        if(heightIndex != h) {
+            indices++;
         }
  
         // reduce count of height in map
-        --map[h_ptr];
+        --map[heightIndex];
     }
  
-    return res;
+    return indices;
  }
