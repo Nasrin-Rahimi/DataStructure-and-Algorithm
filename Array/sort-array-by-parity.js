@@ -58,3 +58,5 @@ let sortArrayByParity2 = function(nums) {
     
     return nums;
 }
+
+//Time Complexity : O(n), space : O(1)
