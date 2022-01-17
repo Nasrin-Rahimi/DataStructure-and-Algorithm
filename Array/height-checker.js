@@ -129,3 +129,11 @@ function heightChecker(heights) {
  
     return indices;
  }
+
+ /**
+The Time complexity of this solution is O(100*n) ~ O(n) since the inner loop runs a fixed 
+amount of 100 times.
+The Space complexity of this solution is O(1) since we have a fixed number of variables 
+defined.
+
+  */
