@@ -100,19 +100,23 @@ array is in the wrong location, matter of fact, we should have seen another stud
 height 1 here, as the hashHeights array suggests.
 
 At this point we once again decrement the hashHeights value at index 1 from 1 to 0 now but 
-this time we also increment our minStudentsMove counter to 1 as it tracks the number of 
+this time we also increment our indices counter to 1 as it tracks the number of 
 students in the incorrect location.
 This is translated into code as shown below.
 
  */
 
 function heightChecker(heights) {
-    let hashHeights = new Map(101);
+    let hashHeights = new Map();
     let indices = 0;
 
     // create map of all heights occurences
     for(let height of heights) {
-        hashHeights[height]++;
+        if(hashHeights[height] === undefined) {
+            hashHeights[height] = 1;
+        } else {
+            hashHeights[height]++;
+        }
     }
 
     for(let i = 0; i < heights.length; i++) {
