@@ -69,35 +69,62 @@ Approch 2: Because it is heights we are talking about (which naturally have a li
 problem gave us that heights is between 1 and 100, we can actually do a bucket/counting sort 
 which only takes O(100n) = O(n) time.
 
-The answer first counts up the heights and puts them in a map and then compares them in 
-order to the heights in the input array.
+In this approch, we will hash the height of each student in an array called hashHeights. 
+Each index of the hashHeights array will store the total number of students of that 
+particular height in total.
+
+Please note, we are only showing the hashHeight array up to the index 5 but in reality, 
+it has a total size of 101 elements.
+
+index :         0 1 2 3 4 5
+input Array:    1 1 4 2 1 3
+Hash Array:     0 3 1 1 1 0
+
+As you can see in the figure above, the hash Array tells us that there are three people of 
+height 1 and one person with height 2,3 and 4 respectively.
+
+Once the hashHeights array has been populated, we run a double for loop (inner one being a 
+fixed size of 100) and check if the current student in heights array is actually the 
+expected student that can be identified as hashHeights array’s first non-zero element.
+
+To explain this a bit further, let’s look back at the example above.
+We start by the first element of heights array which is 1 and compare it to the hashHeights 
+array’s first non-zero element which is at index 1. It has a value of 3, which means there 
+are 3 students of height 1. Since these match, we decrement the 3 in hashHeights to 2 and 
+move to the next element in the Heights (input) array and it’s 1 again.
+
+Similarly, we decrement the value of hashHeights array at index 1 from 2 to 1 now.
+Moving on, the next element in the heights array is 4 but our first non-zero element in 
+the Hash array is still at 1 which means that this student of height 4 in the heights 
+array is in the wrong location, matter of fact, we should have seen another student of 
+height 1 here, as the hashHeights array suggests.
+
+At this point we once again decrement the hashHeights value at index 1 from 1 to 0 now but 
+this time we also increment our minStudentsMove counter to 1 as it tracks the number of 
+students in the incorrect location.
+This is translated into code as shown below.
+
  */
 
 function heightChecker(heights) {
-    let map = {};
-    let heightIndex = 101;
+    let hashHeights = new Map(101);
+    let indices = 0;
 
     // create map of all heights occurences
-    for(let h of heights) {
-        if (h < heightIndex) {
-            heightIndex = h;
-        }
-        map[h] ?  map[h]++ : map[h] = 1;
+    for(let height of heights) {
+        hashHeights[height]++;
     }
-    
-    let indices = 0;
- 
-    for(let h of heights) {
-        // find first height in map
-        while(map[heightIndex] === undefined || map[heightIndex] ===0 ) ++heightIndex;
- 
-        // if height is not matching then the position is wrong
-        if(heightIndex != h) {
-            indices++;
-        }
- 
-        // reduce count of height in map
-        --map[heightIndex];
+
+    for(let i = 0; i < heights.length; i++) {
+       for(let j = 1; j < 101; j++) {
+           if(hashHeights[j] !== 0){
+               if(heights[i] !== j) {
+                    indices++;
+               }
+               hashHeights[j]--;
+               break;
+           }
+       }
     }
  
     return indices;
