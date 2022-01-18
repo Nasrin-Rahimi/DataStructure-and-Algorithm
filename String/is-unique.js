@@ -62,7 +62,7 @@ function isUniqueChars(str) {
     }
     
     let charSet = new Array(128).fill(false);
-    
+   
     for(let i = 0; i < str.length; i++) {
         const val = str.charAt(i);
         if(charSet[val]) {
@@ -74,7 +74,7 @@ function isUniqueChars(str) {
     return true;
 }
     
-// console.log(isUniqueChars('hello world'))
+ console.log(isUniqueChars('abcdefghijklmnopqrstuvwxy'))
 
 /**
 The time complexity for this code is O(n), where n is the length of the string. The space 
