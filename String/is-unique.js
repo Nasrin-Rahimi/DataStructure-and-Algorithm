@@ -74,4 +74,54 @@ function isUniqueChars(str) {
     return true;
 }
     
-console.log(isUniqueChars('hello world'))
+// console.log(isUniqueChars('hello world'))
+
+/**
+The time complexity for this code is O(n), where n is the length of the string. The space 
+complexity is O(1). We can say the time complexity is O(1), since the for loop will never
+ iterate more than 128 characters.
+
+If we don't assume the char set is fixed, we could express the complexity as O(c) space and 
+O(min(c,n)) or O(c) time, where c is the size of the character set.
+
+ */
+
+/**
+We can also use set in js and iterate over the string characters and in each iteration,
+check if set has the character, then return false and if it doesn't have, add the character 
+to set. 
+
+Add the end of the iteration we can say all characters are unique and return true.
+
+ */
+
+function isUniqueChars(str) {
+    if(str.length > 128) {
+       return false;
+    }
+   
+    let set = new Set();
+   
+    for(let i = 0; i < str.length; i++) {
+        const val = str.charAt(i);
+        if(set.has(val)) {
+            return false;
+        }
+        set.add(val)
+    }
+  
+    return true;
+}
+
+//console.log(isUniqueChars('he wor ld'))
+
+/**
+If we can't  use additional data structure, we can do:
+
+1- compare every character of the string to every other character of the string (approach 1) 
+This will take O(n^2) time and O(1) space.
+
+2- If we are allowed to modify the string, we could sort the string inn O(nlogn) time and 
+then linearly check the string for neighboring characters that are identical.
+
+ */
