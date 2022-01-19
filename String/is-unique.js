@@ -9,7 +9,7 @@ first question to ask:
 if the string is an ASCII string or a Unicode string. (helpers > ASCII-vs-Unicode)
 
 We'll assume for simplicity the character set is ASCII. If not we would need to increase
-thestoragesize.
+the storage size.
 
  */
 
@@ -17,7 +17,8 @@ thestoragesize.
 Approch 1: Brute-Force
 Iterate over all characters in the string and for each character, iterate over all other 
 character and in each iteration, check if the character in outer loop is equal the char in 
-inner loop, return false or return true at the end of iteration. 
+inner loop, if two character are the same, return false, 
+or return true at the end of iteration. 
 
  */
 
@@ -91,7 +92,7 @@ We can also use set in js and iterate over the string characters and in each ite
 check if set has the character, then return false and if it doesn't have, add the character 
 to set. 
 
-Add the end of the iteration we can say all characters are unique and return true.
+In the end of the iteration we can say all characters are unique and return true.
 
  */
 
@@ -121,7 +122,7 @@ If we can't  use additional data structure, we can do:
 1- compare every character of the string to every other character of the string (approach 1) 
 This will take O(n^2) time and O(1) space.
 
-2- If we are allowed to modify the string, we could sort the string inn O(nlogn) time and 
+2- If we are allowed to modify the string, we could sort the string in O(nlogn) time and 
 then linearly check the string for neighboring characters that are identical.
 
  */
