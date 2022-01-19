@@ -56,3 +56,41 @@ console.log(checkPermutation('helwoj', 'helowj'));
 Time Complexity: O(nlogn)
 space Complexity: O(1)
  */
+
+/**
+ * Solution 2: Check if the two strings have identical character count.
+ * We can use the defintion of permutation. (two words with the same character count)
+ * We create an array that operate some what like a hash table, mapping each character to 
+ * it's frequency. We increment through the first string, then decrement through the seconnd 
+ * string. If strings are permutation then the array will be all zeroes at the end.
+ * 
+ * We can terminate early, if a value ever turns negative. If we don't terminate early, then 
+ * the array must be all zeroes. This is because the strings are in the same length and 
+ * we incremented the same number of times we decremented. The array can't have any positive
+ * values if it doesn't have any negative values.
+ */
+
+function checkPermutation(str1, str2) {
+    if (str1.length !== str2.length) {
+        return false;
+    }
+    
+    let letters = new Array(128).fill(0); //Asumption ASCII
+
+    for(let i = 0; i < str1.length; i++) {
+        letters[str1.charAt(i)]++;
+    }
+
+    for(let i = 0; i < str2.length; i++) {
+        letters[str2.charAt(i)]--;
+        if(letters[str2.charAt(i)] < 0) {
+            return false;
+        }
+    }
+    
+    //letters has no negative values, therefore no positive values either.
+    return true;
+}
+
+//In interview you should check with interviewer about the size of the character set.
+//We assumed that the character set was ASCII.
