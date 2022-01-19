@@ -21,3 +21,46 @@ Because string is not mmutable in js, We put it in a character array. Then itera
 array and when we get to a space, move all characters at the right of that space two to the
 right and add %20 in the 3 white space. It takes O(n^2) time and is not efficient.
  */
+
+/**
+Solution 2 : A common approach in string manipulation problems is to edit the string staring
+from the end ,and working backword. This is useful because we have extra buffer at the
+end, which allows us to change characters without worrying about what we're overwriting.
+ */
+
+function replaceSpaces(str, trueLength) {
+
+    let strArray = str.split('');
+
+    let last  = trueLength - 1;
+    let i = strArray.length - 1;
+
+    while (i >= 0) {
+        if (strArray[last] === ' ') {
+            strArray[i] = '0';
+            strArray[i - 1] = '2';
+            strArray[i - 2] = '%';
+            i -= 3;  
+        } else {
+            strArray[i] = strArray[last];
+            i--;
+        }
+        last--;
+    }
+
+    return strArray.join('');
+    
+}
+
+console.log(replaceSpaces('Mr John Smith    ', 13));
+/**
+ * Time Complexity : O(n)
+ * Space Complexity: O(n) for the strArray
+ * 
+ * This solution works best when the extra space at the end of string are exatlty equal
+ * the space we need for(%20).
+ * 
+ * We can improve this solution a little bit by counting spaces number and iterate over
+ * the array unntil we get to the last space. After that we don't need to continue to loop
+ * because every character is in the right place already.
+ */
