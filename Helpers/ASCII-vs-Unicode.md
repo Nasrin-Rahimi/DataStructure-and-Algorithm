@@ -19,6 +19,9 @@ Unicode can be defined with different character encoding like UTF-8, UTF-16, UTF
 Among these UTF-8 is the most popular as it used in over 90% of websites on the World Wide 
 Web as well as on most modern Operating systems like Windows.
 
+The ASCII character set has just 128 different characters (standard english letters and 
+punctuation), while Unicode has 110,000 (supporting several languages and some icons/symbols). 
+
 ASCII Vs Unicode :
 Now that we have seen what ASCII and Unicode are, let’s go ahead and see how are they 
 different from each other.
