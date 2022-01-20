@@ -75,25 +75,6 @@ function getMaxProfit(stockPrices) {
     return maxProfit;
 }
 
-//OR
-
-function getMaxProfit(stockPrices) {
-  let maxProfit = 0;
-
-  for(let i = 0; i < stockPrices - 1; i++) {
-    for(let j = i + 1; j < stockPrices.length; j++) {
-      const buyPrice = stockPrices[i];
-      const sellPrice = stockPrices[j];
-
-      const potentialProfit = buyPrice - sellPrice;
-
-      maxProfit = Math.max(maxProfit, potentialProfit);
-    }
-  }
-
-  return maxProfit;
-}
-
 /**
 But that will take O(n^2)time, ↴ since we have two nested loops—for every time, we're 
 going through every other time. Also, it's not correct: we won't ever report a 
