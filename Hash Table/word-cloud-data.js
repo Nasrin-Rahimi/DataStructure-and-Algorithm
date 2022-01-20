@@ -47,11 +47,13 @@ How can we check if a character in our input string is a letter?
 
 Two good options are to build a helper function or to use regular expressions. Either will 
 work for this problem. We'll build our own helper function isLetter().
+*/
 
 function isLetter(character) {
   return 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.indexOf(character) >= 0;
 }
 
+/**
 Now how can we split each word? Let's assume, for now, that our helper function will 
 return an array of words.
 
@@ -160,7 +162,9 @@ on code we didn't write, and our practical runtime may be significantly increase
 5- Ignore case entirely and make every word lowercase: this will give us simplicity and 
 consistency, but we'll lose all accuracy for words that should be uppercase.
 
-Any of these could be considered reasonable. Importantly, none of them are perfect. They all have tradeoffs, and it is very difficult to write a highly accurate algorithm. Consider "cliff" and "bill" in these sentences:
+Any of these could be considered reasonable. Importantly, none of them are perfect. They all 
+have tradeoffs, and it is very difficult to write a highly accurate algorithm. Consider 
+"cliff" and "bill" in these sentences:
 
 "Cliff finished his cake and paid the bill."
 "Bill finished his cake at the edge of the cliff."

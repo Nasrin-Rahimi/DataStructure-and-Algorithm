@@ -27,7 +27,7 @@ see if it is a palindrome.
 What would be the time cost?
 
 We'd have to generate every permutation of the input string. If the string has n characters, 
-then there are n choices for the first character, n - 1n−1 choices for the second character,
+then there are n choices for the first character, n - 1 choices for the second character,
  and so on. In total, that's n! permutations.
 We'd have to check each permutation to see if it's a palindrome. That takes O(n) time per 
 permutation, since each permutation is n letters.
