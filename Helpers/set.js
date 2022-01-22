@@ -178,4 +178,56 @@ const obj = {};
 console.log(obj === obj); // 👉️ true
 console.log({} === {}); // 👉️ false
 
+/**
+4- How to check if a Set is Empty in JavaScript
+Use the size property to check if a Set is empty, e.g. set.size === 0. The size property 
+returns the number of elements in the Set. When accessed on an empty Set, the size property 
+returns 0.
+ */
+
+const set1 = new Set();
+console.log(set1.size); // 👉️ 0
+
+if (set1.size === 0) {
+  // 👇️ this runs
+  console.log('✅ Set is empty');
+} else {
+  console.log('⛔️ Set is NOT empty');
+}
+
+const set2 = new Set(['a', 'b']);
+console.log(set2.size); // 👉️ 2
+
+/**
+We used the Set.size property to check if a Set is empty.
+
+The property returns an integer that represents how many elements the Set stores.
+
+The property is similar to an array's length property, however it's read-only and cannot 
+be changed.
+ */
+
+const set3 = new Set(['one', 'two', 'three']);
+console.log(set3.size); // 👉️ 3
+
+set3.size = 1;
+
+console.log(set3.size); // 👉️ 3
+
+/**
+We attempted to change the size property on the Set, however we were unable to.
+
+This is different when working with arrays, where the length property can be changed by 
+the user.
+ */
+
+const arr = ['one', 'two', 'three'];
+console.log(arr.length); // 👉️ 3
+
+arr.length = 1;
+
+console.log(arr.length); // 👉️ 1
+console.log(arr); // 👉️ ['one']
+
+
 
