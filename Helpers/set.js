@@ -1,9 +1,72 @@
+//Set
+
+/**
+1- How to Initialize a Set with Values in JavaScript
+
+To initialize a Set with values, pass an iterable to the Set constructor. When an iterable 
+is passed to the Set constructor, all elements get added to the new Set. The most common 
+iterables to initialize a Set with are - array, string and another Set.
+ */
+
+const set1 = new Set(['one', 'one', 'two', 'three']);
+console.log(set1); // 👉️ {'one', 'two', 'three'}
+
+const set2 = new Set('hello');
+console.log(set2); // 👉️ {'h', 'e', 'l', 'o'}
+
+const set3 = new Set([...set1, 'four']);
+console.log(set3); // 👉️ {'one', 'two', 'three', 'four'}
+
+set3.add('five');
+set3.add('six');
+
+// 👇️ {'one', 'two', 'three', 'four', 'five', 'six'}
+console.log(set3);
+
+/**
+In the first example, we passed an array to the Set() constructor.
+All of the elements in the array got added to the new Set, except for the duplicates.
+
+Set objects only store unique values.
+
+In our second example, we initialized the Set with a string. The string got split on every 
+character and added to the new Set.
+
+The l character is contained twice in the string hello, however it is only contained a 
+single time in the Set.
+
+Note that the character has to be the same case to be considered duplicate. For example, 
+both ts from the string Test will be added to the Set.
+
+ */
+
+const set4 = new Set('Test');
+console.log(set4); // 👉️ {'T', 'e', 's', 't'}
+
+/**
+In our third Set, we used the spread operator (...) to unpack the values from the first set 
+and add an additional value.
+
+Sets are also iterable, just like arrays and strings.
+
+An alternative approach is to create an empty set and manually add values to it.
+ */
+
+const set5 = new Set();
+
+set5.add('one');
+set5.add('two');
+set5.add('three');
+
+console.log(set5); // 👉️ {'one', 'two', 'three'}
+
+
 /**  
- * How to Get the First Element of a Set in JavaScript
- * 
+2- How to Get the First Element of a Set in JavaScript
+
 Use destructuring assignment, e.g. const [first] = set. 
 The destructuring assignment sets the variable to the first element of the Set.
- * */
+ */
 
 const set = new Set([1, 2, 3]);
 
