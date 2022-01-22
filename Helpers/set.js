@@ -229,5 +229,88 @@ arr.length = 1;
 console.log(arr.length); // 👉️ 1
 console.log(arr); // 👉️ ['one']
 
+/**
+5- How to sort a Set in JavaScript
+
+ - Convert the Set into an array, using the Array.from() method.
+ - Sort the array, by using the Array.sort() method.
+ - Convert the array back into a Set object.
+ */
+
+ /**
+ * 👇️ SORT a NUMBERS Set
+ */
+
+const numbersSet = new Set([300, 100, 700]);
+
+// 👉️ sorts numbers in Ascending order
+const sortedNumbers = Array.from(numbersSet).sort((a, b) => a - b);
+console.log(sortedNumbers); // 👉️ [100, 300, 700]
+
+const sortedNumbersSet = new Set(sortedNumbers);
+console.log(sortedNumbersSet); // 👉️ {100, 300, 700}
+
+/**
+ * 👇️ SORT a STRINGS Set
+ */
+
+const stringsSet = new Set(['c', 'b', 'a']);
+
+const sortedStrings = Array.from(stringsSet).sort();
+console.log(sortedStrings); // 👉️ ['a', 'b', 'c']
+
+const sortedStringsSet = new Set(sortedStrings);
+console.log(sortedStringsSet); // 👉️ {'a', 'b', 'c'}
+
+/**
+We used the Array.from method to create an array from the Set object.
+
+We then called the Array.sort method on the array.
+
+Notice that when sorting numbers, we have to pass a function as a parameter to the sort 
+method, whereas with strings, we don't.
+
+The parameter we passed to the sort method is a function that defines the sort order.
+
+If you don't provide this parameter, the array elements get converted to strings and sorted 
+according to their UTF-16 code unit values.
+This is not what we want when working with Sets that contain numbers, however it's exactly 
+what we want when comparing strings.
+
+After we have sorted the array, we have to pass it to the Set constructor to convert it back 
+to a Set. We can iterate over Sets in element insertion order.
+
+Using the Array.from method is the recommended approach when using TypeScript, because the 
+compiler often complains when using the spread operator (...) with iterators.
+
+Here are the same examples, however this time we use the spread operator (...) instead of 
+Array.from.
+
+ */
+
+const numbersSet = new Set([300, 100, 700]);
+
+const sortedNumbers = [...numbersSet].sort((a, b) => a - b);
+console.log(sortedNumbers); // 👉️ [100, 300, 700]
+
+const sortedNumbersSet = new Set(sortedNumbers);
+console.log(sortedNumbersSet); // 👉️ {100, 300, 700}
+
+/**
+ * 👇️ SORT a STRINGS Set
+ */
+
+const stringsSet = new Set(['c', 'b', 'a']);
+
+const sortedStrings = [...stringsSet].sort();
+console.log(sortedStrings); // 👉️ ['c', 'b', 'a']
+
+const sortedStringsSet = new Set(sortedStrings);
+console.log(sortedStringsSet); // 👉️ {'a', 'b', 'c'}
+
+/**
+The spread operator (...) is the most commonly used approach to convert aSet into an array.
+ */
+
 
 
