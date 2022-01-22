@@ -7,7 +7,7 @@ The destructuring assignment sets the variable to the first element of the Set.
 
 const set = new Set([1, 2, 3]);
 
-const [first] = set;
+let [first] = set;
 console.log(first); // 👉️ 1
 
 /**
@@ -15,8 +15,6 @@ An easy way to think about it is - we are assigning the element at position 1 to
 variable named first.
 We can get the second element of the set in a similar way:
  */
-
-const set = new Set([1, 2, 3]);
 
 const [, second] = set;
 console.log(second); // 👉️ 2
@@ -31,9 +29,7 @@ To get the first element of a set, use the spread syntax to convert the set into
 and access the element at index 0, e.g. const first = [...set][0].
  */
 
-const set = new Set([1, 2, 3]);
-
-const first = [...set][0];
+first = [...set][0];
 console.log(first); // 👉️ 1
 
 
@@ -47,11 +43,9 @@ A more long winded way to get the first element of a set is to use the methods o
 instance.
  */
 
-const set = new Set([1, 2, 3]);
-
 const values = set.values(); // 👉️ iterator
 const obj = values.next() // 👉️ {value: 1, done: false}
-const first = obj.value;
+first = obj.value;
 console.log(first); // 👉️ 1
 
 /**
