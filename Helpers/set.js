@@ -124,3 +124,58 @@ The first 2 approaches are definitely more readable and intuitive. Don't get int
 implementation details of sets in JavaScript, unless you have to.
  */
 
+/**
+3- Check if a Set contains a Value using JavaScript
+
+Use the has() method to check if a Set contains a value, e.g. set.has(1). The has method 
+returns true if the value is contained in the Set, otherwise false is returned.
+ */
+
+const set1 = new Set(['one', 'two', 'three']);
+
+console.log(set1.has('one')); // 👉️ true
+console.log(set1.has('four')); // 👉️ false
+
+/**
+The only parameter the Set.has method takes is the value we want to test for presence in 
+the Set.
+
+The has method returns a boolean result:
+
+true if the value is contained in the Set
+false if the value is not in the Set
+
+Here are some more examples.
+ */
+
+const set1 = new Set();
+
+const obj = {country: 'Chile'};
+set1.add(obj);
+console.log(set1.has(obj)); // 👉️ true
+
+const arr = ['one', 'two'];
+set1.add(arr);
+console.log(set1.has(arr)); // 👉️ true
+
+// 👇️ false, because they reference
+//  different locations in memory
+console.log(set1.has(['one', 'two']));
+
+set1.delete(arr);
+
+console.log(set1.has(arr)); // 👉️ false
+
+/**
+The has method works even with object and arrays, as long as they have the same reference.
+
+The has method does not check for equality of the values of the object or array, instead it 
+checks if they reference the same location in memory.
+
+ */
+
+const obj = {};
+console.log(obj === obj); // 👉️ true
+console.log({} === {}); // 👉️ false
+
+
