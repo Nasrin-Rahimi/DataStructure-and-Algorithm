@@ -312,5 +312,55 @@ console.log(sortedStringsSet); // 👉️ {'a', 'b', 'c'}
 The spread operator (...) is the most commonly used approach to convert aSet into an array.
  */
 
+/**
+6- How to Check if two Sets are equal using JavaScript
+
+To check if two Sets are equal:
+
+- Compare the size of the Sets, if their size isn't equal, the Sets are not equal.
+- Convert the first Set to an array and use the every() function to iterate over it.
+- On each iteration check if the array element is contained in the second Set.
+
+ */
+
+function setsAreEqual(a, b) {
+    if (a.size !== b.size) {
+      return false;
+    }
+  
+    return Array.from(a).every(element => {
+      return b.has(element);
+    });
+  }
+  
+  const set1 = new Set(['a', 'b', 'c']);
+  const set2 = new Set(['c', 'b', 'a']);
+  const set3 = new Set(['a', 'b', 'z']);
+  
+  console.log(setsAreEqual(set1, set2)); // 👉️ true
+  console.log(setsAreEqual(set1, set3)); // 👉️ false
+/**
+We used the Array.from method to convert the first Set to an array.
+
+The function we passed to the Array.every method gets called with each element in the array, 
+until it returns a falsy value or iterates over the entire array.
+
+On each iteration we use the Set.has method to check if the value is contained in the second 
+Set.
+
+The has method tests for the presence of a value in a Set.
+
+If the callback function returns false, the every method short-circuits and also returns false.
+If the function we passed to the every method returns a falsy value, the every method would 
+short-circuit and not continue to iterate.
+
+The falsy values in JavaScript are: null, undefined, false, NaN (not a number), 0, "" 
+(empty string).
+
+The only scenario, in which we get back true is if all of the elements from the first Set 
+are also contained in the second.
+
+*/  
+
 
 
