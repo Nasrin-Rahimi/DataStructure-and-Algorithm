@@ -362,5 +362,115 @@ are also contained in the second.
 
 */  
 
+/**
+7- Check if Object is of type Set in JavaScript
+
+Use the instanceof operator to check if an object is a Set - myObj instanceof Set. The 
+instanceof operator returns true if the prototype property of a constructor appears in 
+the prototype chain of the object.
+ */
+
+const set = new Set();
+set.add('JavaScript');
+
+console.log(set instanceof Set); // 👉️ true
+console.log('test' instanceof Set); // 👉️ false
+console.log({} instanceof Set); // 👉️ false
+
+/**
+We used the instanceof operator to check if the set variable has the prototype property of 
+the Set() constructor in its prototype chain.
+
+This approach would also work if you extend the Set class.
+ */
+
+class CustomSet extends Set {
+  example() {
+    console.log('do work');
+  }
+}
+
+const set = new CustomSet();
+set.add('JavaScript');
+
+console.log(set instanceof Set); // 👉️ true
+console.log(set instanceof CustomSet); // 👉️ true
+console.log({} instanceof CustomSet); // 👉️ false
+
+/**
+In this example, we extended the Set object and the instanceof operator returned true for 
+both Set and CustomSet.
+
+Using the instanceof operator is risky when working with IFrames (inline frames). 
+The instanceof test might not work when performed in a different window context, 
+especially on some older browsers.
+
+As an alternative, you can use duck-typing to check if the object is a Set.
+ */
+
+function isSet(set) {
+  if (
+    set &&
+    typeof set.add === 'function' &&
+    typeof set.clear === 'function' &&
+    typeof set.delete === 'function' &&
+    typeof set.has === 'function'
+  ) {
+    return true;
+  }
+
+  return false;
+}
+
+const set = new Set();
+console.log(isSet(set)); // 👉️ true
+
+const map = new Map();
+console.log(isSet(map)); // 👉️ false
+
+console.log(isSet({})); // 👉️ false
+
+/**
+A simple way to think about duck-typing is - we're basically saying:
+
+A Set has the following properties / methods. If an object also has these 
+properties / methods, then it must be a Set.
+
+In our isSet function, we check if the passed in parameter has the methods a Set would 
+have, if the condition is met, we return true.
+
+This could go wrong if an object, that is not a Set, but contains these same methods gets 
+passed to the function.
+ */
+
+function isSet(set) {
+  if (
+    set &&
+    typeof set.add === 'function' &&
+    typeof set.clear === 'function' &&
+    typeof set.delete === 'function' &&
+    typeof set.has === 'function'
+  ) {
+    return true;
+  }
+
+  return false;
+}
+
+// 👇️ true
+console.log(
+  isSet({
+    add: () => {},
+    clear: () => {},
+    delete: () => {},
+    has: () => {},
+  }),
+);
+
+/**
+The duck-typing approach is not exactly rock solid. If the object passed to the isSet 
+function contains the properties / methods we are checking for, we get back a false positive.
+ */
+
 
 
