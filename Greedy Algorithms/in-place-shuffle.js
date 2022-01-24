@@ -152,3 +152,11 @@ couple hints along the way.
 They may also be looking for an understanding of why the naive solution is non-uniform (some 
 outcomes are more likely than others). If you had trouble with that part, try walking through it again.
  */
+
+/**
+The Fisher–Yates shuffle is an algorithm for generating a random permutation of a finite 
+sequence—in plain terms, the algorithm shuffles the sequence. The algorithm effectively 
+puts all the elements into a hat; it continually determines the next element by randomly 
+drawing an element from the hat until no elements remain. The algorithm produces an 
+unbiased permutation: every permutation is equally likely. 
+ */
