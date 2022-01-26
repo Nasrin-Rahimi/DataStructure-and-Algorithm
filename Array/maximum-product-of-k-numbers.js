@@ -146,4 +146,9 @@ function maxProductSubarrayOfSizeK(nums, k) {
 
     Output: 144
 */
+
+/**
+Time Complexity :O(n * log n) from sorting + O(k) from one traversal in array = O(n * log n) 
+Auxiliary Space : O(1)
+ */
    
