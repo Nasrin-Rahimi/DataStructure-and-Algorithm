@@ -113,6 +113,7 @@ function maxProductSubarrayOfSizeK(nums, k) {
     // subsequence each time  Effectively k becomes half
     // Hence, k >>= 1 means k /= 2
 
+    k >>= 1; //or k /= 2
     // Now finding k corresponding pairs to get maximum possible value of product
     for (let itr = 0; itr < k; itr++) {
                
