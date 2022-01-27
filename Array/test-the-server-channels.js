@@ -37,7 +37,7 @@ I am trying out a greedy approach here but I can't prove it so i dont know if th
  is right or wrong. What you basically need to do is first sort the array. Then take 
  (Channels - 1) greatest elements from the array. And from the remaining array take the 
  median if its length > 1.
- 
+
 1- Sort the packets array.
 2- If we have k channels, put the packets with highest quantity, one per channel in 
 k - 1 channels. In this way we sum up the highest numbers and get the maximum possible sum 
@@ -94,3 +94,10 @@ function getMaximumQuality (packets, channels) {
 }
 
 console.log(getMaximumQuality([1,2,3,4,5], 1));
+
+/**
+Time complexity: O(nlogn) for sort and O(n) for while loop(in the case we have equal packet
+    number and channels) and it's equal to O(nlogn)
+
+Space Complexity: O(1)
+ */
