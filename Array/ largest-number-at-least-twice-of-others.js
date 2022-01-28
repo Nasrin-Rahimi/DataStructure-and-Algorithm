@@ -20,6 +20,24 @@ Output: 0
 Explanation: 1 is trivially at least twice the value as any other number because 
 there are no other numbers.
  */
+
+/**
+ Solution 1: Brute-Force
+ Iterate over the array an for every element, iterate over other elements and check if 
+ current element is twice as much as other elements, return it. Or return -1 if there isn't
+ this kind of element. We need two nested iteration loop here and take O(n^2) time.
+ It's not effitient approch.
+ */
+
+/**
+Note: Sorting is not a good option here, because we should return the index of the element,
+and by sorting the indices are changed and function may return incorrect index.
+*/
+
+ /**
+  solution 2:
+  */
+
 let dominantIndex = function(nums) {
     let max = 0, maxIndex;
 
