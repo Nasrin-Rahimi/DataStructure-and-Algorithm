@@ -7,6 +7,10 @@ Define a function, createPhoneNumber, that accepts an array of 10 integers
 Solution 1: 
  */
 function createPhoneNumber1(phoneNoArr) {
+    if(arr.lenght !== 10) {
+        throw new Error('Phone number must have 10 digits!');
+    }
+    
     let phoneNoStr = "";
     for(let i = 0; i < phoneNoArr.length; i++) {
         if(i === 0) {
@@ -38,10 +42,15 @@ need from the array between the specified indexes. Also we'll use the string
 template literals in order to have a cleaner code:
  */
 
-function createPhoneNumber(arr) {
-    return `(${arr.slice(0, 3).join('')}) ${arr.slice(3, 6).join('')}-${arr.slice(6).join('')}`;
+function createPhoneNumber2(arr) {
+    if(arr.lenght !== 10) {
+        throw new Error('Phone number must have 10 digits!');
+    }
+
+    return `(${arr.slice(0, 3).join('')})${arr.slice(3, 6).join('')}-${arr.slice(6).join('')}`;
 }
 
+console.log(createPhoneNumber2([2,5,3,6,4,2,7,5,7,5]));
 /**
  * This solution is more clean than the first one. 
  * Time complexity: O(n) (Not sure)
@@ -52,10 +61,16 @@ Or we can create a string at the beginning by .joininig the characters and then 
 .substring to take the specific ones out:
  */
 
-function createPhoneNumber(arr) {
+function createPhoneNumber3(arr) {
+    if(arr.lenght !== 10) {
+        throw new Error('Phone number must have 10 digits!');
+    }
+
     let str = arr.join('');
     return `(${str.substring(0, 3)}) ${str.substring(3, 6)}-${str.substring(6)}`;
 }
+
+console.log(createPhoneNumber3([2,5,3,6,4,2,7,5,7,5]));
 
 /**
 Solution 3:
@@ -65,8 +80,11 @@ of x in this case (which is what we want), then it will move on to the next x in
 iteration and so on...
  */
 
-function createPhoneNumber(arr) {
-    let mask = '(xxx) xxx-xxxx';
+function createPhoneNumber4(arr) {
+    if(arr.lenght !== 10) {
+        throw new Error('Phone number must have 10 digits!');
+    }
+    let mask = '(xxx)xxx-xxxx';
 
     arr.forEach(item => {
         mask = mask.replace('x', item);
@@ -74,3 +92,5 @@ function createPhoneNumber(arr) {
 
     return mask;
 }
+
+console.log(createPhoneNumber4([2,5,3,6,4,2,7,5,]));
