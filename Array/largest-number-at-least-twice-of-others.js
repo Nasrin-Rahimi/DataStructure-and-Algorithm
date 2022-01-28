@@ -39,7 +39,15 @@ and by sorting the indices are changed and function may return incorrect index.
   */
 
 let dominantIndex = function(nums) {
-    let max = 0, maxIndex;
+    if (nums === null || nums.length === 0) {
+        return -1;
+    }
+
+    if(nums.length === 1) {
+        return 0;
+    }
+
+    let max = nums[0], maxIndex = 0;
 
     for(let i = 0 ; i < nums.length; i++) {
         if(nums[i] > max) {
@@ -58,6 +66,8 @@ let dominantIndex = function(nums) {
 
 
 }
+
+console.log(dominantIndex([2,6,1]));
 
 /**
  * time complexity = O(n)
