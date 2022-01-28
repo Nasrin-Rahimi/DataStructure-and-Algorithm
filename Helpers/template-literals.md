@@ -50,3 +50,48 @@ console.log(`string text line 1
 string text line 2`);
 // "string text line 1
 // string text line 2"
+
+Expression interpolation
+In order to embed expressions within normal strings, you would use the following syntax:
+
+let a = 5;
+let b = 10;
+console.log('Fifteen is ' + (a + b) + ' and\nnot ' + (2 * a + b) + '.');
+// "Fifteen is 15 and
+// not 20."
+Copy to Clipboard
+Now, with template literals, you are able to make use of the syntactic sugar, making 
+substitutions like this more readable:
+
+let a = 5;
+let b = 10;
+console.log(`Fifteen is ${a + b} and
+not ${2 * a + b}.`);
+// "Fifteen is 15 and
+// not 20."
+
+Raw strings
+The special raw property, available on the first argument to the tag function, allows you to access the raw strings as they were entered, without processing escape sequences.
+
+function tag(strings) {
+  console.log(strings.raw[0]);
+}
+
+tag`string text line 1 \n string text line 2`;
+// logs "string text line 1 \n string text line 2" ,
+// including the two characters '\' and 'n'
+
+In addition, the String.raw() method exists to create raw strings—just like the default template function and string concatenation would create.
+
+let str = String.raw`Hi\n${2+3}!`;
+// "Hi\\n5!"
+
+str.length;
+// 6
+
+Array.from(str).join(',');
+// "H,i,\\,n,5,!"
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+
+
