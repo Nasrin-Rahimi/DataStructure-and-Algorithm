@@ -49,7 +49,7 @@ let dominantIndex = function(nums) {
 
     let max = nums[0], maxIndex = 0;
 
-    for(let i = 0 ; i < nums.length; i++) {
+    for(let i = 1 ; i < nums.length; i++) {
         if(nums[i] > max) {
             max = nums[i];
             maxIndex = i;
@@ -57,7 +57,7 @@ let dominantIndex = function(nums) {
     }
 
     for(let i = 0; i < nums.length; i++) {
-        if(nums[i] != max && max < nums[i] * 2) {
+        if(i != maxIndex && max < nums[i] * 2) {
             return -1;
         }
     }
