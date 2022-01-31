@@ -10,7 +10,7 @@ function createPhoneNumber1(phoneNoArr) {
     if(arr.lenght !== 10) {
         throw new Error('Phone number must have 10 digits!');
     }
-    
+
     let phoneNoStr = "";
     for(let i = 0; i < phoneNoArr.length; i++) {
         if(i === 0) {
@@ -94,3 +94,10 @@ function createPhoneNumber4(arr) {
 }
 
 console.log(createPhoneNumber4([2,5,3,6,4,2,7,5,]));
+
+/**
+Time Complexity: String.prototype.replace has to at least be O(n) because it has to search 
+through the entire string in the worst place and because it has to create a new string whose 
+length will linear in the length of the original string. And creating a string of length n 
+is of course an O(n) operation. 
+ */
