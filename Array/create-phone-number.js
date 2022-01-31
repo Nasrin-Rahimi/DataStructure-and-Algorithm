@@ -1,6 +1,9 @@
 /** 
 Define a function, createPhoneNumber, that accepts an array of 10 integers
  (from 0-9) and returns a string of those numbers in the form of a phone number.
+
+ Example : Input: [6, 8, 1, 2, 8, 5, 9, 1, 0, 8]
+        output: (681) 285-9108
 */
 
 /**
