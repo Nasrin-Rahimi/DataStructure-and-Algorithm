@@ -39,9 +39,13 @@ To keep things simple, you can assume all words are lowercase.
  */
 
 function findRotationPoint(words) {
+  if(words.length === 0) {
+    throw new Error("We don't have any word!");
+  }
+  
   let prev = words[0];
 
-  for(let i = 0; i < words.length; i++) {
+  for(let i = 1; i < words.length; i++) {
     const cur = words[i];
     //the rotation point
     if(prev > cur) {

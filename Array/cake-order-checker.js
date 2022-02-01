@@ -256,8 +256,8 @@ we're serving food first-come, first-served.
 function isFirstComeFirstServed(takeOutOrders, dineInOrders, servedOrders) {
     let takeOutOrdersIndex = 0;
     let dineInOrdersIndex = 0;
-    let takeOutOrdersMaxIndex = takeOutOrders.length - 1;
-    let dineInOrdersMaxIndex = dineInOrders.length - 1;
+    const takeOutOrdersMaxIndex = takeOutOrders.length - 1;
+    const dineInOrdersMaxIndex = dineInOrders.length - 1;
 
     for (let i = 0; i < servedOrders.length; i++) {
         let order = servedOrders[i];

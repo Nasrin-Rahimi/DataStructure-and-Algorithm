@@ -71,7 +71,8 @@ not ${2 * a + b}.`);
 // not 20."
 
 Raw strings
-The special raw property, available on the first argument to the tag function, allows you to access the raw strings as they were entered, without processing escape sequences.
+The special raw property, available on the first argument to the tag function, allows you 
+to access the raw strings as they were entered, without processing escape sequences.
 
 function tag(strings) {
   console.log(strings.raw[0]);
@@ -81,7 +82,8 @@ tag`string text line 1 \n string text line 2`;
 // logs "string text line 1 \n string text line 2" ,
 // including the two characters '\' and 'n'
 
-In addition, the String.raw() method exists to create raw strings—just like the default template function and string concatenation would create.
+In addition, the String.raw() method exists to create raw strings—just like the default 
+template function and string concatenation would create.
 
 let str = String.raw`Hi\n${2+3}!`;
 // "Hi\\n5!"

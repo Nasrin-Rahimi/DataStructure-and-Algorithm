@@ -76,6 +76,6 @@ console.log(dominantIndex([2,6,1]));
 
 /**
 Note: when the array is empty or null, we have another option to return a new error and 
-let the user know the array is empty. I think, It's more clean, because we return -1 for 
+let the user know the array is empty. I think, It's more accurate because we return -1 for 
 whenever we have some integers but we don't have any integer as twice as others.
  */
