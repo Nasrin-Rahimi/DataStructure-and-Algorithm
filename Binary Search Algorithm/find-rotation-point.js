@@ -42,7 +42,7 @@ function findRotationPoint(words) {
   if(words.length === 0) {
     throw new Error("We don't have any word!");
   }
-  
+
   let prev = words[0];
 
   for(let i = 1; i < words.length; i++) {
@@ -164,6 +164,11 @@ We use O(1) space to store the first word and the floor and ceiling indices.
 Bonus
 This function assumes that the array is rotated. If it isn't, what index will it return? How can we 
 fix our function to return 0 for an unrotated array?
+
+For the case array doesn't have rotaion point, I think after break we should check 
+  if (words[ceilingIndex] >= firstWord) 
+then the array doesn't have rotaion point and we can return new error to let user know that.
+or if not we should return ceilingIndex like before.
  */
 
 /**
