@@ -33,8 +33,9 @@ To keep things simple, you can assume all words are lowercase.
  */
 
 /**
- Bruce force: walk through the whole array and in each itteration check if current element is less 
- than previous element, then we are in rotaion point and should return current element index.
+ Bruce force: walk through the whole array and in each itteration check if current word is 
+ alphabetically less than previous word, then we are in rotaion point and should return current 
+ word index.
  It take O(n) time complexity if we have n elements.
  */
 
