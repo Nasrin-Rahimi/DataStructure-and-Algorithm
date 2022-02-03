@@ -105,6 +105,10 @@ dictionary, and the ceiling is the first item we added after.
  */
 
 function findRotationPoint(words) {
+    if(words === null || words.length === 0) {
+      throw new Error("We don't have any word!");
+    }
+
     const firstWord = words[0];
   
     let floorIndex = 0;
