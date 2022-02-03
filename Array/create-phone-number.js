@@ -14,17 +14,16 @@ function createPhoneNumber1(phoneNoArr) {
         throw new Error('Phone number must have 10 digits!');
     }
 
-    let phoneNoStr = "";
+    let phoneNoStr = "(";
+
     for(let i = 0; i < phoneNoArr.length; i++) {
-        if(i === 0) {
-            phoneNoStr += '(' + phoneNoArr[i];
-        } else if(i === 2) {
-            phoneNoStr += phoneNoArr[i] + ')';
+
+        phoneNoStr += phoneNoArr[i];
+
+        if(i === 2) {
+            phoneNoStr += ')';
         } else if(i === 5) {
-            phoneNoStr += phoneNoArr[i] + '-';
-        }
-        else {
-            phoneNoStr += phoneNoArr[i];
+            phoneNoStr += '-';
         }
     }
     return phoneNoStr;
