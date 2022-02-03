@@ -86,3 +86,31 @@ function sortScores(unorderedScores, highestPossibleScore) {
   
     return sortedScores;
 }
+
+/**
+Complexity
+O(n) time and O(n) space, where nn is the number of scores.
+
+Wait, aren't we nesting two loops towards the bottom? So shouldn't it be O(n^2)time? 
+Notice what those loops iterate over. The outer loop runs once for each unique number in the array. 
+The inner loop runs once for each time that number occurred.
+
+So in essence we're just looping through the n numbers from our input array, except we're 
+splitting it into two steps: (1) each unique number, and (2) each time that number appeared.
+
+Here's another way to think about it: in each iteration of our two nested loops, we append one 
+item to sortedScores. How many numbers end up in sortedScores in the end? Exactly how many were 
+in our input array! n.
+
+If we didn't treat highestPossibleScore as a constant, we could call it k and say we have 
+O(n+k) time and O(n+k) space.
+ */
+
+/**
+Bonus
+Note that by optimizing for time we ended up incurring some space cost! What if we were optimizing 
+for space?
+
+We chose to generate and return a separate, sorted array. Could we instead sort the array in place? 
+Does this change the time complexity? The space complexity?
+ */
