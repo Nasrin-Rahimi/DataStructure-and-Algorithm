@@ -260,7 +260,7 @@ function isFirstComeFirstServed(takeOutOrders, dineInOrders, servedOrders) {
     const dineInOrdersMaxIndex = dineInOrders.length - 1;
 
     for (let i = 0; i < servedOrders.length; i++) {
-        let order = servedOrders[i];
+        const order = servedOrders[i];
 
         // if we still have orders in takeOutOrders
         // and the current order in takeOutOrders is the same

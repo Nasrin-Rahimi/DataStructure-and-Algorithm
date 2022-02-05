@@ -64,8 +64,7 @@ array to see if it appears twice.
 function findRepeat(numbers) {
   for (let needle = 1; needle < numbers.length; needle++) {
     let hasBeenSeen = false;
-    for (let i = 0; i < numbers.length; i++) {
-      const number = numbers[i];
+    numbers.forEach(number => {
       if (number === needle) {
         if (hasBeenSeen) {
           return number;
@@ -73,7 +72,7 @@ function findRepeat(numbers) {
           hasBeenSeen = true;
         }
       }
-    }
+    });
   }
 
   // Whoops--no duplicate
