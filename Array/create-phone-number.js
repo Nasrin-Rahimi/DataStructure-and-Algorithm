@@ -10,7 +10,7 @@ Define a function, createPhoneNumber, that accepts an array of 10 integers
 Solution 1: 
  */
 function createPhoneNumber1(phoneNoArr) {
-    if(arr.lenght !== 10) {
+    if(phoneNoArr.lenght !== 10) {
         throw new Error('Phone number must have 10 digits!');
     }
 

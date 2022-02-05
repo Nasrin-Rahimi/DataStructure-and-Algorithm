@@ -93,3 +93,16 @@ let checkDoubleExist = function(arr) {
 }
 
 console.log(checkDoubleExist([10,2,3,5]));
+
+/**
+Note: In above code because we don't need indices from for loop, it's better to use forEach like:
+
+arr.forEach(number => {
+    if(set.has(number)) {
+        return true;
+    } else {
+        set.add(number * 2);
+        set.add(number / 2);
+    }
+})
+ */

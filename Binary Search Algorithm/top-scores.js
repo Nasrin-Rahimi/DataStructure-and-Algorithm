@@ -20,7 +20,7 @@ const HIGHEST_POSSIBLE_SCORE = 100;
 sortScores(unsortedScores, HIGHEST_POSSIBLE_SCORE);
 // returns [91, 89, 65, 53, 41, 37]
 
-We’re defining nn as the number of unsortedScores because we’re expecting the number of players 
+We’re defining n as the number of unsortedScores because we’re expecting the number of players 
 to keep climbing.
 
 And, we'll treat highestPossibleScore as a constant instead of factoring it into our big O time 
@@ -89,7 +89,7 @@ function sortScores(unorderedScores, highestPossibleScore) {
 
 /**
 Complexity
-O(n) time and O(n) space, where nn is the number of scores.
+O(n) time and O(n) space, where n is the number of scores.
 
 Wait, aren't we nesting two loops towards the bottom? So shouldn't it be O(n^2)time? 
 Notice what those loops iterate over. The outer loop runs once for each unique number in the array. 

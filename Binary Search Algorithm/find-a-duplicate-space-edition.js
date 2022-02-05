@@ -124,7 +124,7 @@ What if we could cut the problem in half a different way, other than cutting the
 With this problem, we're looking for a needle (a repeated number) in a haystack (array). What if 
 instead of cutting the haystack in half, we cut the set of possibilities for the needle in half?
 
-The full range of possibilities for our needle is 1..n1..n. How could we test whether the actual 
+The full range of possibilities for our needle is 1..n. How could we test whether the actual 
 needle is in the first half of that range (1..n/2) or the second half (n/2+1..n)?
 
 A quick note about how we're defining our ranges: when we take n/2 we're doing integer division, 
@@ -174,7 +174,7 @@ Not convinced? We can prove this by contradiction. Suppose neither array had mor
 it had possible distinct integers. In other words, both arrays have at most the same number of 
 items as they have distinct possibilities. The sum of their numbers of items would then be at 
 most the total number of possibilities across each of them, which is nn. This is a contradiction—we 
-know that our total number of items from the original input array is n+1n+1, which is greater than n.
+know that our total number of items from the original input array is n+1, which is greater than n.
 
 Now that we know one of our subarrays has 1 or more items more than it has distinct possibilities, 
 we know that subarray must have at least one duplicate, by the same pigeonhole argument that we use 
@@ -264,6 +264,7 @@ O(1) space and O(nlgn) time.
 Tricky as this solution is, we can actually do even better, getting our runtime down to O(n) while 
 keeping our space cost at O(1). The solution is NUTS; it's probably outside the scope of what most 
 interviewers would expect. But for the curious...here it is!
+https://www.interviewcake.com/question/javascript/find-duplicate-optimize-for-space-beast-mode
  */
 
 /**
