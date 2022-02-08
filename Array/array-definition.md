@@ -202,20 +202,16 @@ And it is worth noting that this technique is often used in a sorted array.
  Given an array and a value, remove all instances of that value in-place and return the 
  new length.
 
-If we don't have the limitation of space complexity, it will be easier. We can initialize
-a new array to store the answer. Iterate the original array and add the element to the 
-new array if the element is not equal to the given target value.
+ If we don't have the limitation of space complexity, it will be easier. We can initialize
+a new array to store the answer. Iterate the original array and add the element to the new array if the element is not equal to the given target value.
 
-Actually, it is equivalent to using two pointers, one is used for the iteration of the 
-original array and another one always points at the last position of the new array.
+Actually, it is equivalent to using two pointers, one is used for the iteration of the original array and another one always points at the last position of the new array.
 
 Now let's reconsider the space limitation.
 
-We can use a similar strategy. We still use two pointers: one is still used for the 
-iteration while the second one always points at the position for next addition.
+We can use a similar strategy. We still use two pointers: one is still used for the iteration while the second one always points at the position for next addition.
 
-We use two pointers, one faster-runner i and one slower-runner k, in the example above. 
-i moves one step each time while k moves one step only if a new needed value is added.
+We use two pointers, one faster-runner i and one slower-runner k, in the example above. i moves one step each time while k moves one step only if a new needed value is added.
 
 Why we use two pointer?
 Two pointers help us cover a subarray or miniarray with in the main array.
