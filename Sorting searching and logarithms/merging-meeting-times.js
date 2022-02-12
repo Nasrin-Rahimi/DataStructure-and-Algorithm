@@ -171,6 +171,7 @@ function mergeRanges(meetings) {
     // later end time of the two
     if (currentMeeting.startTime <= lastMergedMeeting.endTime) {
       lastMergedMeeting.endTime = Math.max(lastMergedMeeting.endTime, currentMeeting.endTime);
+      mergedMeetings[mergedMeetings.length - 1] = lastMergedMeeting;
     } else {
 
       // Add the current meeting since it doesn't overlap
