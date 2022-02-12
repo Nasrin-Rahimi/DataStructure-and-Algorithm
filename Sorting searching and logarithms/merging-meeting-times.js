@@ -146,6 +146,10 @@ can't be merged with any future meetings and we throw the current meeting into m
 
 function mergeRanges(meetings) {
 
+  if(meetings == null || meetings.length == 0) {
+    throw new Error("Meetings is empty!");
+  }
+
   // Create a deep copy of the meetings array 
   //(check differentiate-between-deep-and-shallow-copies-in-JavaScript)
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#Deep_Clone
