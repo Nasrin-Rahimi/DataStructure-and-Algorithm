@@ -199,6 +199,10 @@ cost of O(n).
  * Bonus
 What if we did have an upper bound on the input values? Could we improve our runtime? Would 
 it cost us memory?
+
+Yes, we can use counting to sort meetings in o(n) time with the cost of adding count array. 
+(see top-score example in this section)
+
 Could we do this "in place" on the input array and save some space? What are the pros and 
 cons of doing this in place?
  */
@@ -215,6 +219,6 @@ work. We then noticed the reason it wouldn't work: to see if a given meeting can
 we have to look at all the other meetings! That's because the order of the meetings is random.
 
 That's what got us thinking: what if the array were sorted? We saw that then a greedy 
-approach would work. We had to spend O(nlgn) time on sorting the array, but it was better than our initial brute force approach, 
-which cost us O(n^2)time!
+approach would work. We had to spend O(nlgn) time on sorting the array, but it was better than our 
+initial brute force approach, which cost us O(n^2)time!
  */
