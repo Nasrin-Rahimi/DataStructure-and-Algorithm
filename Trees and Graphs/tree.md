@@ -4,7 +4,7 @@ Tree:
 - The root node has zero or more child nodes.
 - Each child node has zero or more child nodes and so on.
 
-The tree can't hav cycles. The nodes may or may not be in particular order, they could have 
+The tree can't have cycles. The nodes may or may not be in particular order, they could have 
 any datatype as value.
 
 class Node {

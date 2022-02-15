@@ -29,15 +29,15 @@ Append the node value to the last list in levels.
 Process recursively child nodes if they are not None : helper(node.left / node.right, level + 1).
 */ 
 
-let output = [];
+let levels = [];
 
 let levelOrderHelper = function(node, level) {
      // start the current level
-    if(output.length == level) {
-        output.push([]);
+    if(levels.length == level) {
+        levels.push([]);
     }
       // fulfil the current level
-    output[level].push(node.val);
+      levels[level].push(node.val);
 
      // process child nodes for the next level
     if (node.left != null)
@@ -47,13 +47,13 @@ let levelOrderHelper = function(node, level) {
 }
 
 let levelOrder = function(root) {
-    output = [];
+    levels = [];
 
     if (root == null) {
-        return output;
+        return levels;
     }
     levelOrderHelper(root, 0);
-    return output;
+    return levels;
 }
 
 /**

@@ -1,5 +1,8 @@
 Graph
 
+A tree is actually a type of graph, but not all graphs are trees. Simply put, a tree is a connected
+graph without cycle.
+
 A graph organizes items in an interconnected network.
 
 Each item is a node (or vertex). Nodes are connected by edges
@@ -14,9 +17,11 @@ Scaling challenges. Most graph algorithms are O(n*lg(n)) or even slower. Dependi
 the size of your graph, running algorithms across your nodes may not be feasible.
 
 Terminology
+
 Directed or undirected
 In directed graphs, edges point from the node at one end to the node at the other end. 
-In undirected graphs, the edges simply connect the nodes at each end.
+In undirected graphs, the edges simply connect the nodes at each end. Directed edges are like
+a one-way street and undericted edges are like a two-way street.
 
 In a directed graph, edges point from one node to another. In an undirected graph, the 
 edges simply connect the nodes at each end.
@@ -76,8 +81,24 @@ const graph = {
 This would be useful if the nodes were represented by strings, objects, or otherwise 
 didn't map cleanly to array indices.
 
+class Graph {
+    constructor(noOfNodes) {
+        this.noOfNodes = noOfNodes;
+        this.adjList = new Map();
+    }
+}
+
+class Node {
+    constructor(value) {
+        this.value = value;
+        this.adjacents = [];
+    }
+}
+
 Adjacency matrix
 A matrix of 0s and 1s indicating whether node x connects to node y (0 means no, 1 means yes).
+In other word, an adjacency matrix is an N * N matrix(where N is the number of nodes) where a true
+value at matrix[i][j] indicates an edge from node i to node j.
 
   const graph = [
   [0, 1, 0, 0],
