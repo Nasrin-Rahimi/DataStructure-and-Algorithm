@@ -60,5 +60,9 @@ Time Complexity: walk through the arrays one time, and in each step walk through
 arrays. if we have arrays with length of n and every string has m characters, time complexity should
 be O(n*m)
 
+The important part here is hasCommonSubstring function. we can write it without using set with
+O(1) space complexity, but it takes O(n^2) time complexity at the worth case. 
+(Two nested loop to comapre two strings characters!)
+
 Space Complexity: O(m) where m is a number of characters in strings.
  */
