@@ -54,3 +54,11 @@ function hasCommonSubstring(str1, str2) {
 
     return false;
 }
+
+/**
+Time Complexity: walk through the arrays one time, and in each step walk through the strings of the 
+arrays. if we have arrays with length of n and every string has m characters, time complexity should
+be O(n*m)
+
+Space Complexity: O(m) where m is a number of characters in strings.
+ */
