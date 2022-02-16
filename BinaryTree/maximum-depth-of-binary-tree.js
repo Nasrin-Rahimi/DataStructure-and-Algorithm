@@ -163,10 +163,14 @@ let maxDepth = function(root) {
         curDepth = depths.pop();
         if(root != null) {
             depth = Math.max(depth, curDepth);
-            stack.push(root.left);
-            stack.push(root.right);
-            depths.push(curDepth + 1);
-            depths.push(curDepth + 1);
+            if(root.left != null) {
+                stack.push(root.left);
+                depths.push(curDepth + 1);
+            }
+            if(root.right != null) {
+                stack.push(root.right);
+                depths.push(curDepth + 1);
+            }
         }
     }
 
