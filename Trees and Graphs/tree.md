@@ -20,7 +20,7 @@ class Tree {
     }
 }
 
-- A node is called leaf nope if it has no children.
+- A node is called leaf node if it has no children.
 
 Binary Tree vs. Binary Search Tree:
 
