@@ -81,3 +81,8 @@ let isSymmetric2 = function(root) {
 
     return true;
 }
+
+/**
+Time Complexity: O(n) we visit every node exactly once.
+Space Complexity: O(n) using que
+ */
