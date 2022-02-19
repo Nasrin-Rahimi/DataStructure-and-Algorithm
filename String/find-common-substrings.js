@@ -19,9 +19,10 @@ For each test, print the result on a new line. either YES if there is a common s
 Solution : Walk through the arrays and in each step check if the corrosponding elements in two arrays
 have common substring, print YES to output otherwise print No to output.
 for  check if the corrosponding elements in two arrays have common substring, we use a helper method
-that accept two string, and create a hashtabel, then walk through the frist string and add the all 
-chars of string two a set, (we know set only save uniq items) then walk through the other string,
-and see if set has any char of that string, then we return true.
+that accept two string, and create a hashtable(here  a set, because we need to save keys not values), 
+then walk through the frist string and add the all chars of string two a set, (we know set only save 
+uniq items) then walk through the other string, and see if set has any char of that string, then we 
+return true.
 
  */
 
@@ -58,7 +59,8 @@ function hasCommonSubstring(str1, str2) {
 /**
 Time Complexity: walk through the arrays one time, and in each step walk through the strings of the 
 arrays. if we have arrays with length of n and every string has m characters, time complexity should
-be O(n*m)
+be O(n*m). We know in English words has limited characters, so we can say comparing to strings takes
+a constant time and our time complexity would be O(n).
 
 The important part here is hasCommonSubstring function. we can write it without using set with
 O(1) space complexity, but it takes O(n^2) time complexity at the worth case. 

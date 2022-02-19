@@ -18,15 +18,22 @@ Input: root = [5,5,5,5,5,null,5]
 Output: 6
  */
 
-let count = 0;
+class Node
+{
+    constructor(value)
+    {
+        this.value = value;
+        this.left = this.right = null;
+    }
+}
 
 let countUnivalSubtrees = function(root) {
-    count = 0;
-	UnivalHelper(root);
+    let count = 0;
+	UnivalHelper(root, count);
     return count;
 }
 
-let UnivalHelper = function(node) {
+let UnivalHelper = function(node, count) {
     
 	if(node == null) {
 		return true;
@@ -44,11 +51,11 @@ let UnivalHelper = function(node) {
 
     // If left subtree is unival and non-empty, but data
     // doesn't match
-    if(node.left != null && node.val != node.left.val) {
+    if(node.left != null && node.value != node.left.value) {
         return false;
     }
 
-    if(node.right != null && node.val != node.right.val) {
+    if(node.right != null && node.value != node.right.value) {
         return false;
     }
 
@@ -59,5 +66,14 @@ let UnivalHelper = function(node) {
     return true;
 
 }
+
+root = new Node(5);
+root.left = new Node(4);
+root.right = new Node(5);
+root.left.left = new Node(4);
+root.left.right = new Node(4);
+root.right.right = new Node(5);
+console.log(root);
+console.log(countUnivalSubtrees(root));
 
 
