@@ -146,3 +146,21 @@ new left child to nodes at each step. When the traversal hits the rightmost node
 half of the n total nodes in the tree. Half n is O(n), so our worst case space cost is O(n).
 
  */
+
+/**
+What We Learned
+This is an intro to some tree basics. If this is new to you, don't worry—it can take a few questions 
+for this stuff to come together. We have a few more coming up.
+
+Particular things to note:
+
+Focus on depth-first ↴ vs breadth-first ↴ traversal. You should be very comfortable with the 
+differences between the two and the strengths and weaknesses of each.
+
+You should also be very comfortable coding each of them up.
+
+One tip: Remember that breadth-first uses a queue ↴ and depth-first uses a stack ↴ (could be the 
+call stack or an actual stack object). That's not just a clue about implementation, it also helps 
+with figuring out the differences in behavior. Those differences come from whether we visit nodes 
+in the order we see them (first in, first out) or we visit the last-seen node first (last in, first out).
+ */
