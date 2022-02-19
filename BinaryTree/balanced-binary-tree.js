@@ -122,3 +122,27 @@ function isBalanced(treeRoot) {
 
   return true;
 }
+
+/**
+Complexity
+O(n) time and O(n) space.
+
+For time, the worst case is the tree is balanced and we have to iterate over all n nodes to make sure.
+
+For the space cost, we have two data structures to watch: depths and nodes.
+
+depths will never hold more than three elements, so we can write that off as O(1).
+
+Because we’re doing a depth first search, nodes will hold at most dd nodes where d is the depth of 
+the tree (the number of levels in the tree from the root node down to the lowest node). So we could 
+say our space cost is O(d).
+
+But we can also relate dd to n. In a balanced tree, dd is O(log2) And the more unbalanced the tree 
+gets, the closer dd gets to n.
+
+In the worst case, the tree is a straight line of right children from the root where every node in 
+that line also has a left child. The traversal will walk down the line of right children, adding a 
+new left child to nodes at each step. When the traversal hits the rightmost node, nodes will hold 
+half of the n total nodes in the tree. Half n is O(n), so our worst case space cost is O(n).
+
+ */
