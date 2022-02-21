@@ -32,16 +32,17 @@ let preorderTraversal = function(root) {
       return output;
   }
 
-  stack.push(root);
+  let cur = root;
+  stack.push(cur);
 
   while(stack.length > 0) {
-      root = stack.pop();
-      output.push(root.val);
-      if(root.right != null) {
-          stack.push(root.right);
+      cur = stack.pop();
+      output.push(cur.val);
+      if(cur.right != null) {
+          stack.push(cur.right);
       }
-      if(root.left != null) {
-          stack.push(root.left);
+      if(cur.left != null) {
+          stack.push(cur.left);
       }
   }
   return output;

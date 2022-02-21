@@ -32,7 +32,7 @@ Sometimes it's good to start by rephrasing or "simplifying" the problem.
 
 The requirement of "the difference between the depths of any two leaf nodes is no greater than 1" 
 implies that we'll have to compare the depths of all possible pairs of leaves. That'd be expensive—if 
-there are nn leaves, there are O(n^2) possible pairs of leaves.
+there are n leaves, there are O(n^2) possible pairs of leaves.
 
 But we can simplify this requirement to require less work. For example, we could equivalently say:
 
@@ -86,41 +86,42 @@ function isBalanced(treeRoot) {
   
     while (nodes.length) {
   
-      // Pop a node and its depth from the top of our stack
-      const nodePair = nodes.pop();
-    const node = nodePair[0];
-    const depth = nodePair[1];
+        // Pop a node and its depth from the top of our stack
+        const nodePair = nodes.pop();
+        const node = nodePair[0];
+        const depth = nodePair[1];
 
-    if (!node.left && !node.right) {
+        if (!node.left && !node.right) {
 
-      // Сase: we found a leaf
-      // We only care if it's a new depth
-      if (depths.indexOf(depth) < 0) {
-        depths.push(depth);
+            // Сase: we found a leaf
+            // We only care if it's a new depth
+            if (depths.indexOf(depth) < 0) {
+                depths.push(depth);
 
-        // Two ways we might now have an unbalanced tree:
-        //   1) More than 2 different leaf depths
-        //   2) 2 leaf depths that are more than 1 apart
-        if (
-          (depths.length > 2)
-          || (depths.length === 2 && Math.abs(depths[0] - depths[1]) > 1)
-        ) {
-          return false;
+                // Two ways we might now have an unbalanced tree:
+                //   1) More than 2 different leaf depths
+                //   2) 2 leaf depths that are more than 1 apart
+                if (
+                (depths.length > 2)
+                    || (depths.length === 2 && Math.abs(depths[0] - depths[1]) > 1)
+                ) {
+                    return false;
+                }
+            }
+        } else {
+
+            // Case: this isn't a leaf - keep stepping down
+            if (node.left) {
+                nodes.push([node.left, depth + 1]);
+            }
+            if (node.right) {
+                nodes.push([node.right, depth + 1]);
+            }
         }
-      }
-    } else {
-
-      // Case: this isn't a leaf - keep stepping down
-      if (node.left) {
-        nodes.push([node.left, depth + 1]);
-      }
-      if (node.right) {
-        nodes.push([node.right, depth + 1]);
-      }
     }
-  }
 
-  return true;
+    return true;
+    
 }
 
 /**
@@ -133,12 +134,12 @@ For the space cost, we have two data structures to watch: depths and nodes.
 
 depths will never hold more than three elements, so we can write that off as O(1).
 
-Because we’re doing a depth first search, nodes will hold at most dd nodes where d is the depth of 
+Because we’re doing a depth first search, nodes will hold at most d nodes where d is the depth of 
 the tree (the number of levels in the tree from the root node down to the lowest node). So we could 
 say our space cost is O(d).
 
-But we can also relate dd to n. In a balanced tree, dd is O(log2) And the more unbalanced the tree 
-gets, the closer dd gets to n.
+But we can also relate d to n. In a balanced tree, d is O(log2) And the more unbalanced the tree 
+gets, the closer d gets to n.
 
 In the worst case, the tree is a straight line of right children from the root where every node in 
 that line also has a left child. The traversal will walk down the line of right children, adding a 

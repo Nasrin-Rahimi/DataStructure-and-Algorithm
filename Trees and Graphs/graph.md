@@ -23,9 +23,6 @@ In directed graphs, edges point from the node at one end to the node at the othe
 In undirected graphs, the edges simply connect the nodes at each end. Directed edges are like
 a one-way street and undericted edges are like a two-way street.
 
-In a directed graph, edges point from one node to another. In an undirected graph, the 
-edges simply connect the nodes at each end.
-
 Cyclic or acyclic
 A graph is cyclic if it has a cycle—an unbroken series of nodes with no repeating nodes 
 or edges that connects back to itself. Graphs without cycles are acyclic.
