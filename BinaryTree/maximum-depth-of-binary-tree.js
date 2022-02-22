@@ -202,8 +202,9 @@ let maxDepth = function(root) {
 
     while(que.length > 0) {
         depth++;
-        for(let i = 0; i < que.length; i++) {
-            let cur = que.shift();
+        const levelLength = que.length;
+        for(let i = 0; i < levelLength; i++) {
+            const cur = que.shift();
             if(cur.left != null) {
                 que.push(cur.left);
             }
@@ -215,3 +216,8 @@ let maxDepth = function(root) {
     return depth;
 }
 
+/**
+I think there is a bug in for loop. Every time we add node to the que and the counter of the for
+loop, increase with que.length, while the length is changing in every for loop iteration.
+So we define a variable to hold the current level length.
+ */
