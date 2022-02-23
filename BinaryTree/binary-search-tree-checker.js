@@ -4,7 +4,7 @@ Write a function to check that a binary tree ↴ is a valid binary search tree. 
 
 /**
 Solution1: Simple but Wrong!
-For each node, check if the left node of it is smaller than the node and right node of it is 
+For each node, check if the left child is smaller than the node and right child, is 
 greater than the node.
  */
 

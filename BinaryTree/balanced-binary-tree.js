@@ -121,7 +121,7 @@ function isBalanced(treeRoot) {
     }
 
     return true;
-    
+
 }
 
 /**
@@ -138,7 +138,7 @@ Because we’re doing a depth first search, nodes will hold at most d nodes wher
 the tree (the number of levels in the tree from the root node down to the lowest node). So we could 
 say our space cost is O(d).
 
-But we can also relate d to n. In a balanced tree, d is O(log2) And the more unbalanced the tree 
+But we can also relate d to n. In a balanced tree, d is O(logn) And the more unbalanced the tree 
 gets, the closer d gets to n.
 
 In the worst case, the tree is a straight line of right children from the root where every node in 
