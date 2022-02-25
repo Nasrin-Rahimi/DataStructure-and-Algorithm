@@ -153,27 +153,26 @@ let maxDepth = function(root) {
         return 0;
     }
 
-    let curDepth = 0, maxDepth = 0;
+    let maxDepth = 0;
 
     stack.push(root);
     depths.push(1);
 
     while(stack.length > 0) {
-        root = stack.pop();
+        const cur = stack.pop();
         curDepth = depths.pop();
-        if(root != null) {
+        if(cur.left == null && cur.right == null) {
             maxDepth = Math.max(maxDepth, curDepth);
-            if(root.left != null) {
-                stack.push(root.left);
-                depths.push(curDepth + 1);
-            }
-            if(root.right != null) {
-                stack.push(root.right);
-                depths.push(curDepth + 1);
-            }
+        }
+        if(cur.left != null) {
+            stack.push(cur.left);
+            depths.push(curDepth + 1);
+        }
+        if(cur.right != null) {
+            stack.push(cur.right);
+            depths.push(curDepth + 1);
         }
     }
-
     return maxDepth;
 }
 
@@ -215,9 +214,3 @@ let maxDepth = function(root) {
     }
     return depth;
 }
-
-/**
-I think there is a bug in for loop. Every time we add node to the que and the counter of the for
-loop, increase with que.length, while the length is changing in every for loop iteration.
-So we define a variable to hold the current level length.
- */
