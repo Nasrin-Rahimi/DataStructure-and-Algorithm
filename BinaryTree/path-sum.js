@@ -106,7 +106,7 @@ space complexity in this case would be O(log(N)).
  */
 
 /**
- * For a little bit better eficinecy, we can return false, if find a node that is not a leaf node,
+ * For a little bit better efficiency, we can return false, if find a node that is not a leaf node,
  * but the corresponding sum is 0 or less than 0. Then we know this path will not our answer.
  * 
  * if((node.left != null || node.right != null) && curSum <= 0) {
