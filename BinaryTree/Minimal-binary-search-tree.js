@@ -9,7 +9,7 @@ Let's focus on just the root now. How would you ensure that about the same numbe
 left of the root as on the right?
 
 Hint2: You could implement this by finding the ideal next element to add and repeatedly calling
-insertValue. This will be a bit innefficient, as you would have to repeatedly traverse the tree. 
+insertValue. This will be a bit inefficient, as you would have to repeatedly traverse the tree. 
 Try recursion instead. Can you devide this problem into subproblems?
 
 Hint 3: Imagine we had a createMinimalTree method that returns a minimal tree for a given array(but for
@@ -24,13 +24,13 @@ number of nodes in the right subtree as much as possible. This mean that we want
 of the array, since this would mean that half the elements would be less than the root and half would
 be greater than it.
 
-We proceed with constructing out tree in a similar fasion. The middle of each subsection of the array 
+We proceed with constructing our tree in a similar fasion. The middle of each subsection of the array 
 becomes the root of the node. The left half of the array will become our left subarray, and the right
 half of the array will become the right subarray.
 
-One way to implement this is to use a simple root.insertNode(v) method which innserts the value v
-through the recursive process that start with the root node. This will inndeed contsrtuct the tree
-with minimal height but it will not do so very efficiently.Each insertion will require traversing
+One way to implement this is to use a simple root.insertNode(v) method which inserts the value v
+through the recursive process that start with the root node. This will indeed contsrtuct the tree
+with minimal height but it will not do so very efficiently. Each insertion will require traversing
 the tree, giving a total cost of  O(nlogn) to the tree.
 
 Alternatively, we can cut out the extra traversal by recursively using the createMinimalBST method.
@@ -52,17 +52,25 @@ class TreeNode {
 }
 
 function createMinimalBST(array) {
-    return createMinimalBSTHelper(array, 0, array.length - 1);
+    let root = null;
+    root = createMinimalBSTHelper(array, 0, array.length - 1);
+    return root;
 }
 
 function createMinimalBSTHelper(array, start, end) {
+    //base case
     if(end < start) {
         return null;
     }
 
+    /* Get the middle element and make it root */
     const mid = parseInt((start + end) / 2);
     const node = new TreeNode(array[mid]);
+    /* Recursively construct the left subtree and make it
+     left child of root */
     node.left = createMinimalBSTHelper(array, start, mid - 1);
+    /* Recursively construct the right subtree and make it
+     right child of root */
     node.right = createMinimalBSTHelper(array, mid + 1, end);
     return node;
 }
