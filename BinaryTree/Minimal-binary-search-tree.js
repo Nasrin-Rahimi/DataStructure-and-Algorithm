@@ -74,3 +74,25 @@ function createMinimalBSTHelper(array, start, end) {
     node.right = createMinimalBSTHelper(array, mid + 1, end);
     return node;
 }
+
+//The below is just for testing
+
+/* A utility function to print preorder traversal of BST */
+function preOrder(node)
+{
+    if (node == null)
+    {
+        return;
+    }
+    //document.write(node.value + " ");
+    console.log(node.value);
+    preOrder(node.left);
+    preOrder(node.right);
+}
+
+const arr = [1, 2, 3, 4, 5, 6, 7];
+const n = arr.length;
+root = createMinimalBST(arr);
+//document.write("Preorder traversal of constructed BST<br>");
+console.log("Preorder traversal of constructed BST");
+preOrder(root);
