@@ -6,7 +6,7 @@ Write a function to find the 2nd largest element in a binary search tree. ↴
 Gotchas
 Our first thought might be to do an in-order traversal of the BST ↴ and return the second-to-last item. 
 This means looking at every node in the BST. That would take O(n) time and O(h) space, where h is the 
-max height of the tree (which is lg(n) if the tree is balanced, ↴ but could be as much as nn if not).
+max height of the tree (which is lg(n) if the tree is balanced, ↴ but could be as much as n if not).
 
 We can do better than O(n) time and O(h) space.
 
@@ -125,11 +125,9 @@ function findLargest(rootNode) {
   }
   
 /** 
-  Okay awesome. This'll work. It'll take O(h) time (where hh is the height of the tree) and O(h) space.
+  Okay awesome. This'll work. It'll take O(h) time (where h is the height of the tree) and O(h) space.
   
-  But that hh space in the call stack ↴ is avoidable. How can we get this down to constant space?
-  
-  Think you have an answer now?
+  But that h space in the call stack ↴ is avoidable. How can we get this down to constant space?
 
 */
 
@@ -203,7 +201,7 @@ function findLargest(rootNode) {
   
 /**
 Complexity
-We're doing one walk down our BST, which means O(h) time, where hh is the height of the tree (again, 
+We're doing one walk down our BST, which means O(h) time, where h is the height of the tree (again, 
 that's O(lgn) if the tree is balanced, O(n) otherwise). O(1) space.
  */
    
