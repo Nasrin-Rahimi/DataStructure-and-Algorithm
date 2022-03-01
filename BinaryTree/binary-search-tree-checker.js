@@ -86,6 +86,10 @@ number it must be greater than (its lowerBound) and the smallest number it must 
 
 function isBinarySearchTree(treeRoot) {
 
+    if(treeRoot == null) {
+        throw new Error('The tree is empty!');
+    }
+
     // Start at the root, with an arbitrarily low lower bound
     // and an arbitrarily high upper bound
     const nodeAndBoundsStack = [];
