@@ -112,4 +112,5 @@ space complexity in this case would be O(log(N)).
  * if((node.left != null || node.right != null) && curSum <= 0) {
  *      return false;
  * }
+ * But we should not return false, because maybe there is another path that has true answer!
  */
