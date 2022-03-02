@@ -91,8 +91,11 @@ function preOrder(node)
 }
 
 const arr = [1, 2, 3, 4, 5, 6, 7];
-const n = arr.length;
-root = createMinimalBST(arr);
+const root = createMinimalBST(arr);
 //document.write("Preorder traversal of constructed BST<br>");
 console.log("Preorder traversal of constructed BST");
 preOrder(root);
+
+/**
+Time Complexity: O(n)
+ */
