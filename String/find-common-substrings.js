@@ -20,7 +20,7 @@ Solution : Walk through the arrays and in each step check if the corrosponding e
 have common substring, print YES to output otherwise print No to output.
 for  check if the corrosponding elements in two arrays have common substring, we use a helper method
 that accept two string, and create a hashtable(here  a set, because we need to save keys not values), 
-then walk through the frist string and add the all chars of string two a set, (we know set only save 
+then walk through the frist string and add all chars of string two a set, (we know set only save 
 uniq items) then walk through the other string, and as soon as we find char in the second string
 , that is already exist in set(seenChar), we return true. 
  */

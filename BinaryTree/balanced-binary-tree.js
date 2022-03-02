@@ -26,6 +26,42 @@ class BinaryTreeNode {
 }
 
 /**
+In this question we've been fortunate enough to be told exactly what balanced means: that for each node
+the two subtrees differ in height by no more than one. We can implement a solution based on this 
+definition. We can simply recurse through the entire tree, and for each node, compute the heights of
+its subtree.
+ */
+
+function getHeight(root) {
+    if(root == null) {
+        return -1; //base case
+    }
+    return Math.max(getHeight(root.left), getHeight(root.right)) + 1;
+}
+
+function isBalanced(root) {
+    if(root == null) { 
+        return true; //base case
+    }
+    const heightDiff = getHeight(root.left) - getHeight(root.right) ;
+    if(Math.abs(heightDiff) > 1) {
+        return false;
+    } else {
+        return isBalanced(root.left) && isBalanced(root.right);
+    }
+}
+
+/**
+Although it's work, it's not very efficient. On each node, we recurse through its entire subtree. This
+means that getHeight is called repeatedly on the same nodes. The algorithm is O(nlogn) since each node
+is touched once per node above it.
+
+We need to cut out some of the calls to getHeight.
+
+For improving the solution above in this way please read cracking the coding interview page 245.
+ */
+
+/**
 Breakdown
 
 Sometimes it's good to start by rephrasing or "simplifying" the problem.
