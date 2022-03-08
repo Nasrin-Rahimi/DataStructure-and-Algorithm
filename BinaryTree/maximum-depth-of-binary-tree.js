@@ -39,20 +39,20 @@ Output: 1
 5. maximum_depth(root.right, depth + 1)    // call the function recursively for right child
  */
 
-let max = 0;
+let maxDepth = 0;
 
-let maxDepth = function(root) {
+let findMaxDepth = function(root) {
     if(root == null) {
 		return 0;
     }
     helper(root, 1);
-    return max;
+    return maxDepth;
 }
 
 let helper = function(root, depth) {
 	
     if(root.left == null && root.right == null) {
-        max = Math.max(max, depth);
+        maxDepth = Math.max(maxDepth, depth);
     }
     if(root.left != null) {
         helper(root.left, depth + 1);
@@ -146,7 +146,7 @@ Then we proceed to the iterations: pop the current node out of the stack and pus
 The depth is updated at each step.
  */
 
-let maxDepth = function(root) {
+let findMaxDepthByDFS = function(root) {
     let stack = [], depths = [];
 
     if(root == null) {
@@ -190,7 +190,7 @@ O(log(N)).
  * Approch 4: use BFS
  */
 
-let maxDepth = function(root) {
+let findMaxDepthByBFS = function(root) {
     let que = [], depth = 0;
 
     if(root == null) {
